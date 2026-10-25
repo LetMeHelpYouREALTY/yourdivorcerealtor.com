@@ -4,8 +4,8 @@ import * as z from 'zod';
 export const Env = createEnv({
   server: {
     ARCJET_KEY: z.string().startsWith('ajkey_').optional(),
-    CLERK_SECRET_KEY: z.string().min(1),
-    DATABASE_URL: z.string().min(1),
+    CLERK_SECRET_KEY: z.string().min(1).optional(),
+    DATABASE_URL: z.string().min(1).optional(),
     CLOUDFLARE_ACCOUNT_ID: z.string().min(1).optional(),
     CLOUDFLARE_WORKERS_AI_API_TOKEN: z.string().min(1).optional(),
   },
@@ -15,7 +15,7 @@ export const Env = createEnv({
     NEXT_PUBLIC_CF_IMAGE_HERO_VARIANT: z.string().optional(),
     /** Optional width-capped variant for content/hero map images (default public). */
     NEXT_PUBLIC_CF_IMAGE_CONTENT_VARIANT: z.string().optional(),
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1),
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1).optional(),
     NEXT_PUBLIC_BETTER_STACK_SOURCE_TOKEN: z.string().optional(),
     NEXT_PUBLIC_BETTER_STACK_INGESTING_HOST: z.string().optional(),
     NEXT_PUBLIC_POSTHOG_KEY: z.string().optional(),
