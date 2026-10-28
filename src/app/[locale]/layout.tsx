@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { LayoutProps } from '@/types';
+import { Analytics } from '@vercel/analytics/next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -112,6 +113,7 @@ export default async function RootLayout(props: LayoutProps) {
             {props.children}
           </PostHogProvider>
           <SpeedInsightsClient />
+          <Analytics />
           <CalendlyScripts />
         </NextIntlClientProvider>
       </body>

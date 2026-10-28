@@ -1,0 +1,142 @@
+
+> build
+> run-s migrate:optional build:next
+
+
+> migrate:optional
+> node scripts/migrate-optional.js
+
+⚠️  Skipping migrations: DATABASE_URL not set
+
+> build:next
+> next build --webpack
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+   ▲ Next.js 16.0.10 (webpack)
+   - Environments: .env.production
+   - Experiments (use with caution):
+     ✓ inlineCss
+     · optimizePackageImports
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 27.5s
+   Running TypeScript ...
+   Collecting page data using 1 worker ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+   Generating static pages using 1 worker (0/148) ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+   Generating static pages using 1 worker (37/148) 
+   Generating static pages using 1 worker (74/148) 
+   Generating static pages using 1 worker (111/148) 
+ ✓ Generating static pages using 1 worker (148/148) in 2.0s
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)
+┌ ○ /_not-found
+├ ● /[locale]
+│ ├ /en
+│ └ /fr
+├ ƒ /[locale]/about
+├ ƒ /[locale]/api/ai/run
+├ ƒ /[locale]/api/counter
+├ ƒ /[locale]/attorney-resources
+├ ƒ /[locale]/buying-home-after-divorce
+├ ƒ /[locale]/can-i-sell-my-house-during-divorce
+├ ƒ /[locale]/capital-gains-tax-divorce-home-sale
+├ ƒ /[locale]/certified-divorce-real-estate-expert
+├ ● /[locale]/communities
+│ ├ /en/communities
+│ └ /fr/communities
+├ ƒ /[locale]/community-property-divorce-house
+├ ƒ /[locale]/contact
+├ ƒ /[locale]/counter
+├ ƒ /[locale]/court-ordered-home-sale
+├ ƒ /[locale]/dashboard
+├ ƒ /[locale]/dashboard/user-profile/[[...user-profile]]
+├ ƒ /[locale]/divorce-and-mortgage
+├ ƒ /[locale]/divorce-appraisal-services
+├ ƒ /[locale]/divorce-buyout-options
+├ ƒ /[locale]/divorce-home-equity-calculator
+├ ƒ /[locale]/divorce-home-equity-split
+├ ƒ /[locale]/divorce-home-sale-checklist
+├ ƒ /[locale]/divorce-home-sale-taxes-nevada
+├ ƒ /[locale]/divorce-home-sale-timeline
+├ ƒ /[locale]/divorce-home-staging
+├ ƒ /[locale]/divorce-home-valuation
+├ ƒ /[locale]/divorce-listing-process
+├ ƒ /[locale]/divorce-mediator-resources
+├ ƒ /[locale]/divorce-net-proceeds-calculator
+├ ƒ /[locale]/divorce-property-division
+├ ƒ /[locale]/divorce-real-estate-checklist
+├ ƒ /[locale]/divorce-real-estate-documents
+├ ƒ /[locale]/divorce-real-estate-expert-witness
+├ ƒ /[locale]/divorce-real-estate-guide
+├ ƒ /[locale]/divorce-real-estate-guide-divorcing-couples
+├ ƒ /[locale]/divorce-real-estate-mistakes
+├ ƒ /[locale]/divorce-real-estate-services
+├ ƒ /[locale]/divorce-real-estate-timeline
+├ ƒ /[locale]/divorce-realtor-aliante
+├ ƒ /[locale]/divorce-realtor-centennial-hills
+├ ƒ /[locale]/divorce-realtor-enterprise
+├ ƒ /[locale]/divorce-realtor-green-valley
+├ ƒ /[locale]/divorce-realtor-henderson
+├ ƒ /[locale]/divorce-realtor-inspirada
+├ ƒ /[locale]/divorce-realtor-mountains-edge
+├ ƒ /[locale]/divorce-realtor-north-las-vegas
+├ ƒ /[locale]/divorce-realtor-paradise
+├ ƒ /[locale]/divorce-realtor-southern-highlands
+├ ƒ /[locale]/divorce-realtor-spring-valley
+├ ƒ /[locale]/divorce-realtor-summerlin
+├ ƒ /[locale]/divorce-settlement-options
+├ ƒ /[locale]/emotional-guide-selling-divorce
+├ ƒ /[locale]/family-law-attorney-collaboration
+├ ƒ /[locale]/faq
+├ ƒ /[locale]/financial-planning-divorce-real-estate
+├ ƒ /[locale]/home-did-not-sell-during-divorce
+├ ● /[locale]/homes
+│ ├ /en/homes
+│ └ /fr/homes
+├ ƒ /[locale]/how-to-sell-house-during-divorce
+├ ƒ /[locale]/one-spouse-wont-sell-house-divorce
+├ ● /[locale]/portfolio
+│ ├ /en/portfolio
+│ └ /fr/portfolio
+├ ƒ /[locale]/portfolio/[slug]
+├ ƒ /[locale]/preparing-home-sale-divorce
+├ ƒ /[locale]/privacy
+├ ƒ /[locale]/quitclaim-deed-divorce
+├ ● /[locale]/references-and-links
+│ ├ /en/references-and-links
+│ └ /fr/references-and-links
+├ ƒ /[locale]/refinancing-after-divorce
+├ ƒ /[locale]/remove-spouse-from-mortgage-after-divorce
+├ ● /[locale]/sell
+│ ├ /en/sell
+│ └ /fr/sell
+├ ƒ /[locale]/selling-home-during-divorce
+├ ƒ /[locale]/selling-house-before-or-after-divorce
+├ ƒ /[locale]/selling-house-during-divorce-nevada-guide
+├ ƒ /[locale]/sign-in/[[...sign-in]]
+├ ƒ /[locale]/sign-up/[[...sign-up]]
+├ ƒ /[locale]/sitemap
+├ ƒ /[locale]/splitting-house-proceeds-divorce
+├ ƒ /[locale]/terms
+├ ƒ /[locale]/testimonials
+├ ƒ /[locale]/what-to-do-with-house-in-divorce
+├ ƒ /llms.txt
+├ ○ /robots.txt
+└ ○ /sitemap.xml
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
