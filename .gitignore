@@ -60,3 +60,6 @@ build-archive.log
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# Local env files (never commit)
+.env.production
