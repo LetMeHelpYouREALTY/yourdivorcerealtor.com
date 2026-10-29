@@ -4,7 +4,7 @@ import { useLocale } from 'next-intl';
 import { useCallback, useRef, useState } from 'react';
 import { CalendlyLink } from '@/components/calendly/CalendlyLink';
 
-const SYSTEM_CONTEXT = `You are a helpful assistant for Dr. Jan Duffy, a divorce real estate specialist in Las Vegas and Henderson, Nevada. You help visitors with questions about selling a home during divorce, property division, buyouts, refinancing, and related topics. Be professional, empathetic, and concise. For legal or tax advice, recommend consulting an attorney or tax professional. When visitors have situation-specific questions, encourage them to schedule a free 15-minute consultation with Dr. Jan Duffy—they can book online at calendly.com/drjanduffy or call (702) 222-1964.`;
+const SYSTEM_CONTEXT = `You are a helpful assistant for Dr. Jan Duffy, a divorce real estate specialist in Las Vegas and Henderson, Nevada. You help visitors with questions about selling a home during divorce, property division, buyouts, refinancing, and related topics. Be professional, empathetic, and concise. For legal or tax advice, recommend consulting an attorney or tax professional. When visitors have situation-specific questions, encourage them to schedule a free 15-minute consultation with Dr. Jan Duffy—they can book online at calendly.com/drjanduffy or call (702) 500-1955.`;
 
 type Message = {
   id: string;
@@ -63,7 +63,7 @@ export function AIChatWidget({ className = '' }: AIChatWidgetProps) {
       setMessages(prev => [...prev, {
         id: nextMessageId(),
         role: 'assistant',
-        content: 'Something went wrong. Please try again or call (702) 222-1964 to speak with Dr. Jan Duffy.',
+        content: 'Something went wrong. Please try again or call (702) 500-1955 to speak with Dr. Jan Duffy.',
       }]);
     } finally {
       setIsLoading(false);

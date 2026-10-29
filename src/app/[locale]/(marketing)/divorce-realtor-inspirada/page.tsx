@@ -22,7 +22,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Inspirada Henderson Divorce Realtor | Divorce Real Estate Agent Inspirada NV | Dr. Jan Duffy',
-    description: 'Inspirada Henderson divorce realtor assisting with valuations, listings, and buyouts for divorcing homeowners. Call (702) 222-1964.',
+    description: 'Inspirada Henderson divorce realtor assisting with valuations, listings, and buyouts for divorcing homeowners. Call (702) 500-1955.',
     keywords: 'Inspirada Henderson divorce realtor, divorce real estate agent Inspirada NV, selling house divorce Inspirada, Henderson master planned divorce realtor',
     alternates: { canonical, languages },
   };

@@ -22,7 +22,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Spring Valley Las Vegas Divorce Realtor | Divorce Real Estate Agent Spring Valley NV | Dr. Jan Duffy',
-    description: 'Spring Valley Las Vegas divorce realtor helping with property division, selling houses during divorce, and neutral representation. Call (702) 222-1964.',
+    description: 'Spring Valley Las Vegas divorce realtor helping with property division, selling houses during divorce, and neutral representation. Call (702) 500-1955.',
     keywords: 'Spring Valley Las Vegas divorce realtor, divorce real estate agent Spring Valley NV, selling house divorce Spring Valley, Las Vegas divorce property division',
     alternates: { canonical, languages },
   };

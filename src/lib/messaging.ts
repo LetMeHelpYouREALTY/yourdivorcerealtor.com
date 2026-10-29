@@ -61,7 +61,7 @@ export const messaging = {
     primary: 'Schedule a Confidential Consultation',
     valuation: 'Get Your Free Home Valuation',
     discuss: 'Discuss Your Options Today',
-    call: 'Call Dr. Jan: (702) 222-1964',
+    call: 'Call Dr. Jan: (702) 500-1955',
     urgency: 'It\'s Never Too Early to Plan',
     control: 'Take Control of Your Future Today',
   },
