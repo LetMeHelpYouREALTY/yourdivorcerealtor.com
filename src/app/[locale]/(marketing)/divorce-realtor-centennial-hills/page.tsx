@@ -53,7 +53,7 @@ export default async function CentennialHills(props: ICentennialHillsProps) {
         <div className="prose prose-lg mx-auto max-w-4xl">
           <h2>Centennial Hills Divorce Real Estate Expertise</h2>
           <p>
-            Centennial Hills offers newer developments and family-friendly communities in northwest Las Vegas. When going through divorce in Centennial Hills, you need specialized real estate expertise. Dr. Jan Duffy provides comprehensive divorce real estate services for Centennial Hills homeowners.
+            Centennial Hills offers newer developments and communities in northwest Las Vegas. When going through divorce in Centennial Hills, you need specialized real estate expertise. Dr. Jan Duffy provides comprehensive divorce real estate services for Centennial Hills homeowners.
           </p>
 
           <h2>Centennial Hills Divorce Services</h2>

@@ -53,7 +53,7 @@ export default async function Aliante(props: IAlianteProps) {
         <div className="prose prose-lg mx-auto max-w-4xl">
           <h2>Aliante Divorce Real Estate Expertise</h2>
           <p>
-            Aliante is a master-planned community in North Las Vegas offering family-friendly neighborhoods. When going through divorce in Aliante, you need specialized real estate expertise. Dr. Jan Duffy provides comprehensive divorce real estate services for Aliante homeowners.
+            Aliante is a master-planned community in North Las Vegas offering neighborhoods. When going through divorce in Aliante, you need specialized real estate expertise. Dr. Jan Duffy provides comprehensive divorce real estate services for Aliante homeowners.
           </p>
 
           <h2>Aliante Divorce Services</h2>

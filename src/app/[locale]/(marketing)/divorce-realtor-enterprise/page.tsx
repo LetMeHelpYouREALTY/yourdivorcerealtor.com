@@ -53,7 +53,7 @@ export default async function Enterprise(props: IEnterpriseProps) {
         <div className="prose prose-lg mx-auto max-w-4xl">
           <h2>Enterprise Divorce Real Estate Expertise</h2>
           <p>
-            Enterprise offers growing neighborhoods and family-friendly communities. When going through divorce in Enterprise, you need specialized real estate expertise. Dr. Jan Duffy provides comprehensive divorce real estate services for Enterprise homeowners.
+            Enterprise offers growing neighborhoods and master-planned communities. When going through divorce in Enterprise, you need specialized real estate expertise. Dr. Jan Duffy provides comprehensive divorce real estate services for Enterprise homeowners.
           </p>
 
           <h2>Enterprise Divorce Services</h2>

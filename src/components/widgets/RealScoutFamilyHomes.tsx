@@ -90,7 +90,7 @@ export function RealScoutFamilyHomes() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Family Homes for Your New Beginning"
-          description="Need a family-friendly home after divorce? Browse single-family homes in Las Vegas that give your children stability and space."
+          description="Need a home after divorce? Browse single-family homes in Las Vegas that give your children stability and space."
         />
         <Suspense
           fallback={(

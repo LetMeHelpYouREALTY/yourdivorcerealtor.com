@@ -55,12 +55,12 @@ export default async function GreenValley(props: IGreenValleyProps) {
         <div className="prose prose-lg mx-auto max-w-4xl">
           <h2>Green Valley Divorce Real Estate Expertise</h2>
           <p>
-            Green Valley is one of Henderson's most established and desirable communities, known for excellent schools, family-friendly neighborhoods, and strong property values. When you're going through a divorce in Green Valley, you need specialized real estate expertise that understands both the local market and divorce transaction complexities. Dr. Jan Duffy brings this expertise to Green Valley divorcing homeowners.
+            Green Valley is one of Henderson's most established and desirable communities, known for nearby schools, master-planned neighborhoods, and strong property values. When you're going through a divorce in Green Valley, you need specialized real estate expertise that understands both the local market and divorce transaction complexities. Dr. Jan Duffy brings this expertise to Green Valley divorcing homeowners.
           </p>
 
           <h3>Understanding Green Valley's Market</h3>
           <p>
-            Green Valley's established nature, excellent schools, and community amenities create unique market dynamics. Dr. Jan Duffy's deep knowledge of Green Valley ensures accurate valuations and effective transactions that reflect the community's true value.
+            Green Valley's established nature, nearby public schools, and community amenities create unique market dynamics. Dr. Jan Duffy's deep knowledge of Green Valley ensures accurate valuations and effective transactions that reflect the community's true value.
           </p>
 
           <h2>Green Valley Divorce Services</h2>
