@@ -111,12 +111,12 @@ export default async function BuyingAfterDivorce(props: IBuyingProps) {
 
           <h2>Finding the Right Property</h2>
           <p>
-            Finding the right property after divorce means finding a home that fits your new life, whether that's a fresh start for yourself, a family home for you and your children, or a downsized property that's easier to manage. Dr. Jan Duffy helps you identify what you need and find properties that fit.
+            Finding the right property after divorce means finding a home that fits your new life, whether that's a fresh start, a larger home with more bedrooms, or a downsized property that's easier to manage. Dr. Jan Duffy helps you identify what you need and find properties that fit.
           </p>
 
-          <h3>Single Family Homes for Families</h3>
+          <h3>Single-Family Homes</h3>
           <p>
-            If you have children, finding a family-friendly home that provides stability and space is important. Dr. Jan Duffy understands the needs of post-divorce families and helps you find properties in good school districts with the amenities your family needs.
+            Finding a home with the space, layout, and commute you need matters. Dr. Jan Duffy helps you compare square footage, bedrooms, and drive times.
           </p>
 
           <h3>Condos and Townhomes for Downsizing</h3>

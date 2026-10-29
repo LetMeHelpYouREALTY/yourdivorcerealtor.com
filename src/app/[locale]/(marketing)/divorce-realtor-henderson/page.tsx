@@ -56,7 +56,7 @@ export default async function Henderson(props: IHendersonProps) {
         <div className="prose prose-lg mx-auto max-w-4xl">
           <h2>Why Choose Dr. Jan Duffy for Henderson Divorce Real Estate?</h2>
           <p>
-            Henderson, Nevada, is one of Las Vegas's most desirable communities, known for its excellent schools, family-friendly neighborhoods, and strong real estate market. When you're going through a divorce in Henderson, you need a real estate professional who understands both the local market and the unique challenges of divorce transactions. Dr. Jan Duffy brings specialized expertise to Henderson divorcing homeowners, ensuring your property transaction supports your overall divorce resolution.
+            Henderson, Nevada, is one of Las Vegas's most desirable communities, known for its nearby schools, master-planned neighborhoods, and strong real estate market. When you're going through a divorce in Henderson, you need a real estate professional who understands both the local market and the unique challenges of divorce transactions. Dr. Jan Duffy brings specialized expertise to Henderson divorcing homeowners, ensuring your property transaction supports your overall divorce resolution.
           </p>
 
           <h3>Understanding the Henderson Real Estate Market</h3>
@@ -86,7 +86,7 @@ export default async function Henderson(props: IHendersonProps) {
 
           <h3>Green Valley</h3>
           <p>
-            Green Valley is one of Henderson's most established communities, known for its excellent schools and family-friendly atmosphere. Divorce real estate transactions in Green Valley require understanding the local market dynamics and neighborhood appeal. Dr. Jan Duffy has extensive experience with Green Valley properties and understands what makes them valuable.
+            Green Valley is one of Henderson's older communities, known for its nearby schools and parks and community amenities. Divorce real estate transactions in Green Valley require understanding the local market dynamics and neighborhood appeal. Dr. Jan Duffy has extensive experience with Green Valley properties and understands what makes them valuable.
           </p>
 
           <h3>Anthem</h3>
