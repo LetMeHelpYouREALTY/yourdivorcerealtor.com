@@ -511,7 +511,7 @@ export function generateCarouselItemListSchema(
     aggregateRating?: { ratingValue: number; reviewCount: number };
   },
 ): CarouselItemListSchema {
-  const { baseUrl, defaultImage, priceRange = '$$', aggregateRating } = options;
+  const { baseUrl, defaultImage, priceRange = '$$' } = options;
   const fallbackImage
     = defaultImage
       ?? cloudflareImageUrl(CLOUDFLARE_IMAGE_IDS['dr-jan-duffy-agent'], getCloudflareHeroLcpVariant());
@@ -535,15 +535,6 @@ export function generateCarouselItemListSchema(
           'image': imageUrls,
           'url': `${baseUrl}${item.href.startsWith('/') ? '' : '/'}${item.href}`,
           ...(priceRange && { priceRange }),
-          ...(aggregateRating && {
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              'ratingValue': aggregateRating.ratingValue,
-              'reviewCount': aggregateRating.reviewCount,
-              'bestRating': 5,
-              'worstRating': 1,
-            },
-          }),
         },
       };
     }),
