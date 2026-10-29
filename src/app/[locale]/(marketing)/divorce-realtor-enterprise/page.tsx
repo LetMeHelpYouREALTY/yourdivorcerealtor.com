@@ -22,7 +22,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Enterprise Las Vegas Divorce Realtor | Divorce Real Estate Agent Enterprise NV | Dr. Jan Duffy',
-    description: 'Enterprise Las Vegas divorce realtor helping divorcing homeowners sell houses, negotiate buyouts, and manage property division. Call (702) 222-1964.',
+    description: 'Enterprise Las Vegas divorce realtor helping divorcing homeowners sell houses, negotiate buyouts, and manage property division. Call (702) 500-1955.',
     keywords: 'Enterprise Las Vegas divorce realtor, divorce real estate agent Enterprise NV, selling house divorce Enterprise, Las Vegas divorce property division expert',
     alternates: { canonical, languages },
   };

@@ -22,7 +22,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Centennial Hills Las Vegas Divorce Realtor | Divorce Real Estate Agent Centennial Hills NV | Dr. Jan Duffy',
-    description: 'Centennial Hills Las Vegas divorce realtor helping with home valuations, selling house during divorce, and property division. Call (702) 222-1964.',
+    description: 'Centennial Hills Las Vegas divorce realtor helping with home valuations, selling house during divorce, and property division. Call (702) 500-1955.',
     keywords: 'Centennial Hills Las Vegas divorce realtor, divorce real estate agent Centennial Hills NV, selling house divorce Centennial Hills, northwest Las Vegas divorce realtor',
     alternates: { canonical, languages },
   };

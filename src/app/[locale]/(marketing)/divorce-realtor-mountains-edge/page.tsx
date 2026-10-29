@@ -22,7 +22,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Mountains Edge Las Vegas Divorce Realtor | Divorce Real Estate Agent Mountains Edge NV | Dr. Jan Duffy',
-    description: 'Mountains Edge Las Vegas divorce realtor supporting homeowners with valuations, listings, and property division during divorce. Call (702) 222-1964.',
+    description: 'Mountains Edge Las Vegas divorce realtor supporting homeowners with valuations, listings, and property division during divorce. Call (702) 500-1955.',
     keywords: 'Mountains Edge Las Vegas divorce realtor, divorce real estate agent Mountains Edge NV, selling house divorce Mountains Edge, southwest Las Vegas divorce agent',
     alternates: { canonical, languages },
   };

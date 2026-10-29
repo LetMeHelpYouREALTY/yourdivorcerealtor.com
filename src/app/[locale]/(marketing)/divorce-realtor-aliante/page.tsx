@@ -22,7 +22,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Aliante North Las Vegas Divorce Realtor | Divorce Real Estate Agent Aliante NV | Dr. Jan Duffy',
-    description: 'Aliante North Las Vegas divorce realtor guiding homeowners through property division, buyouts, and home sales during divorce. Call (702) 222-1964.',
+    description: 'Aliante North Las Vegas divorce realtor guiding homeowners through property division, buyouts, and home sales during divorce. Call (702) 500-1955.',
     keywords: 'Aliante North Las Vegas divorce realtor, divorce real estate agent Aliante NV, selling house divorce Aliante, North Las Vegas divorce property specialist',
     alternates: { canonical, languages },
   };

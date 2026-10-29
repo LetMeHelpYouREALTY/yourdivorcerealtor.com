@@ -22,7 +22,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Paradise Las Vegas Divorce Realtor | Divorce Real Estate Agent Paradise NV | Dr. Jan Duffy',
-    description: 'Paradise Las Vegas divorce realtor providing property division guidance, house sale strategy, and neutral representation for divorcing homeowners. Call (702) 222-1964.',
+    description: 'Paradise Las Vegas divorce realtor providing property division guidance, house sale strategy, and neutral representation for divorcing homeowners. Call (702) 500-1955.',
     keywords: 'Paradise Las Vegas divorce realtor, divorce real estate agent Paradise NV, selling house divorce Paradise, Las Vegas Strip area divorce realtor',
     alternates: { canonical, languages },
   };
