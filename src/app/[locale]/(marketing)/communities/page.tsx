@@ -29,7 +29,6 @@ export default async function CommunitiesPage(props: CommunitiesPageProps) {
   const carouselSchema = generateCarouselItemListSchema(communities, {
     baseUrl: siteUrl,
     priceRange: '$$',
-    aggregateRating: { ratingValue: 5, reviewCount: 4 },
   });
 
   return (
