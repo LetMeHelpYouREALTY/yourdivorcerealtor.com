@@ -17,6 +17,7 @@ import { routing } from '@/libs/I18nRouting';
 import '@/styles/global.css';
 
 import Script from "next/script";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -126,6 +127,7 @@ e.parentNode.insertBefore(t,e);})
 window.widgetTracker("create", "WT-XQHVYQWW");
 window.widgetTracker("send", "pageview");}
         `}</Script>
+  <VercelAnalytics />
 </body>
     </html>
   );
