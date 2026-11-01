@@ -7,10 +7,11 @@ export const siteUrl = 'https://www.yourdivorcerealtor.com';
 
 /**
  * Locales included in hreflang `alternates.languages` and self-canonical rules.
- * Both `en` and `fr` URLs are indexed; use `hreflangLocales: [routing.defaultLocale]` on a
- * page if you ever need English-only hreflang for a specific route.
+ * Marketing page bodies are English-only, so `/fr/*` URLs are duplicates of the English
+ * pages: they canonicalize to the English URL and are left out of hreflang until the
+ * French content is actually translated (then switch back to `[...routing.locales]`).
  */
-export const HREFLANG_LOCALES: readonly string[] = [...routing.locales];
+export const HREFLANG_LOCALES: readonly string[] = [routing.defaultLocale];
 
 export type LocaleAlternatesOptions = {
   /** Defaults to HREFLANG_LOCALES (English only) until /fr/ marketing is translated. */
