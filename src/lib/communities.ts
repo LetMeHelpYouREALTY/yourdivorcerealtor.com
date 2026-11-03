@@ -27,4 +27,9 @@ export const communities: CommunityItem[] = [
   { name: 'Aliante', href: '/divorce-realtor-aliante', description: 'Aliante North Las Vegas divorce realtor' },
   { name: 'Mountains Edge', href: '/divorce-realtor-mountains-edge', description: 'Mountains Edge divorce real estate' },
   { name: 'Inspirada', href: '/divorce-realtor-inspirada', description: 'Inspirada Henderson divorce realtor' },
+  { name: 'The Ridges', href: '/divorce-realtor-the-ridges', description: 'Guard-gated Summerlin custom estates' },
+  { name: 'Red Rock Country Club', href: '/divorce-realtor-red-rock-country-club', description: 'Golf club homes in Summerlin' },
+  { name: 'MacDonald Highlands', href: '/divorce-realtor-macdonald-highlands', description: 'Henderson hillside estates and DragonRidge' },
+  { name: 'Anthem Country Club', href: '/divorce-realtor-anthem-country-club', description: 'Guard-gated golf community in Henderson' },
+  { name: 'Strip High-Rises', href: '/strip-high-rise-condo-divorce', description: 'Condo towers on and near the Strip' },
 ];

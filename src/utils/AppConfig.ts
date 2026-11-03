@@ -1,19 +1,18 @@
 import type { LocalizationResource } from '@clerk/types';
 import type { LocalePrefixMode } from 'next-intl/routing';
-import { enUS, frFR } from '@clerk/localizations';
+import { enUS } from '@clerk/localizations';
 
 const localePrefix: LocalePrefixMode = 'as-needed';
 
 export const AppConfig = {
   name: 'Your Divorce Realtor - Las Vegas',
-  locales: ['en', 'fr'],
+  locales: ['en'],
   defaultLocale: 'en',
   localePrefix,
 };
 
 const supportedLocales: Record<string, LocalizationResource> = {
   en: enUS,
-  fr: frFR,
 };
 
 export const ClerkLocalizations = {

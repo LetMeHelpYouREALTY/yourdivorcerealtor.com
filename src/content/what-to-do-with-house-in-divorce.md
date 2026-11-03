@@ -1,168 +1,118 @@
-## Understanding Your Options
+## Six ways to settle the house
 
-When going through divorce, deciding what to do with your house is one of the most important decisions you'll make. You have several options, each with different financial, legal, and emotional implications. This guide explains all your options so you can make informed decisions.
+Every divorce in Nevada settles the house one of six ways: sell and split, one spouse buys the other out, a deferred sale with temporary co-ownership, a refinance that removes one spouse, a short sale if the loan exceeds the value, or a court-ordered sale when nobody agrees. The right one depends on three things: equity, who can carry the loan alone, and whether the two of you can agree.
 
-## Option 1: Sell the House and Split Proceeds
+{{COMMUNITY_PROPERTY_RULE}} That is the starting point for every option below. A home one spouse owned before the marriage, or received by gift or inheritance, may be separate property, and community payments on it can still create a community claim. {{LEGAL_DISCLAIMER}}
 
-### How It Works
+## Option 1: Sell the house and split the net proceeds
 
-Both spouses agree to sell the house, and proceeds are divided according to your agreement or court order. In Nevada, as a community property state, proceeds are typically divided 50/50 unless otherwise specified.
+Both spouses sign the listing, the home sells, and escrow pays the loan, commissions, closing costs, and transfer tax before dividing the balance. This is the only option that needs no one to qualify for a new mortgage, and it ends the financial tie between you on closing day. It is the default when neither spouse can afford the home alone.
 
-### Pros
+**Works when:**
 
-- Clean financial break
-- Both parties get cash to start fresh
-- Eliminates ongoing financial entanglements
-- No ongoing mortgage responsibility
-- Simplest option when both agree
+- Neither spouse can qualify to refinance the loan in one name.
+- Both of you want cash to buy or rent separately.
+- The equity is large enough that a buyout would strain the keeping spouse.
 
-### Cons
+**Watch for:**
 
-- Requires both spouses to agree
-- Both must move out
-- May have emotional difficulty letting go
-- Market timing may not be ideal
+- Agreement on list price, repairs, showing rules, and which offers to accept.
+- Both spouses moving out, or one living there with showing access agreed in writing.
+- Closing costs and Clark County transfer tax, which come off the top before the split.
 
-Learn more: [Selling Home During Divorce](/selling-home-during-divorce)
+Learn more: [Selling a home during divorce](/selling-home-during-divorce) and [splitting house proceeds](/splitting-house-proceeds-divorce).
 
-## Option 2: One Spouse Buys Out the Other
+## Option 2: One spouse buys out the other
 
-### How It Works
+The spouse who stays pays the other for their share of the equity, usually by refinancing into a new loan in one name. The departing spouse signs a deed and is released from the mortgage. A buyout keeps the children in the home they know and avoids selling costs. It only works if the lender approves the keeping spouse alone.
 
-One spouse keeps the house by buying out the other spouse's share. This involves calculating the buyout amount (typically half the equity) and refinancing the mortgage to remove the other spouse.
+**Works when:**
 
-### Pros
+- One spouse has the income and credit to refinance the full balance plus the buyout.
+- There is enough equity to borrow against, or cash from another asset to pay the share.
+- Both spouses accept one valuation, or a two-appraisal protocol to settle it.
 
-- One spouse keeps the home
-- Children can stay in same home/school
-- Other spouse gets cash for their share
-- Clean financial break for removed spouse
+**Watch for:**
 
-### Cons
+- Loans above the 2026 Clark County conforming limit are jumbo and underwrite more strictly.
+- A deed transfer does not remove a spouse from the loan. Only a refinance or payoff does.
+- Offsetting the buyout with retirement or brokerage assets changes the tax picture for each side.
 
-- Keeping spouse must qualify for refinancing alone
-- May need cash-out refinance to pay buyout
-- Can be financially challenging
-- Requires accurate valuation
+Learn more: [Divorce buyout options](/divorce-buyout-options).
 
-Learn more: [Divorce Buyout Options](/divorce-buyout-options)
+## Option 3: Deferred sale with temporary co-ownership
 
-## Option 3: Co-Own Temporarily (Bird Nesting)
+The decree keeps both names on title and sets a future sale date, often tied to a child finishing a school year or a loan rate adjusting. One spouse usually lives in the home. The agreement must spell out who pays the mortgage, taxes, insurance, HOA, and repairs, and how the proceeds are split when the sale happens.
 
-### How It Works
+**Works when:**
 
-Both spouses continue to co-own the house temporarily, often to allow children to finish school or wait for better market conditions. Clear agreements about expenses, maintenance, and eventual sale are essential.
+- Both spouses want to wait, and both can afford their assigned share of the carrying costs.
+- The agreement names the sale date, the agent, and the pricing method in advance.
 
-### Pros
+**Watch for:**
 
-- Children can stay in same home
-- Can wait for better market conditions
-- More time to make decisions
-- Can delay major life changes
+- Market risk while you wait. Values move in both directions.
+- Credit exposure for the spouse who moved out but is still on the loan.
+- Disputes over repairs and upgrades that were not assigned in writing.
 
-### Cons
+## Option 4: Refinance to remove one spouse
 
-- Ongoing financial entanglements
-- Both remain responsible for mortgage
-- Requires clear agreements to prevent conflicts
-- Can delay moving forward
-- Market risk while waiting
+This is the financing half of a buyout, and sometimes it stands alone when the equity is small. The keeping spouse qualifies for a new loan in one name, the old loan is paid off, and the departing spouse signs a deed. It protects the departing spouse's credit and frees their borrowing power for their next home.
 
-## Option 4: Refinance to Remove One Spouse
+**Works when:**
 
-### How It Works
+- The keeping spouse qualifies on one income, with support income counted where the lender allows it.
+- The new loan amount fits the home's appraised value at the lender's loan-to-value limit.
 
-If one spouse keeps the house, they refinance the mortgage to remove the other spouse. This protects the removed spouse's credit and eliminates their liability.
+**Watch for:**
 
-### Pros
+- Refinance costs and a new rate, which can be higher than the one you have.
+- Appraisal results on custom homes, which can come in below the number both spouses expected.
 
-- Removed spouse is protected
-- Clean financial break
-- Keeping spouse has full ownership
+Learn more: [Refinancing after divorce](/refinancing-after-divorce) and [removing a spouse from the mortgage](/remove-spouse-from-mortgage-after-divorce).
 
-### Cons
+## Option 5: Short sale when the loan exceeds the value
 
-- Keeping spouse must qualify alone
-- May not be possible if income is insufficient
-- Refinancing costs involved
+If the payoff is higher than what the home would sell for, a normal sale leaves a shortfall. A short sale asks the lender to accept less than the balance. It needs lender approval, takes longer, and can affect credit for both borrowers. It is usually preferable to foreclosure, which affects both credit reports whatever the decree says.
 
-Learn more: [Refinancing After Divorce](/refinancing-after-divorce)
+**Watch for:**
 
-## Option 5: Deferred Sale
+- Both borrowers must sign the lender's hardship package.
+- Any forgiven balance can have federal tax consequences, so involve a tax advisor early.
 
-### How It Works
+## Option 6: Court-ordered sale
 
-A deferred sale is an agreement between spouses or a court order to delay selling the family home for a period. This may make sense if you are waiting for the market to improve or if your child is still a minor and you do not want to uproot them from school. If you defer the sale, you must agree in writing on who pays the mortgage, taxes, insurance, and maintenance until the home sells.
+When spouses cannot agree, the court can order the sale and set its terms. The order often names a neutral agent, a listing deadline, a pricing method, and what happens if one spouse refuses to cooperate. You lose some control over timing and price, which is why agreeing on a neutral agent before filing is usually the better route.
 
-### When This Makes Sense
+Learn more: [Court-ordered home sale](/court-ordered-home-sale) and [when one spouse will not sell](/one-spouse-wont-sell-house-divorce).
 
-- Waiting for better market conditions
-- Child is a minor and staying in the same school matters
-- One or both spouses need time to secure new housing
+## How to choose between them
 
-Learn more: [Real Estate Guide for Divorcing Couples](/divorce-real-estate-guide-divorcing-couples)
+Start with two numbers: what the home would sell for today, and what is owed. The difference is equity, and in a community home each spouse starts with half. Then ask whether either of you can refinance the full balance plus the buyout in one name. If yes, a buyout is on the table. If no, you are choosing between a sale now and a deferred sale later.
 
-## Option 6: Court-Ordered Sale
+**Financial questions to answer first:**
 
-### How It Works
+- Current value from a dated market analysis or appraisal, not the purchase price.
+- Loan balance, any HELOC, and any liens.
+- Whether the keeping spouse qualifies alone, and at what rate.
+- Net proceeds after commissions, closing costs, and transfer tax if you sell.
+- Capital gains exposure on a large gain, and whether the divorce use rule applies.
 
-If spouses can't agree, the court can order the sale. The court may appoint a neutral real estate agent to handle the transaction.
+**Practical questions:**
 
-### When This Happens
+- Where each of you will live next, and when.
+- Whether the children's routine depends on this home for a defined period.
+- How much contact with each other the chosen option requires, and for how long.
 
-- Spouses can't reach agreement
-- One spouse refuses to sell
-- Financial hardship requires sale
-- Court determines sale is in best interests
+A worked example helps. Say the home would sell for $800,000 and the loan balance is $350,000. Equity is $450,000, so each spouse's starting share is $225,000. A buyout means the keeping spouse borrows about $575,000 to retire the old loan and pay the share. A sale means closing costs and transfer tax come off the $450,000 before it is split, so each spouse nets less than $225,000 but walks away with no loan.
 
-Learn more: [Court-Ordered Home Sale](/court-ordered-home-sale)
+## Making the decision
 
-## Factors to Consider
+1. **Get a dated valuation.** A comparative market analysis or appraisal from the last few weeks, not an old number.
+2. **Talk to a lender before you commit to a buyout.** A pre-approval in one name tells you whether Option 2 exists.
+3. **Run the sale math.** Net proceeds after every cost, and the tax picture on the gain.
+4. **Put the choice in the decree.** The option, the date, the agent, the pricing method, and who pays what until closing.
+5. **Keep the attorney and the agent on the same page.** The agent supplies numbers and timelines; the attorney turns them into enforceable terms.
 
-### Financial Factors
-
-- Home value and equity position
-- Ability to afford mortgage alone
-- Need for cash from sale
-- Tax implications of each option
-- Refinancing qualification
-
-### Emotional Factors
-
-- Attachment to the home
-- Desire for clean break
-- Emotional readiness to sell
-- Ability to work together
-
-### Practical Factors
-
-- Children's needs and stability
-- School districts and neighborhoods
-- Market conditions
-- Timeline needs
-- Future plans
-
-## Making the Decision
-
-To make the best decision:
-
-1. **Get accurate valuation:** Know your home's value and equity
-2. **Understand all options:** Review pros and cons of each
-3. **Consider financial implications:** Calculate costs and benefits
-4. **Consider emotional factors:** Acknowledge emotional aspects
-5. **Consult professionals:** Talk to attorney, real estate specialist, financial advisor
-6. **Make informed decision:** Choose option that makes most sense
-
-## Get Expert Guidance
-
-Deciding what to do with your house is complex and depends on your specific situation. Dr. Jan Duffy helps you understand all your options, evaluate each one, and make informed decisions that support your overall divorce resolution.
-
-> **Need Help Deciding?**
-> Schedule a confidential consultation with Dr. Jan Duffy to discuss your situation and explore all your options. [Schedule Your Consultation](calendly:)
-
-## Related Resources
-
-- [Property Division Guide](/divorce-property-division)
-- [Buyout Options](/divorce-buyout-options)
-- [Selling Home During Divorce](/selling-home-during-divorce)
-- [Get Your Home Valuation](/divorce-home-valuation)
+> **Not sure which option fits?**
+> A short private call covers the equity, the loan, and which of the six paths is realistic. [Schedule a private call](calendly:)

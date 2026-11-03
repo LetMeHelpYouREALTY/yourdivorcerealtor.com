@@ -47,7 +47,8 @@ export function Header() {
   const navigationLinks = [
     { href: '/', label: 'Home', priority: 'high' as const },
     { href: '/divorce-real-estate-services', label: 'Divorce Specialist', priority: 'high' as const },
-    { href: '/divorce-realtor-henderson', label: 'Las Vegas Communities', priority: 'low' as const },
+    { href: '/luxury-divorce-real-estate-las-vegas', label: 'Luxury Homes', priority: 'high' as const },
+    { href: '/communities', label: 'Communities', priority: 'low' as const },
     { href: '/attorney-resources', label: 'Resources', priority: 'low' as const },
     { href: '/about', label: 'About Dr. Jan', priority: 'low' as const },
     { href: '/contact', label: 'Contact', priority: 'high' as const },

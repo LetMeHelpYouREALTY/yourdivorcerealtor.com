@@ -121,6 +121,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Community pages (medium-high priority)
+  const luxuryPages = [
+    '/luxury-divorce-real-estate-las-vegas',
+    '/divorce-realtor-the-ridges',
+    '/divorce-realtor-red-rock-country-club',
+    '/divorce-realtor-macdonald-highlands',
+    '/divorce-realtor-anthem-country-club',
+    '/strip-high-rise-condo-divorce',
+  ];
+
   const communityPages = [
     '/divorce-realtor-henderson',
     '/divorce-realtor-summerlin',
@@ -185,6 +194,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...corePages,
     ...createEntries(processPages, 0.8, 'weekly'),
+    ...createEntries(luxuryPages, 0.85, 'weekly'),
     ...createEntries(communityPages, 0.7, 'monthly'),
     ...createEntries(attorneyPages, 0.7, 'monthly'),
     ...createEntries(resourcePages, 0.7, 'monthly'),

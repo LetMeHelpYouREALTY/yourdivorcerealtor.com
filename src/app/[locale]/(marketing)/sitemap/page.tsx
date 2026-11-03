@@ -55,6 +55,12 @@ const communityLinks = [
   { href: '/divorce-realtor-aliante', label: 'Aliante' },
   { href: '/divorce-realtor-mountains-edge', label: 'Mountains Edge' },
   { href: '/divorce-realtor-inspirada', label: 'Inspirada' },
+  { href: '/luxury-divorce-real-estate-las-vegas', label: 'Luxury divorce real estate (overview)' },
+  { href: '/divorce-realtor-the-ridges', label: 'The Ridges' },
+  { href: '/divorce-realtor-red-rock-country-club', label: 'Red Rock Country Club' },
+  { href: '/divorce-realtor-macdonald-highlands', label: 'MacDonald Highlands' },
+  { href: '/divorce-realtor-anthem-country-club', label: 'Anthem Country Club' },
+  { href: '/strip-high-rise-condo-divorce', label: 'Strip high-rise condos' },
 ];
 
 const topicLinks = [
@@ -72,9 +78,9 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'HTML Sitemap | Dr. Jan Duffy — Las Vegas Divorce Real Estate',
+    title: 'Site Map, Las Vegas Divorce Real Estate | Dr. Jan Duffy',
     description:
-      'Browse main pages on yourdivorcerealtor.com: services, communities, resources, and legal pages. Dr. Jan Duffy, Las Vegas divorce real estate specialist.',
+      'Every main page on yourdivorcerealtor.com in one list: services, 18 community and enclave pages, guides on selling and buyouts, and the XML sitemap.',
     alternates: { canonical, languages },
     robots: { index: true, follow: true },
   };
@@ -105,14 +111,18 @@ export default async function SitemapHtmlPage(props: PageProps) {
       <StructuredData data={[generateRealEstateAgentSchema()]} />
       <DivorcePageTemplate
         h1="Site map"
-        heroSubhead="Quick links to key pages on this site. For search engines, use the XML sitemap."
+        heroSubhead="Every main page in one list: services, community and enclave pages, and the guides."
         currentPath={path}
         showHomeValue={false}
         showRelatedLinks={false}
       >
         <div className="prose prose-lg mx-auto max-w-4xl">
           <p>
-            <strong>XML sitemap (for Google and other crawlers):</strong>
+            Start with the core pages, then the community page closest to your house. Crawlers should use the XML
+            sitemap.
+          </p>
+          <p>
+            <strong>XML sitemap:</strong>
             {' '}
             <a href={xmlUrl} className="font-semibold text-blue-700 hover:underline">
               {xmlUrl}
@@ -148,14 +158,14 @@ export default async function SitemapHtmlPage(props: PageProps) {
           <h2 className="mt-10 text-xl font-bold text-gray-900">Core pages</h2>
           <LinkList items={coreLinks} />
 
-          <h2 className="mt-10 text-xl font-bold text-gray-900">Las Vegas area communities</h2>
+          <h2 className="mt-10 text-xl font-bold text-gray-900">Las Vegas area communities and luxury enclaves</h2>
           <LinkList items={communityLinks} />
 
           <h2 className="mt-10 text-xl font-bold text-gray-900">Popular topics</h2>
           <LinkList items={topicLinks} />
 
           <p className="mt-10 text-sm text-gray-600">
-            Additional long-form guides and calculators are included in the
+            The remaining guides and calculators are listed in the
             {' '}
             <a href={xmlUrl} className="text-blue-700 hover:underline">
               XML sitemap

@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { EngagementPhoneLink } from '@/components/analytics/EngagementPhoneLink';
 import { CalendlyInline } from '@/components/calendly/CalendlyInline';
+import { DirectAnswer } from '@/components/divorce/DirectAnswer';
 import { DivorcePageTemplate } from '@/components/divorce/DivorcePageTemplate';
+import { PageFAQ } from '@/components/divorce/PageFAQ';
 import { WhatWeDoAndDontDo } from '@/components/divorce/WhatWeDoAndDontDo';
-import { FAQAccordion } from '@/components/faq/FAQAccordion';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { generateLocaleAlternates } from '@/lib/metadata';
 import {
@@ -28,22 +29,18 @@ type IContactProps = {
 
 export const dynamic = 'force-dynamic';
 
-const whatToExpectFaqs = [
+const contactFaqs = [
   {
-    question: 'Confidential Discussion',
-    answer: 'Your consultation is completely confidential. Dr. Jan Duffy will listen to your situation, answer your questions, and provide expert guidance without judgment. She understands the emotional challenges of divorce and provides compassionate, professional service.',
+    question: 'Is the first call private, and does it cost anything?',
+    answer: 'Yes, it is private, and there is no fee. Nothing from the call is shared with your spouse or anyone else unless you ask for it. Fifteen minutes covers where the case stands, who is on title and on the loan, and what you need from the house. You leave with a value range and your realistic options.',
   },
   {
-    question: 'Options Analysis',
-    answer: 'During your consultation, Dr. Jan Duffy will help you understand all your property options: selling, buying out, co-owning, or refinancing. She\'ll explain the pros and cons of each option and help you determine which path makes the most sense for your situation.',
+    question: 'What should I have ready for the call?',
+    answer: 'The address, your best guess at the loan balance, and any filed paperwork or settlement draft that mentions the house. If a court order covers the sale, have it on hand. None of this is required to book; it just makes the value range and the options more precise on the first call.',
   },
   {
-    question: 'Home Valuation',
-    answer: 'If you\'re ready, Dr. Jan Duffy can provide an initial home valuation to help you understand your equity position. This information is essential for property division negotiations and decision-making.',
-  },
-  {
-    question: 'Next Steps Planning',
-    answer: 'By the end of your consultation, you\'ll have a clear understanding of your options and a plan for moving forward. Dr. Jan Duffy will outline the next steps and help you feel confident about your decisions.',
+    question: 'Can both spouses or an attorney join the call?',
+    answer: 'Yes. Many first calls include both spouses, one spouse and counsel, or a mediator. For a home above the jumbo line, bringing the lender into a second call is common so the buyout figure matches what can be borrowed. The same information goes to everyone on the call.',
   },
 ];
 
@@ -53,9 +50,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Schedule Your Divorce Real Estate Consultation | Contact Dr. Jan Duffy',
-    description: 'Schedule a confidential consultation with Dr. Jan Duffy, your Las Vegas divorce real estate specialist. It\'s never too early to discuss your options.',
-    keywords: 'divorce realtor consultation, contact divorce realtor las vegas, schedule divorce real estate consultation',
+    title: 'Contact a Las Vegas Divorce Realtor | Dr. Jan Duffy',
+    description: 'Book a private 15-minute call with Dr. Jan Duffy about the marital home: value range, sell or buyout options, and next steps. Phone or video, no fee.',
     alternates: { canonical, languages },
   };
 }
@@ -66,24 +62,31 @@ export default async function Contact(props: IContactProps) {
 
   const serviceSchema = generateServiceSchema(
     'Divorce Real Estate Consultation',
-    'Schedule a confidential consultation with Dr. Jan Duffy, your Las Vegas divorce real estate specialist. Expert guidance for property division and home sales during divorce.',
+    'A private 15-minute call with Dr. Jan Duffy about the marital home: value range, sell or buyout options, and next steps.',
     ['Las Vegas', 'Henderson', 'Summerlin', 'North Las Vegas'],
   );
   const realEstateAgentSchema = generateRealEstateAgentSchema();
-  const faqPageSchema = generateFAQPageSchema(whatToExpectFaqs);
+  const faqPageSchema = generateFAQPageSchema(contactFaqs);
 
   return (
     <>
       <StructuredData data={[serviceSchema, realEstateAgentSchema, faqPageSchema]} />
       <DivorcePageTemplate
-        h1="Schedule Your Divorce Real Estate Consultation"
-        heroSubhead="It's Never Too Early to Discuss Your Options"
+        h1="Contact Dr. Jan Duffy"
+        heroSubhead="A private 15-minute call about the marital home. You leave with a value range, your options, and the next decision."
         showHomeValue
         currentPath="/contact"
       >
         <div className="mx-auto max-w-5xl">
+          <DirectAnswer question="How does the first call work?">
+            Pick a 15-minute slot below or call during office hours. The call is private and free. You describe where the
+            case stands, who is on title and on the loan, and what you need from the house. Dr. Jan Duffy gives you a
+            value range, your realistic options to sell, buy out, or refinance, and the single next decision. Both
+            spouses or your attorney may join.
+          </DirectAnswer>
+
           {/* Primary action: Schedule or call — above the fold */}
-          <section className="mb-14">
+          <section className="mt-14 mb-14">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-12">
               <div className="lg:col-span-2">
                 <h2 className="mb-4 text-2xl font-bold text-gray-900">Pick a time or call now</h2>
@@ -125,22 +128,22 @@ export default async function Contact(props: IContactProps) {
                 <ul className="mt-6 space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600">✓</span>
-                    <span>Understand your property options</span>
+                    <span>A value range for the house and your net equity</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600">✓</span>
-                    <span>Get an accurate home valuation</span>
+                    <span>Sell, buyout, co-own, or refinance, each with a number</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600">✓</span>
-                    <span>Plan next steps with confidence</span>
+                    <span>The next decision and who needs to make it</span>
                   </li>
                 </ul>
               </div>
               <div className="lg:col-span-3">
                 <h2 className="mb-2 text-2xl font-bold text-gray-900">Schedule your consultation</h2>
                 <p className="mb-4 text-gray-600">
-                  Select a time that works for you. Free 15-minute private conversation.
+                  Pick a time. Fifteen minutes, private, no fee. Phone or video.
                 </p>
                 <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
                   <CalendlyInline />
@@ -149,10 +152,8 @@ export default async function Contact(props: IContactProps) {
             </div>
           </section>
 
-          {/* What to expect — accordion */}
           <section className="mb-14">
-            <h2 className="mb-4 text-2xl font-bold text-gray-900">What to expect in your consultation</h2>
-            <FAQAccordion faqs={whatToExpectFaqs} />
+            <PageFAQ title="Before you book" faqs={contactFaqs} />
           </section>
 
           {/* What we do / don't do — sets expectations before scheduling */}
@@ -164,7 +165,7 @@ export default async function Contact(props: IContactProps) {
           <section className="mb-14">
             <h2 className="mb-4 text-2xl font-bold text-gray-900">Pick a time that works for you</h2>
             <p className="mb-6 text-gray-600">
-              Choose a 15-minute slot below. Free, confidential consultation with Dr. Jan Duffy.
+              Fifteen minutes, private, no fee. Bring the address and a loan balance if you have one.
             </p>
             <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
               <CalendlyInline />
@@ -173,15 +174,17 @@ export default async function Contact(props: IContactProps) {
 
           {/* Short supporting copy */}
           <section className="prose prose-lg max-w-none border-t border-gray-200 pt-10">
-            <h2 className="text-xl font-bold text-gray-900">Questions to bring</h2>
+            <h2 className="text-xl font-bold text-gray-900">Questions worth asking on the call</h2>
             <p className="text-gray-700">
-              Consider asking about your home’s value, equity, options (sell, buyout, co-own), process timeline, and fees. Dr. Jan Duffy will answer honestly and help you decide next steps.
+              What is the house worth today and what would it net after payoff and costs? Can one of us carry the loan
+              alone, and above the jumbo line what does the lender need? How long from list to close, and when would the
+              move-out date land? What does the listing plan say about showings, sign-offs, and disbursement?
             </p>
             <p className="mt-6 text-center text-lg font-semibold text-gray-800">
               Schedule above or call
               {' '}
               {SITE_PHONE_DISPLAY}
-              . For a home valuation, schedule a call—Dr. Jan provides valuations during your consultation.
+              . Valuations are prepared after the first call, once the address and loan details are in hand.
             </p>
           </section>
         </div>

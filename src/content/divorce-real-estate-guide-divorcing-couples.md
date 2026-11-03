@@ -1,102 +1,97 @@
-## How I Represent Divorcing Couples
+## How a neutral agent represents divorcing couples
 
-Divorce is often filled with emotion and stress. As a broker, I support both parties equally. I have a fiduciary duty to both owners of the property, not just one. I cannot take sides, and I give advice equally. There are limits to what I can advise on—I always suggest attorneys or mediators for matters outside my expertise. When you work with me, you can expect:
+On a divorce listing the agent represents the property, not a spouse. Both owners sign the listing agreement, both receive the same advice, the same showing feedback, and the same offers at the same time, and neither gets a private call about what the other might accept. Disagreements about strategy, offsets, or timing go to your attorneys or mediator, not to the agent. The job is to sell the house cleanly and leave a record both sides can rely on.
 
-- **Same advice to both parties.** I give both spouses the same guidance to meet my fiduciary duty.
-- **I stay out of arguments.** I do not take sides. Disagreements are for lawyers and mediators.
-- **Document all communication.** I summarize conversations and send guidance to both parties so there is a clear record.
+- **Same advice to both parties.** Both spouses get identical guidance on price, preparation, and offers.
+- **No side-taking.** Arguments are for lawyers and mediators. The agent reports facts and market data.
+- **Everything in writing.** Conversations are summarized and sent to both spouses and both attorneys so there is one record.
 
-## How the Home Is Calculated in a Nevada Divorce
+## How the home is divided in a Nevada divorce
 
-Nevada is a community property state. If your home was acquired during marriage with marital funds, it is community property and proceeds from the sale are typically split 50/50. If one spouse bought the home before marriage, that is separate property and the rules for splitting equity can be more complicated. Accurate valuation is essential—Dr. Jan Duffy provides comprehensive valuations using comparable sales and current Las Vegas market conditions. Learn more in our [community property guide](/community-property-divorce-house).
+A home bought during the marriage with marital funds is community property, and Nevada divides community property equally unless the court writes a reason not to. A home one spouse owned before the marriage starts as separate property, though marital mortgage payments and improvements can give the community a claim on part of its equity. Accurate valuation is the first step: a written broker price opinion from comparable sales for an open-market sale, or a licensed appraisal when one spouse is buying the other out. Learn more in our [community property guide](/community-property-divorce-house).
 
-## Should You Keep or Sell the Home?
+## Should you keep or sell the home?
 
-This decision comes down to what you and your spouse can agree on. When emotions run high, agreeing can be difficult. Sometimes a judge must decide if you cannot reach an agreement. To get clarity, identify which goals you both share and which you do not.
+The decision turns on two questions: can one spouse carry the mortgage, taxes, insurance, HOA, and upkeep alone, and can that spouse refinance to pay the other's share. When the answer to either is no, the sale usually follows. When both are yes, keeping the home is a real option, and the stipulation should set the buyout figure, the refinance deadline, and a sale as the fallback if the refinance fails.
 
-### When Selling Becomes Clear
+### When selling becomes clear
 
-- You cannot afford mortgage, taxes, and upkeep on your own
-- You cannot refinance to pay out your spouse
-- Living there after divorce is too emotionally painful
+- Neither spouse can carry the full payment on one income
+- The keeping spouse cannot refinance to pay out the other's share
+- Living there after the divorce is not something either of you wants
 
-### When Keeping May Make Sense
+### When keeping may make sense
 
-- You have children and want to minimize disruption
-- You want to keep kids in the same school or district
-- You have strong emotional ties to the home
+- You want to keep children at their current campus through a school year or longer
+- The location works for work and the payment works on one income
+- A lender has confirmed in writing that a refinance will fund
 
-Both parties need to cooperate to achieve their goals. If one party sabotages the process, the resolution may need to be court-ordered. See our full overview in [what to do with your house in divorce](/what-to-do-with-house-in-divorce).
+Both spouses have to cooperate to reach either outcome. When one spouse stalls, the resolution may need to be court-ordered. See our full overview in [what to do with your house in divorce](/what-to-do-with-house-in-divorce).
 
-## Should You Buy Out Your Spouse's Share?
+## Should you buy out your spouse's share?
 
-Keeping the property and buying out your spouse's share may make sense if you want stability for your children, the location works for work and schools, or market conditions are not ideal to sell. The big question is whether you can afford the payments. Most couples qualified for their mortgage together, not as individuals. You need to determine if you can qualify for a mortgage on your own. Remember, a buyout typically involves pulling out a large chunk of equity, so your payment will be significantly higher. Get your estimated numbers in order first. Our [buyout options guide](/divorce-buyout-options) covers this in detail.
+A buyout starts with an agreed value, subtracts the loan balance, and divides the equity per the decree. The keeping spouse pays the other's share, almost always through a refinance in one name that also pulls that cash out. The hard part is qualification. Most couples qualified for their mortgage on two incomes; the new loan has to underwrite on one, plus the cash-out, at current rates. Get a lender's written pre-qualification before the figure goes into the stipulation. Our [buyout options guide](/divorce-buyout-options) covers the math.
 
-## What Happens to the Mortgage After Divorce?
+## What happens to the mortgage after divorce?
 
-One of two things typically happens: you sell the home and each spouse receives their share of the net proceeds, or one spouse takes full ownership by refinancing the mortgage into their name alone. The spouse keeping the home will need sufficient income and credit to qualify. The process is more complex if you owe more than the home is worth or face financial hardship. See our [divorce and mortgage guide](/divorce-and-mortgage) and [refinancing after divorce](/refinancing-after-divorce).
+One of two things: the home sells and the loan is paid off from proceeds, or one spouse refinances into a new loan in their name alone. A quitclaim or interspousal deed transfers ownership but does not remove anyone from the loan, so the spouse who deeds away the home stays liable until the refinance funds. The process gets harder when the balance exceeds the value or when one spouse's income cannot carry the loan. See our [divorce and mortgage guide](/divorce-and-mortgage) and [refinancing after divorce](/refinancing-after-divorce).
 
-## What If One Party Refuses to Sell?
+## What if one spouse refuses to sell?
 
-If your spouse cannot afford to buy you out and will not cooperate with a sale, you will need to work with a divorce attorney and file a motion with a family law judge to compel the sale. When you're at odds with your spouse during a home sale, it is crucial to work with an experienced real estate agent who is neutral, communicates equally with both parties, and keeps the transaction on track. Dr. Jan Duffy has extensive experience with [one spouse refusing to sell](/one-spouse-wont-sell-house-divorce) and court-ordered sales.
+If your spouse cannot buy you out and will not cooperate with a sale, your attorney can file a motion asking the family court to order the sale and set the terms: who signs, how price is set and reduced, who approves offers, and what access the occupying spouse must provide. A neutral listing agent then works from that order. Written status reports to both attorneys document every refused showing and unanswered offer so enforcement is a short motion. See [one spouse refusing to sell](/one-spouse-wont-sell-house-divorce) and [court-ordered home sale](/court-ordered-home-sale).
 
-## Protecting Your Home Sale from Divorce Messiness
+## Protecting the sale from the divorce
 
-Take emotions and personal disagreements out of the equation and treat this as a business transaction. Focus on mutual best interest—often a successful, profitable home sale. Try to work together amicably; shelving disagreements can save you money on attorneys and time. Prepare the home for sale like any other property: declutter, remove personal belongings, and consider staging. The home needs to look its best to command top dollar. Work with what you have—finances are often strained during divorce.
+Treat the sale as a business transaction with one shared goal: the highest net in the shortest time. Put the price method, reduction schedule, carrying costs, and offer process in the listing agreement before the sign goes up, so the hard moments have a script instead of a negotiation. Prepare the home like any other listing: declutter, remove personal belongings, and stage if the budget allows. Shelving disagreements for the length of the sale saves attorney fees and time.
 
-## Living in the Home While It's on the Market
+## Living in the home while it is on the market
 
-The decision of whether one or both parties stay in the property during the sale depends on finances and what you can afford. In my experience, homes sell faster and for more money when vacated and staged. If that is not possible, remove all personal items—family photos, children's belongings—so buyers can visualize themselves in the space. The person who stays should keep the home clean and ready to show at a moment's notice. I accommodate buyer schedules while working with you on a showing schedule that fits your life.
+Whether one spouse stays depends on what each budget can carry. Vacant and staged homes tend to show better and sell faster, but three housing payments can strain both sides, so one spouse often remains. If so, remove family photographs, children's belongings, and anything personal before photographs so buyers can picture themselves in the space. The spouse who stays keeps the home show-ready and honors the showing-notice period in the listing agreement. See our [staging guide](/divorce-home-staging) and [preparing for sale](/preparing-home-sale-divorce).
 
-It can be financially challenging to make three housing payments (mortgage, new rent, etc.), so having one person remain in the home can keep monthly expenses in check. See our [staging guide](/divorce-home-staging) and [preparing for sale](/preparing-home-sale-divorce) for more.
+## Keeping your divorce private during marketing
 
-## Keeping Your Divorce Private During Marketing
+Once a yard sign goes up, neighbors notice. To limit exposure, the home can enter the MLS as Coming Soon first, which reaches agents and their active buyers before full public syndication, and the sign can wait. Direct outreach to agents who work in your area reaches buyers without a public footprint. For estates in guard-gated communities, showings run through the gate's guest list, which limits traffic on its own.
 
-Once a For Sale sign goes up, the neighborhood may notice. To protect your privacy, we can list the property as "Coming Soon" on the MLS initially. This promotes the home to agents and their buyers without syndicating to Zillow, Trulia, and other public portals—limiting exposure while still reaching active buyers. We can also hold off on a yard sign at first. Another option is to market directly to the real estate community via targeted outreach to agents who work in your area.
+Buyers will ask why you are selling. They are not entitled to an answer, and giving one costs money, because a buyer who knows a divorce is behind the sale negotiates harder on price and repairs. The listing agent fields the question with a professional non-answer every time.
 
-Your personal affairs do not need to be anyone else's business. Buyers often ask why sellers are selling. It is none of their business. Your agent's job is to deflect that question with an appropriate, professional reply. Disclosing divorce can also affect negotiation, so keeping it out of the conversation is best.
+## Rule of thumb: never disclose the divorce to buyers
 
-## Rule of Thumb: Never Disclose Divorce to Buyers
+Nevada requires disclosure of material facts that affect the property. Your divorce is not one of them. Keep it out of the listing, the showing conversation, and the negotiation. Your agent's job is to protect that confidentiality from the first call to the closing statement.
 
-You have no legal obligation to disclose divorce to buyers. You must disclose material facts that affect the property, but divorce is a personal matter. Trust your agent to keep your situation discreet and protect your confidentiality. Dr. Jan Duffy maintains strict confidentiality for all divorce clients.
+## Property owned before marriage
 
-## Property Owned Before Marriage
-
-Property acquired before marriage is typically separate property and may belong to the spouse who brought it into the marriage. Separate property can become marital property in some circumstances, such as:
+Property acquired before the marriage is usually separate property that belongs to the spouse who brought it in. It can take on a community character in some circumstances, such as:
 
 - The other spouse's name was added to the deed
-- The other spouse made mortgage payments or contributed to the property
-- The property appreciated due to marital efforts or financial contributions
+- Marital funds paid the mortgage or paid for improvements
+- The property gained value because of marital effort or money
 
-If there is a question about who is entitled to proceeds, seek advice from a skilled attorney. Our [community property guide](/community-property-divorce-house) covers Nevada law in detail.
+If there is any question about who is entitled to what, your attorney resolves it before the listing, not at closing. Our [community property guide](/community-property-divorce-house) covers Nevada law in detail.
 
-## Owning Multiple Properties
+## Owning multiple properties
 
-Owning multiple properties is not fundamentally different—you have more assets to divide. There are more options, as you may have greater equity across the portfolio. It may be possible to keep some homes if you can structure a package that offsets value for each spouse. If you sell some or all, the distribution of funds can get complicated based on timing of sales and tax implications. A trust account or attorney-guided structure (such as dividing homes into LLCs) may help. See our [property division](/divorce-property-division) and [attorney resources](/attorney-resources).
+More properties mean more options, not a different process. Each one gets its own valuation and net sheet, and the spouses or the court can allocate whole properties to each side to offset value rather than selling all of them. When some or all are sold, the timing of each closing and the tax basis of each property shape how proceeds are distributed; an attorney-guided structure such as an escrow holdback or a trust account keeps that orderly. See [property division](/divorce-property-division) and [attorney resources](/attorney-resources).
 
-## Including Children in the Conversation
+## Including children in the conversation
 
-Consider your children's emotions regarding the home. Factors include their age, schools, and relationships with each parent. Children may be torn, upset, and worried about how divorce will uproot their lives. Some parents include children in selecting the next home, giving them a voice in their future rather than isolating them from the decision. When children are involved, their best interest should come first. See our [emotional guide](/emotional-guide-selling-divorce) for more.
+Children notice the sign, the showings, and the boxes. Their age, their campus, and their relationship with each parent all shape how the move lands for them. Some parents include children in choosing the next home so they have a voice in where they land rather than being told. When children are involved, their interests set the timeline more than the market does. See our [emotional guide](/emotional-guide-selling-divorce).
 
-## Deferring the Sale
+## Deferring the sale
 
-A deferred sale is an agreement between spouses or a court order to delay selling the family home for a period. This may make sense if you are waiting for the market to improve or if your child is still a minor and you do not want to uproot them from school. If you defer the sale, you must agree on who pays the mortgage, taxes, insurance, and maintenance until the home sells. Get this in writing. Our [options guide](/what-to-do-with-house-in-divorce) discusses temporary co-ownership and deferred sale arrangements.
+A deferred sale is an agreement between spouses or a court order to keep the home in both names until a named date or event, often the end of a school year. It works only when the carrying terms are written: who pays the mortgage, taxes, insurance, HOA, and repairs, who lives there, how the eventual sale or buyout is priced, and what happens if a payment is missed. Get every line in the stipulation. Our [options guide](/what-to-do-with-house-in-divorce) covers temporary co-ownership in detail.
 
-## Professional Team to Hire
+## The professional team
 
 Depending on your situation, you may need:
 
-- **An experienced real estate agent** to sell your home—handles preparation, marketing, negotiations, and closing; protects the sale from divorce disagreements; serves as a neutral third party; keeps your information confidential.
-- **A divorce attorney** to represent your legal interests—prepares documents, appears in court, educates you on property division, examines financial records, and advises on strategy.
-- **A mediator** to help you and your spouse reach an amicable agreement—works through property distribution, child care, and more; can prepare documents for filing.
+- **A neutral listing agent** who prepares, prices, markets, negotiates, and closes the sale, keeps the divorce out of the transaction, and reports in writing to both attorneys.
+- **A family law attorney** for each spouse, who characterizes the property, drafts the stipulation or moves for an order, and advises on strategy.
+- **A mediator** who helps the two of you reach an agreement on the home and the rest of the estate without a hearing.
+- **A CPA** for the Section 121 exclusion, basis, and the timing of the sale relative to the decree.
 
-Dr. Jan Duffy works closely with [family law attorneys](/attorney-resources) and [mediators](/divorce-mediator-resources) to support your divorce resolution.
+Dr. Jan Duffy works with [family law attorneys](/attorney-resources) and [mediators](/divorce-mediator-resources) on the real estate side of the case.
 
-## Get Expert Guidance
-
-Every divorce situation is unique. This guide provides comprehensive information, but personalized guidance matters. [Schedule a consultation with Dr. Jan Duffy](calendly:) today to discuss your Las Vegas or Henderson property and next steps.
-
-## Further Reading
+## Further reading
 
 Expert perspectives from other divorce real estate specialists:
 

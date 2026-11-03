@@ -61,9 +61,8 @@ export function WhatWeDoAndDontDo({ variant = 'full', className = '' }: WhatWeDo
     <section className={className}>
       <h2 className="mb-2 text-2xl font-bold text-gray-900">What We Do (and Don&apos;t Do)</h2>
       <p className="mb-6 text-gray-700">
-        Our mission is to help divorcing homeowners in Las Vegas and Henderson make informed real estate decisions by
-        providing expert valuation, listing, buyout, and transaction services—while staying within the bounds of real
-        estate practice and referring you to attorneys and other professionals when legal or tax advice is needed.
+        The practice covers valuation, listing, buyout, and transaction work for divorcing homeowners in Las Vegas and
+        Henderson, from a tract home to a guard-gated estate. Legal and tax questions go to your attorney and CPA.
       </p>
 
       <h3 className="mb-3 text-lg font-semibold text-gray-900">What We Do</h3>

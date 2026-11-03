@@ -7,20 +7,20 @@ export const siteUrl = 'https://www.yourdivorcerealtor.com';
 
 /**
  * Locales included in hreflang `alternates.languages` and self-canonical rules.
- * Marketing page bodies are English-only, so `/fr/*` URLs are duplicates of the English
- * pages: they canonicalize to the English URL and are left out of hreflang until the
- * French content is actually translated (then switch back to `[...routing.locales]`).
+ * The site is English-only. The French locale was removed on 2026-11-03 because every
+ * /fr/* URL served the English page and Search Console flagged 22 of them as duplicates.
+ * If a translated locale is ever added, extend AppConfig.locales and this list together.
  */
-export const HREFLANG_LOCALES: readonly string[] = [routing.defaultLocale];
+const HREFLANG_LOCALES: readonly string[] = [routing.defaultLocale];
 
 export type LocaleAlternatesOptions = {
-  /** Defaults to HREFLANG_LOCALES (English only) until /fr/ marketing is translated. */
+  /** Defaults to HREFLANG_LOCALES. */
   hreflangLocales?: readonly string[];
 };
 
 /**
- * Resolves the canonical href for indexing (locale-prefixed for `fr`, default locale as-needed).
- * Pass `hreflangLocales` without `fr` only when a route should canonicalize to English only.
+ * Resolves the canonical href for indexing. A locale that is not in the hreflang list
+ * canonicalizes to the default-locale URL so it is never indexed as a duplicate.
  */
 function resolveCanonicalHref(
   path: string,
@@ -28,8 +28,7 @@ function resolveCanonicalHref(
   options?: LocaleAlternatesOptions,
 ): string {
   const hreflangLocales = options?.hreflangLocales ?? HREFLANG_LOCALES;
-  const frenchIsIndexedAlternate = hreflangLocales.includes('fr');
-  if (locale === 'fr' && !frenchIsIndexedAlternate) {
+  if (locale !== routing.defaultLocale && !hreflangLocales.includes(locale)) {
     return `${siteUrl}${getI18nPath(path, routing.defaultLocale)}`;
   }
   return `${siteUrl}${getI18nPath(path, locale)}`;

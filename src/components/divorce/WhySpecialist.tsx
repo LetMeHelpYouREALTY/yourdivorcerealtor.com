@@ -40,7 +40,7 @@ export function WhySpecialist() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title={messaging.headlines.notUsual}
-          description="The real estate portion of your case deserves an expert, the same as every other aspect of your case."
+          description="The house is often the largest line in the settlement. It deserves its own specialist, the same as the custody and support terms do."
         />
 
         <blockquote className="mx-auto mb-10 max-w-prose rounded-r-xl border-l-4 border-blue-600 bg-white/90 py-4 pr-5 pl-6 text-center text-base leading-relaxed text-gray-800 shadow-sm sm:mb-12 sm:py-5 sm:text-lg">

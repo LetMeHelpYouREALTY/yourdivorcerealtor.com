@@ -2,10 +2,15 @@ import type { Metadata } from 'next';
 import type { PageProps } from '@/types';
 import { setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
-import { CalendlyLink } from '@/components/calendly/CalendlyLink';
+import { DirectAnswer } from '@/components/divorce/DirectAnswer';
 import { DivorcePageTemplate } from '@/components/divorce/DivorcePageTemplate';
+import { HighValueHomeNote } from '@/components/divorce/HighValueHomeNote';
+import { KeyFacts } from '@/components/divorce/KeyFacts';
+import { NextSteps } from '@/components/divorce/NextSteps';
+import { PageFAQ } from '@/components/divorce/PageFAQ';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { CONTENT_LAST_UPDATED, toSchemaDateTime } from '@/lib/content-dates';
+import { LEGAL_DISCLAIMER, LUXURY_2026, LVR_SEPT_2026, NEVADA_LAW } from '@/lib/market-data';
 import { generateLocaleAlternates, getCanonicalSiteUrl } from '@/lib/metadata';
 import {
   generateArticleSchema,
@@ -22,9 +27,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Community Property Divorce House | Nevada Community Property Laws | Dr. Jan Duffy',
-    description: 'Complete guide to community property and divorce house in Nevada. How community property laws affect property division, home sales, and equity split. Expert guidance.',
-    keywords: 'community property divorce house, Nevada community property divorce, community property laws Nevada, divorce community property division',
+    title: 'Community Property and the House in Nevada | Dr. Jan Duffy',
+    description: 'How Nevada community property law treats the house: the NRS 125.150 equal-division rule, separate property, mixed homes, and the transfer tax exemption.',
     alternates: { canonical, languages },
   };
 }
@@ -38,28 +42,36 @@ export default async function CommunityPropertyDivorceHouse(props: PageProps) {
   const communityPropertyFaqs = [
     {
       question: 'Does it matter whose name is on the title?',
-      answer: 'In Nevada, title doesn\'t determine community property status. If the home was acquired during marriage with marital funds, it\'s community property regardless of whose name is on the title.',
+      answer: 'Not for whether the equity is shared. In Nevada, a home acquired during the marriage with community funds is community property even if only one spouse is on the deed. Title matters for the mechanics: who signs the deed at closing, and whether a spouse was added later, which can raise a question about the character of the property.',
     },
     {
       question: 'What if only one spouse paid the mortgage?',
-      answer: 'It doesn\'t matter who made mortgage payments during marriage. If payments came from community property funds (income earned during marriage), the equity is community property and divided equally.',
+      answer: 'It does not change the division if the payments came from community income earned during the marriage. That money belongs to both spouses, so the equity it built is community property divided equally. The result differs only when the payments can be traced to one spouse’s separate funds, such as an inheritance kept apart.',
     },
     {
       question: 'What if we used separate property for the down payment?',
-      answer: 'If one spouse used separate property (pre-marital funds or inheritance) for the down payment, they may be entitled to reimbursement of that amount before dividing remaining equity. This requires careful tracing of funds.',
+      answer: 'The spouse who contributed separate funds may be entitled to recover that amount, or a share of the appreciation tied to it, before the community equity is divided. The claim depends on tracing the money from a separate account into the purchase. Closing disclosures and bank statements are the evidence.',
+    },
+    {
+      question: 'Can a judge divide the house unequally in Nevada?',
+      answer: 'Yes, but only with a compelling reason set out in writing under NRS 125.150. Unequal division is the exception. It usually involves one spouse wasting or hiding community assets, not a difference in income. Most Las Vegas cases end with an equal split of the home’s equity, by sale or by buyout.',
+    },
+    {
+      question: 'Is a home I inherited during the marriage community property?',
+      answer: 'An inheritance is separate property, even if received during the marriage. It can become mixed if community income paid the mortgage or funded improvements, or if you added your spouse to the deed. Keeping it separate means keeping the records that show no community money went in.',
     },
   ];
 
   const articleSchema = generateArticleSchema(
-    'Community Property and Divorce House: Nevada Law Guide',
-    'Complete guide to community property and divorce house in Nevada. How community property laws affect property division, home sales, and equity split.',
+    'Community Property and the House in Nevada',
+    'How Nevada community property law treats the marital home: the equal-division rule, separate property, mixed homes, and the decree transfer tax exemption.',
     getCanonicalSiteUrl(currentPath, locale),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
   );
   const serviceSchema = generateServiceSchema(
     'Community Property Divorce Services',
-    'Complete guide to community property and divorce house in Nevada. How community property laws affect property division, home sales, and equity split.',
+    'Dated valuations and equity worksheets that support community and separate property claims on the marital home in a Nevada divorce.',
     ['Las Vegas', 'Henderson', 'Summerlin', 'North Las Vegas'],
   );
   const realEstateAgentSchema = generateRealEstateAgentSchema();
@@ -70,176 +82,188 @@ export default async function CommunityPropertyDivorceHouse(props: PageProps) {
       <StructuredData data={[articleSchema, serviceSchema, realEstateAgentSchema, faqPageSchema]} />
       <DivorcePageTemplate
         h1="Community Property and Divorce House: Nevada Law Guide"
-        heroSubhead="Understanding How Community Property Laws Affect Your Home"
+        heroSubhead="What the equal-division rule means for the home, and where it bends"
         showHomeValue
         currentPath={currentPath}
         datePublished={CONTENT_LAST_UPDATED}
         dateModified={CONTENT_LAST_UPDATED}
       >
+        <DirectAnswer question="Is the house community property in a Nevada divorce?">
+          Usually, yes. A home bought during the marriage with community funds is community property in Nevada, whichever spouse is on the deed. The court divides community property equally unless it finds a compelling reason, stated in writing, to do otherwise. A home owned before the marriage or received by gift or inheritance is separate property, though community payments on it can create a community claim.
+        </DirectAnswer>
+
+        <KeyFacts
+          facts={[
+            { label: 'Las Vegas single-family median, Sept 2026', value: LVR_SEPT_2026.medianSfrPrice },
+            { label: 'Single-family homes sold in the month', value: LVR_SEPT_2026.sfrUnitsSold },
+            { label: 'Homes sold within 30 days', value: LVR_SEPT_2026.soldWithin30DaysPct },
+          ]}
+          source={LVR_SEPT_2026.source}
+          sourceUrl={LVR_SEPT_2026.url}
+        />
+
         <div className="prose prose-lg mx-auto max-w-4xl">
-          <h2>Nevada Community Property Laws</h2>
+          <h2>What community property means for the house</h2>
           <p>
-            Nevada is a community property state, which significantly affects how your house is divided during divorce. Understanding these laws helps you make informed decisions about your property and ensures fair outcomes.
+            Community property is what either spouse acquires during the marriage, other than by gift or inheritance. Wages are community income, so a home bought with wages, or paid down with them, is community property. The practical effect is that each spouse owns half the equity, regardless of whose name is on the deed or the loan. That half is what gets divided when the marriage ends.
+          </p>
+          <p>
+            {NEVADA_LAW.communityPropertyRule}
+            {' '}
+            The rule is
+            {' '}
+            {NEVADA_LAW.communityPropertyCite}
+            . Equal does not mean the house is cut in half. It means each spouse walks away with half the value, by selling and splitting the net proceeds or by one spouse paying the other for their share.
+            {' '}
+            {LEGAL_DISCLAIMER}
           </p>
 
-          <h2>What is Community Property?</h2>
+          <h2>Community property versus separate property</h2>
           <p>
-            Community property is property acquired during marriage using marital funds. In Nevada, community property is divided equally (50/50) during divorce, regardless of whose name is on the title or who made payments.
+            Separate property is what a spouse owned before the marriage, or received during it by gift or inheritance, and kept apart from community funds. It stays with that spouse. The line is clean on paper and blurry in practice, because most couples mix money over years of marriage. Deciding which bucket the house sits in is the first step in every division.
           </p>
-          <p>
-            <strong>Key characteristics:</strong>
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Acquired during marriage</li>
-            <li>Purchased with marital funds</li>
-            <li>Divided equally (50/50) in divorce</li>
-            <li>Both spouses have equal rights</li>
+          <h3>Usually community</h3>
+          <ul>
+            <li>A home purchased during the marriage with wages or joint savings.</li>
+            <li>Equity built by mortgage payments made from community income.</li>
+            <li>Improvements paid with joint funds, and the value they added.</li>
           </ul>
-
-          <h2>Community Property vs. Separate Property</h2>
-          <h3>Community Property (Divided 50/50)</h3>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Home purchased during marriage</li>
-            <li>Equity acquired during marriage</li>
-            <li>Mortgage payments made during marriage</li>
-            <li>Home improvements made with marital funds</li>
+          <h3>Usually separate</h3>
+          <ul>
+            <li>A home one spouse owned before the wedding.</li>
+            <li>A home received as a gift or inheritance during the marriage.</li>
+            <li>A down payment traced to a separate account that never held community money.</li>
           </ul>
-
-          <h3>Separate Property (Retained by Owner)</h3>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Home owned before marriage</li>
-            <li>Property received as gift or inheritance</li>
-            <li>Property purchased with separate property funds</li>
+          <h3>When separate property becomes mixed</h3>
+          <ul>
+            <li>The other spouse was added to the deed.</li>
+            <li>Community income paid the mortgage on a pre-marital home for years.</li>
+            <li>Joint funds paid for a remodel that raised the value.</li>
+            <li>Separate and community money were pooled in one account and then used for the house.</li>
           </ul>
           <p>
-            <strong>When separate property can become marital property:</strong>
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>The other spouse&apos;s name was added to the deed</li>
-            <li>The other spouse made mortgage payments or contributed to the property</li>
-            <li>The property appreciated in value due to marital efforts, financial contributions, or improvements made with community funds</li>
-            <li>Community property funds were used to pay the mortgage on a pre-marital home</li>
-          </ul>
-          <p>
-            If there is a question about who is eligible for proceeds from the sale, seek advice from a skilled family law attorney.
+            If there is any question about who is entitled to what, that is a conversation with a family law attorney before the home is listed or a buyout is priced.
+            {' '}
+            {LEGAL_DISCLAIMER}
           </p>
 
-          <h2>How Community Property Affects Your House</h2>
-          <h3>If House Was Purchased During Marriage</h3>
+          <h2>Title does not decide ownership, but it does decide the mechanics</h2>
           <p>
-            If your house was purchased during marriage with marital funds, it's community property and divided equally. This means:
+            Many spouses believe the house belongs to whoever is on the deed. In Nevada, it does not work that way for property acquired during the marriage. The character of the property comes from when and how it was acquired and what money paid for it. Title still matters for the paperwork: the spouse on the deed signs the transfer, and the lender recognizes only the borrowers on the note.
           </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Equity is divided 50/50</li>
-            <li>Both spouses have equal rights to the property</li>
-            <li>Both must agree to sell (or court can order sale)</li>
-            <li>Proceeds are split 50/50</li>
-          </ul>
-
-          <h3>If One Spouse Owned House Before Marriage</h3>
           <p>
-            If one spouse owned the house before marriage, they retain pre-marital equity. However:
+            Two consequences follow. A spouse who is not on title still needs to sign a listing agreement and the closing documents, or the sale will not close cleanly. And a spouse who is on the loan but gives up the house remains liable to the lender until that loan is refinanced or paid off, whatever the deed or the decree says. The
+            {' '}
+            <Link href="/quitclaim-deed-divorce" className="text-blue-600 underline hover:text-blue-700">quitclaim deed page</Link>
+            {' '}
+            and the
+            {' '}
+            <Link href="/remove-spouse-from-mortgage-after-divorce" className="text-blue-600 underline hover:text-blue-700">mortgage removal page</Link>
+            {' '}
+            cover both.
           </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Community property contributions create community interest</li>
-            <li>Mortgage payments made during marriage create community equity</li>
-            <li>Home improvements made with marital funds increase community value</li>
-            <li>These community contributions must be divided</li>
-          </ul>
 
-          <h2>Calculating Community Property Interest</h2>
+          <h2>A mixed-home example with round numbers</h2>
           <p>
-            When separate property is involved, calculating community property interest can be complex:
+            Here is a hypothetical to show why mixed homes need records. Say one spouse bought a home before the marriage and had $200,000 of equity on the wedding date. During a ten-year marriage, community income paid the mortgage down by $150,000 and funded a $100,000 remodel. Today the home appraises at $1,200,000 with a $350,000 loan balance, so the equity is $850,000.
           </p>
           <div className="my-6 rounded-lg border border-gray-200 bg-gray-50 p-6">
-            <p className="mb-2 font-semibold">Example Calculation:</p>
+            <p className="mb-2 font-semibold">Hypothetical mixed-home figures</p>
             <ul className="space-y-1 text-sm">
-              <li>Home value: $500,000</li>
-              <li>Pre-marital value: $200,000 (separate property)</li>
-              <li>Current mortgage: $300,000</li>
-              <li>Equity: $200,000</li>
-              <li className="mt-2 border-t pt-2">Pre-marital equity: $200,000 (owner retains)</li>
-              <li>Community equity: $0 (mortgage equals pre-marital value)</li>
-              <li>But: Community payments made = community interest</li>
+              <li>Equity at date of marriage (separate): $200,000</li>
+              <li>Principal paid down with community income: $150,000</li>
+              <li>Remodel paid with community funds: $100,000</li>
+              <li>Appraised value today: $1,200,000</li>
+              <li>Loan balance today: $350,000</li>
+              <li className="border-t pt-1">Equity today: $850,000</li>
+              <li>Appreciation during the marriage: to be apportioned</li>
             </ul>
           </div>
           <p>
-            Dr. Jan Duffy helps calculate these complex scenarios accurately.
+            How the appreciation is apportioned between the separate and community interests is a legal question that Nevada attorneys argue on the facts. The agent’s contribution is the value at the date of marriage, the value today, and the comparable sales behind both. Without the marriage-date value, the apportionment cannot be done at all.
+            {' '}
+            {LEGAL_DISCLAIMER}
           </p>
 
-          <h2>Community Property and Home Sales</h2>
+          <h2>Selling or buying out a community home</h2>
           <p>
-            When selling a community property home:
+            Once the character of the home is settled, the division happens one of two ways. In a sale, both spouses sign the listing and the net proceeds are split according to the decree. In a buyout, one spouse pays the other for their share, usually by refinancing into one name, and the other signs a deed. The equity number drives both, so a dated valuation comes first.
           </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Both spouses typically must agree to sell</li>
-            <li>Both signatures required on listing agreement</li>
-            <li>Proceeds divided according to community property rules</li>
-            <li>Court can order sale if spouses can't agree</li>
+          <ul>
+            <li>
+              <strong>Both signatures:</strong>
+              {' '}
+              a community home cannot be listed or sold by one spouse alone. If one refuses, the other can ask the court to order the sale.
+            </li>
+            <li>
+              <strong>Buyout amount:</strong>
+              {' '}
+              the other spouse’s share of the equity, adjusted for any separate-property claim. See
+              {' '}
+              <Link href="/divorce-buyout-options" className="text-blue-600 underline hover:text-blue-700">buyout options</Link>
+              .
+            </li>
+            <li>
+              <strong>Proceeds split:</strong>
+              {' '}
+              net of payoff, commissions, closing costs, and transfer tax. See
+              {' '}
+              <Link href="/splitting-house-proceeds-divorce" className="text-blue-600 underline hover:text-blue-700">splitting house proceeds</Link>
+              .
+            </li>
           </ul>
 
-          <h2>Community Property and Buyouts</h2>
           <p>
-            In a buyout situation:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Buyout amount equals other spouse's community property share</li>
-            <li>Typically 50% of equity if fully community property</li>
-            <li>May be different if separate property is involved</li>
-            <li>Accurate valuation is essential for fair buyout</li>
-          </ul>
-
-          <h2>Common Community Property Questions</h2>
-          <div className="mt-6 space-y-4">
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">Does it matter whose name is on the title?</h3>
-              <p>
-                In Nevada, title doesn't determine community property status. If the home was acquired during marriage with marital funds, it's community property regardless of whose name is on the title.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">What if only one spouse paid the mortgage?</h3>
-              <p>
-                It doesn't matter who made mortgage payments during marriage. If payments came from community property funds (income earned during marriage), the equity is community property and divided equally.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">What if we used separate property for the down payment?</h3>
-              <p>
-                If one spouse used separate property (pre-marital funds or inheritance) for the down payment, they may be entitled to reimbursement of that amount before dividing remaining equity. This requires careful tracing of funds.
-              </p>
-            </div>
-          </div>
-
-          <h2>Working with Your Attorney</h2>
-          <p>
-            Community property laws are complex, and your situation may have unique factors. Your family law attorney can help you understand how these laws apply to your specific case. Dr. Jan Duffy works with attorneys to provide property valuations and calculations that support your legal case.
+            Whichever path you take, the agent should work for the transaction rather than for one spouse. That means the same valuation, the same net proceeds estimate, and the same timeline delivered to both attorneys on the same day, with showing rules and offer decisions handled in writing so neither spouse is surprised.
           </p>
 
-          <h2>Get Expert Help</h2>
+          <h2>Deeds, decrees, and the transfer tax exemption</h2>
           <p>
-            Understanding community property laws and how they affect your house requires specialized knowledge. Dr. Jan Duffy understands Nevada community property laws and helps you navigate property division accordingly.
+            When one spouse keeps the home, the other signs an interspousal or quitclaim deed and the decree is recorded with it. Clark County charges real property transfer tax at
+            {' '}
+            {NEVADA_LAW.transferTaxClarkPer500}
+            {' '}
+            per $500 of value, or
+            {' '}
+            {NEVADA_LAW.transferTaxClarkPer1000}
+            {' '}
+            per $1,000.
+            {' '}
+            {NEVADA_LAW.transferTaxDivorceExemption}
+            {' '}
+            A sale to a third party pays the full tax from the proceeds.
           </p>
-          <div className="my-8 border-l-4 border-blue-600 bg-blue-50 p-6">
-            <h3 className="mb-2 text-xl font-semibold">Need Help Understanding Community Property?</h3>
-            <p className="mb-4">
-              Schedule a consultation with Dr. Jan Duffy to discuss how Nevada community property laws affect your house and property division.
-            </p>
-            <CalendlyLink
-              className="inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-            >
-              Schedule Your Consultation
-            </CalendlyLink>
-          </div>
-
-          <h2>Related Resources</h2>
-          <ul className="list-disc space-y-2 pl-6">
-            <li><Link href="/divorce-property-division" className="text-blue-600 underline hover:text-blue-700">Property Division Guide</Link></li>
-            <li><Link href="/divorce-home-equity-split" className="text-blue-600 underline hover:text-blue-700">Home Equity Split</Link></li>
-            <li><Link href="/splitting-house-proceeds-divorce" className="text-blue-600 underline hover:text-blue-700">Splitting House Proceeds</Link></li>
-            <li><Link href="/divorce-home-valuation" className="text-blue-600 underline hover:text-blue-700">Get Your Home Valuation</Link></li>
-          </ul>
+          <p>
+            The exemption is claimed on the declaration of value filed with the deed, and the recorder expects the decree reference to match. Source:
+            {' '}
+            {NEVADA_LAW.transferTaxCite}
+            .
+            {' '}
+            {LEGAL_DISCLAIMER}
+          </p>
         </div>
+
+        <HighValueHomeNote
+          points={[
+            `Half the equity in a $3,000,000 community home is a $1,500,000 obligation for the spouse who stays. Any refinance above ${LUXURY_2026.jumboThreshold2026} is a jumbo loan with stricter income, reserve, and loan-to-value requirements.`,
+            'Separate-property tracing on a custom home often reaches back to a lot purchase and a construction loan. The value at the date of marriage may need a retrospective appraisal, which is a different assignment from a current one.',
+            'Two licensed appraisals, with a written method for reconciling them, settle the equity number on homes in The Ridges, MacDonald Highlands, and Southern Highlands where appraisal spread is widest.',
+            `Transfer tax on a sale is ${NEVADA_LAW.transferTaxExample2M}. A decree transfer between former spouses is exempt, which favors a buyout when one spouse can qualify.`,
+            'Club memberships at Red Rock Country Club, DragonRidge, Anthem Country Club, and The Summit Club have their own community or separate character and their own transfer rules. List them in the decree beside the home.',
+          ]}
+        />
+
+        <NextSteps
+          steps={[
+            { title: 'Private call', detail: 'A short conversation about when the home was bought, what paid for it, and whose names are on the deed and loan.' },
+            { title: 'Dated valuation', detail: 'A current comparative market analysis, and a marriage-date value if a separate-property claim is in play.' },
+            { title: 'Equity worksheet', detail: 'Community and separate figures laid out for your attorney, with the comparable sales attached.' },
+            { title: 'Division plan', detail: 'Sale or buyout, with the timeline and documents escrow will need.' },
+          ]}
+          callPromise="You leave the call knowing which bucket the home sits in and what the equity is."
+        />
+
+        <PageFAQ faqs={communityPropertyFaqs} />
       </DivorcePageTemplate>
     </>
   );

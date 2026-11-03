@@ -43,5 +43,5 @@ export function proxy(request: NextRequest) {
 
 // Export config for matcher (required for proxy.ts in Next.js 16)
 export const config = {
-  matcher: ['/', '/(en|fr)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/', '/(en)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
 };

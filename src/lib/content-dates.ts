@@ -5,7 +5,7 @@
  */
 
 /** Date-only (YYYY-MM-DD) for "last updated" used across article pages. */
-export const CONTENT_LAST_UPDATED = '2025-02-16';
+export const CONTENT_LAST_UPDATED = '2026-11-03';
 
 /**
  * Format an ISO date string for user-visible byline (e.g. "Feb 16, 2025").

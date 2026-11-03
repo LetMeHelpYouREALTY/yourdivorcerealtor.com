@@ -26,6 +26,8 @@ export const Env = createEnv({
   shared: {
     NODE_ENV: z.enum(['test', 'development', 'production']).optional(),
   },
+  // CI and some hosts pass unset secrets as empty strings; treat those as unset.
+  emptyStringAsUndefined: true,
   // You need to destructure all the keys manually
   runtimeEnv: {
     ARCJET_KEY: process.env.ARCJET_KEY,

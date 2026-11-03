@@ -2,11 +2,15 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { CalendlyInline } from '@/components/calendly/CalendlyInline';
 import { CalendlyLink } from '@/components/calendly/CalendlyLink';
+import { DirectAnswer } from '@/components/divorce/DirectAnswer';
 import { DivorcePageTemplate } from '@/components/divorce/DivorcePageTemplate';
 import { FAQAccordion } from '@/components/faq/FAQAccordion';
 import { StructuredData } from '@/components/seo/StructuredData';
-import { generateLocaleAlternates } from '@/lib/metadata';
+import { CONTENT_LAST_UPDATED, toSchemaDateTime } from '@/lib/content-dates';
+import { COMMUNITY_12MO, LEGAL_DISCLAIMER, LUXURY_2026, NEVADA_LAW } from '@/lib/market-data';
+import { generateLocaleAlternates, getCanonicalSiteUrl } from '@/lib/metadata';
 import {
+  generateArticleSchema,
   generateFAQPageSchema,
   generateRealEstateAgentSchema,
 } from '@/lib/schema';
@@ -23,9 +27,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Divorce Real Estate Questions Answered | FAQ',
-    description: 'Frequently asked questions about divorce real estate in Las Vegas. Get answers about property division, home sales, buyouts, and more.',
-    keywords: 'divorce property faq, divorce real estate questions, las vegas divorce realtor faq',
+    title: 'Las Vegas Divorce Real Estate Questions | Dr. Jan Duffy',
+    description: 'Twenty answers on selling, buyouts, deeds, court-ordered sales, and luxury issues: jumbo refinancing, appraisal spread, and $5.10 per $1,000 transfer tax.',
     alternates: { canonical, languages },
   };
 }
@@ -38,43 +41,43 @@ export default async function FAQ(props: IFAQProps) {
   const faqs = [
     {
       question: 'Do I need to sell my home during divorce?',
-      answer: 'Not necessarily. You have several options: sell and split proceeds, one spouse buys out the other, co-own temporarily, or refinance to remove one spouse. The best option depends on your financial situation, emotional needs, and long-term goals. Dr. Jan Duffy can help you understand all your options and choose the path that makes the most sense for you.',
+      answer: 'Not necessarily. You have four options: sell and split the net proceeds, one spouse buys out the other, co-own for a set period, or refinance to remove one spouse from the loan. Which one fits depends on equity, who can carry the loan alone, and the timeline in your case. Each option gets a number and a date so you can compare them.',
     },
     {
       question: 'How do I know what my home is worth?',
-      answer: 'Dr. Jan Duffy provides comprehensive home valuations using comparable sales, current market conditions, and property-specific factors. This valuation is essential for property division negotiations, buyout calculations, and making informed decisions about your property.',
+      answer: 'A written valuation built from closed comparable sales in your subdivision or tower, active competition, and the condition of the home, minus loan payoff, liens, and selling costs. Both spouses receive the same report. It supports settlement talks, the buyout figure, and, when a judge needs it, testimony.',
     },
     {
       question: 'What if my spouse won\'t cooperate?',
-      answer: 'Dr. Jan Duffy has experience handling non-cooperative situations. Her escalation protocol helps get transactions back on track, and she can work with attorneys and court orders when necessary. She maintains neutrality while ensuring the process moves forward.',
+      answer: 'The listing plan sets showing access and sign-off deadlines in writing before the home goes live. If a spouse blocks showings or will not sign, the escalation protocol documents each event with dates so counsel can act on a record. Neutrality holds throughout; the sale moves on the schedule, not on the argument.',
     },
     {
       question: 'How long does selling a home during divorce take?',
-      answer: 'The timeline depends on market conditions, property specifics, and any court orders or settlement agreements. Dr. Jan Duffy provides clear timelines upfront so you know what to expect. Typically, the process takes 60-90 days from listing to closing, but this can vary.',
+      answer: 'It depends on price band, condition, and any court order or settlement terms. You receive a dated timeline before listing: list date, expected contract date, close date, and move-out date. Most Las Vegas sales run 60 to 90 days from listing to closing; custom homes above $1 million often take longer.',
     },
     {
       question: 'Can one spouse keep the home?',
-      answer: 'Yes, if one spouse wants to keep the home, they can buy out the other spouse\'s share. This involves determining the home\'s value, calculating the buyout amount, and refinancing the mortgage to remove the other spouse. Dr. Jan Duffy can guide you through this entire process.',
+      answer: 'Yes. The staying spouse buys out the other spouse\'s share. That takes a valuation, a buyout figure based on net equity, and a refinance into one name so the leaving spouse comes off the loan. The decree or settlement sets the figure; the lender needs it before underwriting.',
     },
     {
       question: 'What is a quitclaim deed?',
-      answer: 'A quitclaim deed transfers ownership interest in a property from one person to another. In divorce, it\'s often used when one spouse transfers their interest to the other, typically as part of a buyout or property division agreement. Dr. Jan Duffy can explain how quitclaim deeds work in your situation.',
+      answer: 'A quitclaim deed transfers whatever interest one person holds in a property to another. In divorce it moves one spouse\'s interest to the other as part of a buyout or division. It does not remove anyone from the mortgage; that takes a refinance. A deed between former spouses under the decree is exempt from Nevada transfer tax.',
     },
     {
       question: 'Do I need a realtor if I\'m going through a divorce?',
-      answer: 'While not legally required, a divorce real estate specialist like Dr. Jan Duffy provides invaluable expertise. She understands the unique challenges of divorce transactions, can coordinate with attorneys, and ensures the process supports your overall divorce resolution. Her specialized knowledge can save you time, money, and stress.',
+      answer: 'Not by law. A divorce listing has two owners, two attorneys, and often a decree that controls price, timing, and disbursement. A specialist builds the listing around that: written showing rules, sign-off deadlines, escrow instructions counsel approves, and one update to everyone. That is what keeps the sale out of court a second time.',
     },
     {
       question: 'How much does divorce real estate service cost?',
-      answer: 'Costs vary depending on the services needed. Dr. Jan Duffy provides transparent pricing and can explain all costs upfront. Typically, if you\'re selling, the commission is similar to traditional real estate transactions. For consultations and valuations, fees are discussed during your initial consultation.',
+      answer: 'The first call is free. On a sale, compensation is a commission paid from proceeds at closing, agreed in writing before listing. Valuation reports for mediation or court, and testimony, are quoted separately. Every fee is in writing before work starts so both spouses and both attorneys see the same terms.',
     },
     {
       question: 'What if the court orders us to sell?',
-      answer: 'Dr. Jan Duffy has extensive experience with court-ordered sales. She ensures all court orders are followed exactly, maintains neutrality, and coordinates with attorneys to ensure compliance. Her expertise in court-ordered transactions helps ensure smooth, timely closings.',
+      answer: 'The order controls the sale: list price, price-reduction schedule, showing access, and how proceeds are disbursed. The listing follows it as written and progress is reported back to the court and both counsel. If a party blocks the sale, the record of each event goes to counsel so the court can act.',
     },
     {
       question: 'Can I buy a new home before the divorce is final?',
-      answer: 'Yes, you can buy a new home before your divorce is final, but there are important considerations. Your ability to qualify for a mortgage, how the purchase affects property division, and timing relative to your divorce proceedings all matter. Dr. Jan Duffy can help you understand these considerations and plan accordingly.',
+      answer: 'Yes, with care. A home bought before the decree may be community property under Nevada law unless the settlement says otherwise, and lenders count your current mortgage against you until the refinance or sale closes. Talk with counsel and a lender before writing an offer. Timing the purchase after the decree is often simpler.',
     },
     {
       question: 'Do I need to disclose the divorce to buyers?',
@@ -92,36 +95,82 @@ export default async function FAQ(props: IFAQProps) {
       question: 'What if we own multiple properties?',
       answer: 'The same principles apply—divide or sell each property. With multiple properties you have more options, such as offsetting values between homes. An attorney can help structure the division, for example using LLCs or a trust to manage sales and disbursements.',
     },
+    {
+      question: 'Can I refinance a jumbo loan to buy out my spouse?',
+      answer: `Often, yes, but underwriting is stricter. In 2026 any Clark County loan above ${LUXURY_2026.jumboThreshold2026} is jumbo. Jumbo lenders want the staying spouse to qualify on one income, show reserves, and document the buyout funds. The decree or settlement sets the buyout figure, and the lender needs it before underwriting. Start the lender conversation before the valuation so the number you agree to is one you can borrow.`,
+    },
+    {
+      question: 'Why do two appraisals on a custom home come back so far apart?',
+      answer: `Custom homes have few true comparables. In The Ridges, 12-month sales ran from ${COMMUNITY_12MO.theRidges.lowSale} to ${COMMUNITY_12MO.theRidges.highSale}, so two appraisers choosing different comps and view adjustments can land hundreds of thousands apart. The fix is a two-appraisal protocol written into the agreement: each spouse selects an appraiser, and the agreement names how a gap is resolved, by averaging or by a third report.`,
+    },
+    {
+      question: 'What happens to our country club membership in the divorce?',
+      answer: 'Memberships at Red Rock Country Club, DragonRidge, Anthem Country Club, and The Summit Club are separate from the deed. Transfer rules, deposits, resignation lists, and whether a buyer can assume the membership are set by club bylaws, not the decree. Ask the club for its transfer policy in writing before the settlement is drafted, so the agreement names who keeps the membership and who pays dues until then.',
+    },
+    {
+      question: 'How do showings work in a guard-gated community during a divorce?',
+      answer: 'No open houses. Each showing is called in to the gate with the agent\'s name, the buyer\'s name, and a time window, and the buyer is verified before entry. Both spouses agree in writing to a showing schedule, who vacates during showings, and whether private-network exposure comes before the public MLS. That protects privacy and gives the court a clean record if access is later disputed.',
+    },
+    {
+      question: 'We have about $2 million of gain on the house. How much is excluded from tax?',
+      answer: `Section 121 excludes up to $250,000 of gain for a single filer and $500,000 for a married couple filing jointly, if you owned and used the home as your main residence for 2 of the last 5 years. On a $2,000,000 gain that leaves at least $1,500,000 taxable, so whether you sell before or after the decree can change the result. ${NEVADA_LAW.noStateIncomeTax} Confirm the timing with a CPA.`,
+    },
+    {
+      question: 'Who pays Nevada transfer tax on a $2 million sale?',
+      answer: `Clark County charges ${NEVADA_LAW.transferTaxClarkPer1000} per $1,000 of value, which is ${NEVADA_LAW.transferTaxExample2M}. By local custom the seller pays it, though the contract can shift it. ${NEVADA_LAW.transferTaxDivorceExemption} So a buyout deed under the decree owes no transfer tax, but a later sale to a third party does.`,
+    },
   ];
 
   const faqPageSchema = generateFAQPageSchema(faqs);
   const realEstateAgentSchema = generateRealEstateAgentSchema();
+  const articleSchema = generateArticleSchema(
+    'Las Vegas Divorce Real Estate Questions',
+    'Twenty answers on selling, buyouts, quitclaim deeds, court-ordered sales, and luxury issues such as jumbo refinancing, appraisal spread, and transfer tax.',
+    getCanonicalSiteUrl(currentPath, locale),
+    toSchemaDateTime(CONTENT_LAST_UPDATED),
+    toSchemaDateTime(CONTENT_LAST_UPDATED),
+  );
 
   return (
     <>
-      <StructuredData data={[faqPageSchema, realEstateAgentSchema]} />
+      <StructuredData data={[articleSchema, faqPageSchema, realEstateAgentSchema]} />
       <DivorcePageTemplate
-        h1="Divorce Real Estate Questions Answered"
-        heroSubhead="Your Questions, Expert Answers"
+        h1="Divorce Real Estate Questions"
+        heroSubhead="Selling, buyouts, deeds, court orders, and what changes above $1 million."
         currentPath={currentPath}
+        datePublished={CONTENT_LAST_UPDATED}
+        dateModified={CONTENT_LAST_UPDATED}
       >
         <div className="mx-auto max-w-4xl">
-          <div className="prose prose-lg mb-12">
-            <h2>Common Questions About Divorce Real Estate</h2>
+          <DirectAnswer question="What are the most common divorce real estate questions in Las Vegas?">
+            Whether you must sell, what the house is worth, how a buyout and refinance work, how long a sale takes, and
+            what a court order controls. For homes above the 2026 jumbo line of
+            {' '}
+            {LUXURY_2026.jumboThreshold2026}
+            {' '}
+            the questions shift to jumbo underwriting, appraisal spread on custom homes, club membership transfer,
+            guard-gated showings, Section 121 on a large gain, and transfer tax. All twenty are answered below.
+          </DirectAnswer>
+
+          <div className="prose prose-lg mt-10 mb-12">
+            <h2>Twenty questions, answered with numbers</h2>
             <p>
-              Navigating divorce real estate raises many questions. Here are answers to the most common questions Dr. Jan Duffy receives from divorcing homeowners in Las Vegas. If you don't see your question here, schedule a consultation for personalized guidance.
+              The first fourteen cover every divorce sale. The last six cover what changes when the home is a custom
+              build in The Ridges or MacDonald Highlands, a club property, or a Strip tower. If your question is not
+              here, a 15-minute call usually answers it.
             </p>
           </div>
 
           {/* Interactive FAQ Accordion */}
-          <div className="mb-12">
+          <div className="mb-4">
             <FAQAccordion faqs={faqs} />
           </div>
+          <p className="mb-12 text-sm text-gray-600 italic">{LEGAL_DISCLAIMER}</p>
 
           <div className="mb-12">
-            <h3 className="mb-4 text-xl font-bold text-gray-900">Schedule a call for personalized answers</h3>
+            <h3 className="mb-4 text-xl font-bold text-gray-900">Ask about your house</h3>
             <p className="mb-4 text-gray-600">
-              Every divorce situation is unique. Schedule a free 15-minute consultation to get answers tailored to your circumstances.
+              A private 15-minute call, no fee. You leave with a value range, your options, and the next decision.
             </p>
             <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
               <CalendlyInline />
@@ -129,26 +178,22 @@ export default async function FAQ(props: IFAQProps) {
           </div>
 
           <div className="prose prose-lg max-w-none rounded-lg bg-gray-50 p-8">
-            <h2>Still Have Questions?</h2>
+            <h2>Still have a question?</h2>
             <p>
-              Every divorce situation is unique, and you may have questions specific to your circumstances. Dr. Jan Duffy is here to help. Schedule a confidential consultation to get personalized answers to your questions and expert guidance on your situation.
+              Most remaining questions are about one house, one loan, and one decree. Those are answered on a call, with
+              the address and the paperwork in front of us.
             </p>
 
-            <h3>What to Bring to Your Consultation</h3>
+            <h3>What to have ready</h3>
             <ul>
-              <li>Your divorce paperwork or settlement agreement (if available)</li>
-              <li>Information about your mortgage and any liens</li>
-              <li>Your questions and concerns</li>
-              <li>Any court orders related to property</li>
+              <li>Filed paperwork or the settlement draft, if there is one</li>
+              <li>Loan balance, any HELOC, and any liens</li>
+              <li>Any court order that mentions the house</li>
+              <li>For a club property, the membership agreement</li>
             </ul>
-
-            <h3>Get Expert Answers Today</h3>
-            <p>
-              Don't let unanswered questions delay your ability to move forward. Schedule a consultation with Dr. Jan Duffy today and get the expert answers you need to make informed decisions about your property during divorce.
-            </p>
             <p className="mt-6">
               <CalendlyLink className="inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700">
-                Schedule a Free 15-Minute Call
+                Schedule a private 15-minute call
               </CalendlyLink>
             </p>
           </div>
