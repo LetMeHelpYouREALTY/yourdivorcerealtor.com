@@ -2,13 +2,19 @@ import type { Metadata } from 'next';
 import type { PageProps } from '@/types';
 import { setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
-import { CalendlyLink } from '@/components/calendly/CalendlyLink';
+import { DirectAnswer } from '@/components/divorce/DirectAnswer';
 import { DivorcePageTemplate } from '@/components/divorce/DivorcePageTemplate';
+import { HighValueHomeNote } from '@/components/divorce/HighValueHomeNote';
+import { KeyFacts } from '@/components/divorce/KeyFacts';
+import { NextSteps } from '@/components/divorce/NextSteps';
+import { PageFAQ } from '@/components/divorce/PageFAQ';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { CONTENT_LAST_UPDATED, toSchemaDateTime } from '@/lib/content-dates';
+import { LEGAL_DISCLAIMER, LUXURY_2026, LVR_SEPT_2026, NEVADA_LAW } from '@/lib/market-data';
 import { generateLocaleAlternates, getCanonicalSiteUrl } from '@/lib/metadata';
 import {
   generateArticleSchema,
+  generateFAQPageSchema,
   generateRealEstateAgentSchema,
   generateServiceSchema,
 } from '@/lib/schema';
@@ -16,14 +22,42 @@ import {
 export const dynamic = 'force-dynamic';
 
 const path = '/remove-spouse-from-mortgage-after-divorce';
+const pageTitle = 'Remove Spouse From Mortgage After Divorce';
+const pageDescription = 'Only 3 things remove a spouse from a mortgage after a Nevada divorce: refinance, assumption with a release, or sale. See how each works and the decree language.';
+
+const faqs = [
+  {
+    question: 'Can my spouse be removed from the mortgage without refinancing?',
+    answer: 'Only two ways. The lender can approve an assumption and issue a written release of liability, which is common on FHA, VA, and USDA loans and rare on conventional loans. Or the house sells and the loan is paid off. A quitclaim deed, a decree, or a notarized agreement between the two of you does not change the loan.',
+  },
+  {
+    question: 'Does a quitclaim deed remove my spouse from the mortgage?',
+    answer: 'No. A quitclaim deed changes title at the Clark County Recorder. The promissory note and deed of trust stay with the lender, with both names, until the loan is refinanced, assumed with a release, or paid off. The departing spouse stays liable for every payment in between, and their credit shows the loan.',
+  },
+  {
+    question: 'What does the keeping spouse need to qualify alone?',
+    answer: 'Enough documented income to carry the new payment plus other debts, a credit file the program accepts, and an appraised value that supports the loan amount. Court-ordered support counts when it is in a filed order, arriving on schedule, and expected to continue well past closing. Above the jumbo line, reserves after closing are required too.',
+  },
+  {
+    question: 'How long does it take to remove a spouse from the mortgage?',
+    answer: 'A refinance typically runs 30 to 45 days from a complete application to funding, as a typical range rather than a promise. An assumption often takes longer because servicers process them slowly. A sale depends on the market plus escrow; in September 2026 most Las Vegas single-family homes sold within 30 days on market, then a 30 to 45 day financed escrow.',
+  },
+  {
+    question: 'What should the decree say about the mortgage?',
+    answer: 'Name who keeps the house, the buyout amount and how it was set, a refinance or assumption deadline, who pays the mortgage and HOA until then, and what happens if the loan is not approved by the deadline, usually a listing at a price set by a named method. Also say when the quitclaim deed is signed and recorded.',
+  },
+  {
+    question: 'Is there transfer tax when title moves to one spouse?',
+    answer: `${NEVADA_LAW.transferTaxDivorceExemption} The deed is recorded with a Declaration of Value citing ${NEVADA_LAW.transferTaxCite}. A sale pays ${NEVADA_LAW.transferTaxClarkPer1000} per $1,000 of value instead. ${LEGAL_DISCLAIMER}`,
+  },
+];
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Remove Spouse from Mortgage After Divorce | Refinancing Guide | Dr. Jan Duffy',
-    description: 'Complete guide to removing spouse from mortgage after divorce. Refinancing process, lender requirements, quitclaim deeds, and credit protection. Expert guidance from Las Vegas.',
-    keywords: 'remove spouse from mortgage after divorce, refinance house after divorce, remove name from mortgage divorce, divorce mortgage refinancing',
+    title: `${pageTitle} | Dr. Jan Duffy`,
+    description: pageDescription,
     alternates: { canonical, languages },
   };
 }
@@ -32,321 +66,174 @@ export default async function RemoveSpouseFromMortgageAfterDivorce(props: PagePr
   const { locale } = await props.params;
   setRequestLocale(locale);
 
-  const currentPath = '/remove-spouse-from-mortgage-after-divorce';
+  const currentPath = path;
   const articleSchema = generateArticleSchema(
-    'Remove Spouse from Mortgage After Divorce: Complete Guide',
-    'Complete guide to removing spouse from mortgage after divorce. Refinancing process, lender requirements, quitclaim deeds, and credit protection.',
+    pageTitle,
+    pageDescription,
     getCanonicalSiteUrl(currentPath, locale),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
   );
   const serviceSchema = generateServiceSchema(
-    'Post-Divorce Mortgage Refinancing Services',
-    'Complete guide to removing spouse from mortgage after divorce. Refinancing process, lender requirements, quitclaim deeds, and credit protection.',
+    'Post-Divorce Mortgage Release Guidance',
+    pageDescription,
     ['Las Vegas', 'Henderson', 'Summerlin', 'North Las Vegas'],
   );
   const realEstateAgentSchema = generateRealEstateAgentSchema();
+  const faqSchema = generateFAQPageSchema(faqs);
 
   return (
     <>
-      <StructuredData data={[articleSchema, serviceSchema, realEstateAgentSchema]} />
+      <StructuredData data={[articleSchema, serviceSchema, realEstateAgentSchema, faqSchema]} />
       <DivorcePageTemplate
-        h1="Remove Spouse from Mortgage After Divorce: Complete Guide"
-        heroSubhead="Protect Your Credit and Financial Future"
+        h1="Remove Your Spouse From the Mortgage After Divorce"
+        heroSubhead="Refinance, assumption, or sale: the only three ways"
         currentPath={currentPath}
         datePublished={CONTENT_LAST_UPDATED}
         dateModified={CONTENT_LAST_UPDATED}
       >
+        <DirectAnswer question="How do I remove my spouse from the mortgage after divorce?">
+          Three ways, and only three: refinance the loan into your name alone, have the lender approve an assumption and issue a written release of liability, or sell the house and pay the loan off. A quitclaim deed moves title, not the debt. Until one of those three happens, your former spouse stays liable and the loan stays on their credit. Above
+          {' '}
+          {LUXURY_2026.jumboThreshold2026}
+          {' '}
+          the refinance is jumbo and underwritten on your income alone with reserves.
+        </DirectAnswer>
+
+        <KeyFacts
+          facts={[
+            { label: '2026 jumbo loan line, Clark County', value: LUXURY_2026.jumboThreshold2026 },
+            { label: 'Las Vegas single-family median, Sept 2026', value: LVR_SEPT_2026.medianSfrPrice },
+            { label: 'Homes sold within 30 days, Sept 2026', value: LVR_SEPT_2026.soldWithin30DaysPct },
+            { label: 'Clark County transfer tax per $1,000 (sale)', value: NEVADA_LAW.transferTaxClarkPer1000 },
+          ]}
+          source={`${LUXURY_2026.jumboSource}; ${LVR_SEPT_2026.source}; ${NEVADA_LAW.transferTaxCite}`}
+          sourceUrl={LVR_SEPT_2026.url}
+        />
+
         <div className="prose prose-lg mx-auto max-w-4xl">
-          <h2>Why Remove Spouse from Mortgage?</h2>
+          <h2>Why the mortgage outlives the decree</h2>
           <p>
-            After divorce, if one spouse keeps the house, it's essential to remove the other spouse from the mortgage. This protects the removed spouse's credit, eliminates financial liability, and allows them to qualify for new financing. Simply transferring the deed (quitclaim) doesn't remove mortgage liability—refinancing is required.
+            The decree divides property between two spouses. The mortgage is a contract with a lender who was not in the courtroom. When the decree awards the house to one spouse, the lender still holds a note signed by two borrowers and will collect from either one. The departing spouse stays liable until the loan is refinanced, assumed with a release, or paid off at sale. Nothing in family court changes that.
+          </p>
+          <p>
+            The cost of leaving it alone is real. The departing spouse carries the payment in their debt-to-income ratio when they try to buy or rent. Any late payment posts to both files. And if the keeping spouse stops paying, the lender forecloses on a house the other spouse no longer owns but still owes on.
           </p>
 
-          <h2>Understanding the Difference: Deed vs. Mortgage</h2>
+          <h2>Deed vs. mortgage: two documents, two jobs</h2>
           <p>
-            Many people confuse removing someone from the deed with removing them from the mortgage. These are separate legal actions:
+            A quitclaim deed transfers one spouse's ownership interest to the other and is recorded with the Clark County Recorder. It changes title. The promissory note and deed of trust are the loan, and only the lender can change who owes it. Signing a quitclaim without refinancing leaves the departing spouse in the worst position: no ownership, full liability.
           </p>
-          <ul className="list-disc space-y-2 pl-6">
+          <ul>
             <li>
-              <strong>Deed (Quitclaim):</strong>
+              <strong>Quitclaim or interspousal deed:</strong>
               {' '}
-              Transfers ownership interest in the property
+              changes ownership. Recorded with a Declaration of Value. Exempt from transfer tax when made under the decree.
             </li>
             <li>
-              <strong>Mortgage:</strong>
+              <strong>Note and deed of trust:</strong>
               {' '}
-              The loan obligation that remains until paid off or refinanced
+              the debt and the lender's lien. Changed only by refinance, assumption with release, or payoff.
             </li>
           </ul>
           <p>
-            <strong>Important:</strong>
+            The
             {' '}
-            A quitclaim deed removes ownership but NOT mortgage liability. The removed spouse remains responsible for the mortgage until it's refinanced or paid off.
-          </p>
-
-          <h2>The Refinancing Process</h2>
-          <p>
-            Refinancing is the only way to remove a spouse from the mortgage. The spouse keeping the house must qualify for a new mortgage based solely on their income and credit.
-          </p>
-
-          <h3>Step 1: Qualify for Refinancing</h3>
-          <p>
-            The spouse keeping the house must qualify for refinancing based on:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Individual income (no longer joint income)</li>
-            <li>Credit score and credit history</li>
-            <li>Debt-to-income ratio</li>
-            <li>Home value and equity position</li>
-            <li>Lender requirements</li>
-          </ul>
-
-          <h3>Step 2: Choose Refinancing Type</h3>
-          <p>
-            Several refinancing options are available:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>
-              <strong>Rate and term refinance:</strong>
-              {' '}
-              New loan with same or different terms
-            </li>
-            <li>
-              <strong>Cash-out refinance:</strong>
-              {' '}
-              Borrow more to pay buyout amount
-            </li>
-            <li>
-              <strong>Streamline refinance:</strong>
-              {' '}
-              If eligible (FHA, VA loans)
-            </li>
-          </ul>
-
-          <h3>Step 3: Complete Refinancing Application</h3>
-          <p>
-            The keeping spouse applies for refinancing, providing:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Income documentation</li>
-            <li>Credit report</li>
-            <li>Property appraisal</li>
-            <li>Divorce decree</li>
-            <li>Quitclaim deed (if already executed)</li>
-          </ul>
-
-          <h3>Step 4: Close on Refinancing</h3>
-          <p>
-            At closing, the old mortgage is paid off and a new mortgage is created in only the keeping spouse's name. The removed spouse is released from mortgage liability.
-          </p>
-
-          <h2>Lender Requirements</h2>
-          <p>
-            Lenders have specific requirements for post-divorce refinancing:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>
-              <strong>Income qualification:</strong>
-              {' '}
-              Must qualify on individual income
-            </li>
-            <li>
-              <strong>Credit score:</strong>
-              {' '}
-              Typically need 620+ (varies by lender)
-            </li>
-            <li>
-              <strong>Debt-to-income ratio:</strong>
-              {' '}
-              Usually 43% or less
-            </li>
-            <li>
-              <strong>Equity:</strong>
-              {' '}
-              May need 20% equity for conventional loans
-            </li>
-            <li>
-              <strong>Divorce decree:</strong>
-              {' '}
-              Must show property division agreement
-            </li>
-            <li>
-              <strong>Quitclaim deed:</strong>
-              {' '}
-              May be required before or after refinancing
-            </li>
-          </ul>
-
-          <h2>Timeline for Refinancing</h2>
-          <p>
-            The refinancing process typically takes 30-45 days:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>
-              <strong>Application:</strong>
-              {' '}
-              1-2 days
-            </li>
-            <li>
-              <strong>Underwriting:</strong>
-              {' '}
-              2-3 weeks
-            </li>
-            <li>
-              <strong>Appraisal:</strong>
-              {' '}
-              1-2 weeks
-            </li>
-            <li>
-              <strong>Closing:</strong>
-              {' '}
-              1 week
-            </li>
-          </ul>
-          <p>
-            However, if the keeping spouse doesn't qualify immediately, they may need time to improve credit, reduce debt, or increase income.
-          </p>
-
-          <h2>What If Refinancing Isn't Possible?</h2>
-          <p>
-            If the keeping spouse can't qualify for refinancing, options include:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>
-              <strong>Sell the house:</strong>
-              {' '}
-              Both parties get proceeds and move on
-            </li>
-            <li>
-              <strong>Wait and improve credit:</strong>
-              {' '}
-              Work on credit score and debt-to-income ratio
-            </li>
-            <li>
-              <strong>Co-signer:</strong>
-              {' '}
-              If allowed by lender (rare)
-            </li>
-            <li>
-              <strong>Assumption:</strong>
-              {' '}
-              If loan is assumable (rare for conventional loans)
-            </li>
-            <li>
-              <strong>Modify agreement:</strong>
-              {' '}
-              Adjust property division to account for inability to refinance
-            </li>
-          </ul>
-
-          <h2>Quitclaim Deed Process</h2>
-          <p>
-            A quitclaim deed transfers the removed spouse's ownership interest to the keeping spouse. This is typically done as part of the property division process.
-          </p>
-          <p>
-            <strong>Important considerations:</strong>
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Quitclaim deed doesn't remove mortgage liability</li>
-            <li>Should be recorded with county recorder</li>
-            <li>Timing relative to refinancing varies by situation</li>
-            <li>May affect refinancing qualification</li>
-          </ul>
-          <p className="mt-4">
-            Learn more:
+            <Link href="/quitclaim-deed-divorce" className="text-blue-600 underline hover:text-blue-700">quitclaim deed guide</Link>
             {' '}
-            <Link href="/quitclaim-deed-divorce" className="text-blue-600 underline hover:text-blue-700">Quitclaim Deed in Divorce</Link>
+            covers when to sign the deed and how it is recorded. Most lenders want it recorded at or before the refinance closing.
           </p>
 
-          <h2>Protecting Your Credit</h2>
+          <h2>Option 1: Refinance in your name alone</h2>
           <p>
-            Until refinancing is complete, the removed spouse remains liable for the mortgage. This means:
+            The keeping spouse applies for a new loan that pays off the joint mortgage. The lender underwrites one income, one credit file, and a fresh appraisal. If the decree awards equity to the departing spouse, the new loan can include cash out to pay it. When the new loan funds, the old one is closed and the departing spouse's liability ends that day.
           </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Late payments affect both parties' credit</li>
-            <li>Foreclosure affects both parties' credit</li>
-            <li>Mortgage appears on both credit reports</li>
-            <li>May affect ability to qualify for new financing</li>
+          <h3>What the lender looks at</h3>
+          <ul>
+            <li>Income in your name: wages, self-employment, rental income, and court-ordered support that is documented, being received, and expected to continue.</li>
+            <li>Debts the decree assigns to you, plus support you pay out, against the new payment including taxes, insurance, and HOA dues.</li>
+            <li>The appraised value against the loan amount. A buyout that pushes the loan-to-value too high may be reclassified as cash-out or declined.</li>
+            <li>The entered decree. Lenders will not close on a draft.</li>
           </ul>
+          <h3>Jumbo loans</h3>
           <p>
-            <strong>Protection strategies:</strong>
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Set clear timeline for refinancing in divorce decree</li>
-            <li>Monitor mortgage payments to ensure they're made on time</li>
-            <li>Consider temporary arrangements if refinancing is delayed</li>
-            <li>Document any payment issues</li>
-          </ul>
-
-          <h2>Coordination with Divorce Process</h2>
-          <p>
-            Refinancing should be coordinated with your divorce:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>
-              <strong>Divorce decree:</strong>
-              {' '}
-              Should specify refinancing timeline and requirements
-            </li>
-            <li>
-              <strong>Buyout amount:</strong>
-              {' '}
-              May need cash-out refinance to pay buyout
-            </li>
-            <li>
-              <strong>Attorney coordination:</strong>
-              {' '}
-              Attorneys should be involved in refinancing process
-            </li>
-            <li>
-              <strong>Timeline:</strong>
-              {' '}
-              Refinancing should be completed within timeframe specified in decree
-            </li>
-          </ul>
-
-          <h2>Common Challenges</h2>
-          <h3>Challenge 1: Can't Qualify for Refinancing</h3>
-          <p>
-            If the keeping spouse can't qualify, options include selling, improving credit, or modifying the property division agreement.
+            Above
+            {' '}
+            {LUXURY_2026.jumboThreshold2026}
+            {' '}
+            the loan is jumbo in Clark County in 2026. It is underwritten on the keeping spouse's income alone with full documentation, a lower maximum loan-to-value, and reserves after closing measured in months of the full housing payment. The
+            {' '}
+            <Link href="/refinancing-after-divorce" className="text-blue-600 underline hover:text-blue-700">refinancing page</Link>
+            {' '}
+            goes deeper on jumbo and on cash-out vs. rate-and-term.
           </p>
 
-          <h3>Challenge 2: Delayed Refinancing</h3>
+          <h2>Option 2: Assumption with a release of liability</h2>
           <p>
-            If refinancing is delayed, the removed spouse remains liable. Clear timelines and consequences in the divorce decree help protect both parties.
+            An assumption keeps the existing loan and its rate while the lender re-qualifies the keeping spouse and, if approved, issues a written release that removes the departing borrower. FHA, VA, and USDA loans generally allow it. Most conventional loans do not, although servicers sometimes process a release of liability on a conventional loan after a divorce when the remaining borrower qualifies.
+          </p>
+          <p>
+            Two cautions. An assumption delivers no buyout cash, so any equity owed to the departing spouse has to come from somewhere else. And the release letter is the whole point: an assumption that leaves both names on the note, or a servicer who approves the assumption but never issues the release, has removed no one. Ask for the letter in writing and keep it with the decree.
           </p>
 
-          <h3>Challenge 3: Buyout Amount</h3>
+          <h2>Option 3: Sell and pay the loan off</h2>
           <p>
-            If a cash-out refinance is needed to pay the buyout, the keeping spouse must qualify for a larger loan amount, which can be challenging.
+            When the keeping spouse cannot qualify, or neither spouse wants the house, a sale ends the loan for both. Escrow wires the payoff, the deed of trust is reconveyed, and net proceeds split per the decree. In September 2026,
+            {' '}
+            {LVR_SEPT_2026.soldWithin30DaysPct}
+            {' '}
+            of Las Vegas single-family sales closed within 30 days on market. A financed escrow typically adds 30 to 45 days; a cash escrow 10 to 21 days. Those are typical ranges.
+          </p>
+          <p>
+            The decree should make the sale automatic if the refinance deadline passes. Name the listing date, how the price is set, and who signs. That keeps a missed deadline from turning into a second court hearing. The
+            {' '}
+            <Link href="/how-to-sell-house-during-divorce" className="text-blue-600 underline hover:text-blue-700">sale guide</Link>
+            {' '}
+            covers the listing itself.
           </p>
 
-          <h2>Get Expert Help</h2>
+          <h2>Timeline, the decree, and transfer tax</h2>
           <p>
-            Removing a spouse from a mortgage requires coordination between real estate, legal, and lending professionals. Dr. Jan Duffy helps coordinate this process, working with lenders and attorneys to ensure refinancing supports your property division agreement.
+            A refinance typically runs 30 to 45 days from complete application to funding. An assumption often takes longer. A sale runs market time plus escrow. Each is a typical range, not a promise. Write the chosen path and its deadline into the decree, along with who pays the mortgage, insurance, and HOA dues until it closes, and what happens if the deadline passes.
           </p>
-          <div className="my-8 border-l-4 border-blue-600 bg-blue-50 p-6">
-            <h3 className="mb-2 text-xl font-semibold">Need Help with Refinancing?</h3>
-            <p className="mb-4">
-              Schedule a consultation with Dr. Jan Duffy to discuss your refinancing needs. She can help coordinate with lenders and ensure the process supports your property division agreement.
-            </p>
-            <CalendlyLink
-              className="inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-            >
-              Schedule Your Consultation
-            </CalendlyLink>
-          </div>
-
-          <h2>Related Resources</h2>
-          <ul className="list-disc space-y-2 pl-6">
-            <li><Link href="/refinancing-after-divorce" className="text-blue-600 underline hover:text-blue-700">Refinancing After Divorce</Link></li>
-            <li><Link href="/divorce-buyout-options" className="text-blue-600 underline hover:text-blue-700">Buyout Options</Link></li>
-            <li><Link href="/quitclaim-deed-divorce" className="text-blue-600 underline hover:text-blue-700">Quitclaim Deed Guide</Link></li>
-            <li><Link href="/divorce-and-mortgage" className="text-blue-600 underline hover:text-blue-700">Divorce and Mortgage</Link></li>
-            <li><Link href="/divorce-property-division" className="text-blue-600 underline hover:text-blue-700">Property Division</Link></li>
-          </ul>
+          <p>
+            {NEVADA_LAW.transferTaxDivorceExemption}
+            {' '}
+            A sale would pay
+            {' '}
+            {NEVADA_LAW.transferTaxClarkPer1000}
+            {' '}
+            per $1,000 of value, or
+            {' '}
+            {NEVADA_LAW.transferTaxExample2M}
+            . The decree transfer pays none of it under
+            {' '}
+            {NEVADA_LAW.transferTaxCite}
+            , claimed on the Declaration of Value when the deed is recorded. Record the deed after the decree is entered, not before, so the exemption applies.
+          </p>
+          <p className="text-sm text-gray-600">{LEGAL_DISCLAIMER}</p>
         </div>
+
+        <HighValueHomeNote points={[
+          `A refinance above ${LUXURY_2026.jumboThreshold2026} is underwritten on the keeping spouse's income alone, with full documentation and post-closing reserves. Get a jumbo lender's read before the decree sets a deadline.`,
+          'Custom homes in The Ridges, MacDonald Highlands, or Anthem Country Club can draw appraisals far apart. A two-appraisal protocol keeps the buyout and the loan amount consistent.',
+          'A jumbo cash-out may not cover the full buyout at the allowed loan-to-value. The decree can bridge the gap with a note secured by the house or a payment from other assets.',
+          'Club memberships at Red Rock Country Club, DragonRidge, Anthem Country Club, and The Summit Club transfer under club rules, not the deed. Settle the transfer fee and process in the decree.',
+          `A decree transfer is exempt from transfer tax; a sale would pay ${NEVADA_LAW.transferTaxExample2M}. Make sure the exemption is on the Declaration of Value.`,
+        ]}
+        />
+
+        <NextSteps
+          steps={[
+            { title: 'Private call', detail: 'Which spouse keeps the house, what the loan is, and whether a buyout is owed.' },
+            { title: 'Valuation and lender read', detail: 'A value both spouses accept and a lender pre-review of the keeping spouse so the path is chosen on facts.' },
+            { title: 'Decree language', detail: 'Refinance or assumption deadline, buyout amount, deed timing, and the sale fallback, drafted with your attorney.' },
+            { title: 'Close and confirm', detail: 'Loan refinanced, assumed with a release letter, or paid off at sale. Deed recorded with the exemption.' },
+          ]}
+          callPromise="You leave the call knowing which of the three exits is realistic, by when, and what to put in the decree."
+        />
+
+        <PageFAQ faqs={faqs} />
       </DivorcePageTemplate>
     </>
   );
