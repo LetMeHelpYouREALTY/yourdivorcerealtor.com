@@ -62,6 +62,14 @@ const pageTitles: Record<string, string> = {
   '/divorce-realtor-mountains-edge': 'Mountains Edge Divorce Realtor',
   '/divorce-realtor-inspirada': 'Inspirada Divorce Realtor',
 
+  // Luxury pages
+  '/luxury-divorce-real-estate-las-vegas': 'Luxury Divorce Real Estate Las Vegas',
+  '/divorce-realtor-the-ridges': 'The Ridges Divorce Realtor',
+  '/divorce-realtor-red-rock-country-club': 'Red Rock Country Club Divorce Realtor',
+  '/divorce-realtor-macdonald-highlands': 'MacDonald Highlands Divorce Realtor',
+  '/divorce-realtor-anthem-country-club': 'Anthem Country Club Divorce Realtor',
+  '/strip-high-rise-condo-divorce': 'Strip High-Rise Condo Divorce',
+
   // Attorney/Professional pages
   '/attorney-resources': 'Attorney Resources',
   '/family-law-attorney-collaboration': 'Family Law Attorney Collaboration',
@@ -357,6 +365,44 @@ export const relatedLinksMap: Record<string, string[]> = {
     '/divorce-buyout-options',
     '/divorce-realtor-aliante',
     '/divorce-realtor-mountains-edge',
+  ],
+
+  // Luxury cluster
+  '/luxury-divorce-real-estate-las-vegas': [
+    '/divorce-realtor-the-ridges',
+    '/divorce-realtor-macdonald-highlands',
+    '/divorce-buyout-options',
+    '/capital-gains-tax-divorce-home-sale',
+  ],
+  '/divorce-realtor-the-ridges': [
+    '/luxury-divorce-real-estate-las-vegas',
+    '/divorce-realtor-red-rock-country-club',
+    '/divorce-realtor-summerlin',
+    '/divorce-home-valuation',
+  ],
+  '/divorce-realtor-red-rock-country-club': [
+    '/luxury-divorce-real-estate-las-vegas',
+    '/divorce-realtor-the-ridges',
+    '/divorce-realtor-summerlin',
+    '/divorce-buyout-options',
+  ],
+  '/divorce-realtor-macdonald-highlands': [
+    '/luxury-divorce-real-estate-las-vegas',
+    '/divorce-realtor-anthem-country-club',
+    '/divorce-realtor-henderson',
+    '/divorce-appraisal-services',
+  ],
+  '/divorce-realtor-anthem-country-club': [
+    '/luxury-divorce-real-estate-las-vegas',
+    '/divorce-realtor-macdonald-highlands',
+    '/divorce-realtor-henderson',
+    '/refinancing-after-divorce',
+  ],
+  '/strip-high-rise-condo-divorce': [
+    '/luxury-divorce-real-estate-las-vegas',
+    '/divorce-home-valuation',
+    '/divorce-and-mortgage',
+    '/divorce-settlement-options',
   ],
 
   // Attorney/Professional pages

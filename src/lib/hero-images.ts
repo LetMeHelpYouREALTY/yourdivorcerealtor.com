@@ -68,4 +68,28 @@ export const heroImageMap: Record<string, HeroImageMeta> = {
     src: cloudflareImageUrl(CLOUDFLARE_IMAGE_IDS['property-default'], v),
     alt: 'Las Vegas home prepared for relaunch after divorce',
   },
+  '/luxury-divorce-real-estate-las-vegas': {
+    src: cloudflareImageUrl(CLOUDFLARE_IMAGE_IDS['home-featured-2'], v),
+    alt: 'Las Vegas luxury home exterior at dusk',
+  },
+  '/divorce-realtor-the-ridges': {
+    src: cloudflareImageUrl(CLOUDFLARE_IMAGE_IDS['home-featured-2'], v),
+    alt: 'Custom home in The Ridges, Summerlin',
+  },
+  '/divorce-realtor-red-rock-country-club': {
+    src: cloudflareImageUrl(CLOUDFLARE_IMAGE_IDS['home-featured-1'], v),
+    alt: 'Golf course home in Red Rock Country Club',
+  },
+  '/divorce-realtor-macdonald-highlands': {
+    src: cloudflareImageUrl(CLOUDFLARE_IMAGE_IDS['home-featured-3'], v),
+    alt: 'Hillside estate in MacDonald Highlands, Henderson',
+  },
+  '/divorce-realtor-anthem-country-club': {
+    src: cloudflareImageUrl(CLOUDFLARE_IMAGE_IDS['home-featured-1'], v),
+    alt: 'Home in Anthem Country Club, Henderson',
+  },
+  '/strip-high-rise-condo-divorce': {
+    src: cloudflareImageUrl(CLOUDFLARE_IMAGE_IDS['hero-las-vegas'], v),
+    alt: 'Las Vegas Strip high-rise condominium towers',
+  },
 };

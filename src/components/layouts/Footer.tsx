@@ -41,9 +41,15 @@ export function Footer() {
     { name: 'Aliante', href: '/divorce-realtor-aliante' },
     { name: 'Mountains Edge', href: '/divorce-realtor-mountains-edge' },
     { name: 'Inspirada', href: '/divorce-realtor-inspirada' },
+    { name: 'The Ridges', href: '/divorce-realtor-the-ridges' },
+    { name: 'Red Rock Country Club', href: '/divorce-realtor-red-rock-country-club' },
+    { name: 'MacDonald Highlands', href: '/divorce-realtor-macdonald-highlands' },
+    { name: 'Anthem Country Club', href: '/divorce-realtor-anthem-country-club' },
+    { name: 'Strip High-Rises', href: '/strip-high-rise-condo-divorce' },
   ];
 
   const resources = [
+    { name: 'Luxury Divorce Real Estate', href: '/luxury-divorce-real-estate-las-vegas' },
     { name: 'Home Valuation', href: '/divorce-home-valuation' },
     { name: 'Selling During Divorce', href: '/selling-home-during-divorce' },
     { name: 'Buying After Divorce', href: '/buying-home-after-divorce' },

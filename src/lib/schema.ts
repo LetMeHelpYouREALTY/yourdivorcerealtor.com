@@ -243,6 +243,8 @@ export type ArticleSchema = {
   'author': {
     '@type': 'RealEstateAgent';
     'name': string;
+    'url'?: string;
+    'jobTitle'?: string;
   };
   'publisher': {
     '@type': 'Organization';
@@ -598,6 +600,8 @@ export function generateArticleSchema(
     'author': {
       '@type': 'RealEstateAgent',
       'name': 'Dr. Jan Duffy',
+      'url': `${siteUrl}/about`,
+      'jobTitle': 'Divorce Real Estate Specialist',
     },
     'publisher': {
       '@type': 'Organization',
