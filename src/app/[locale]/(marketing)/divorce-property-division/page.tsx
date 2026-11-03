@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
+import { DirectAnswer } from '@/components/divorce/DirectAnswer';
 import { DivorcePageTemplate } from '@/components/divorce/DivorcePageTemplate';
+import { HighValueHomeNote } from '@/components/divorce/HighValueHomeNote';
+import { KeyFacts } from '@/components/divorce/KeyFacts';
+import { NextSteps } from '@/components/divorce/NextSteps';
+import { PageFAQ } from '@/components/divorce/PageFAQ';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { CONTENT_LAST_UPDATED, toSchemaDateTime } from '@/lib/content-dates';
+import { LEGAL_DISCLAIMER, LUXURY_2026, LVR_SEPT_2026, NEVADA_LAW } from '@/lib/market-data';
 import { generateLocaleAlternates, getCanonicalSiteUrl } from '@/lib/metadata';
 import {
   generateArticleSchema,
@@ -24,9 +30,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Nevada Divorce Property Division | Who Gets the House in a Divorce Nevada | Dr. Jan Duffy',
-    description: 'Expert guidance for Nevada divorce property division. Learn who gets the house in a divorce Nevada. Community property laws, fair valuations, and equitable solutions for dividing real estate assets.',
-    keywords: 'Nevada divorce property division, who gets the house in a divorce Nevada, divorce property division, property division divorce, las vegas divorce property division, community property divorce house',
+    title: 'Nevada Divorce Property Division: The House | Dr. Jan Duffy',
+    description: 'How Nevada divides the marital home: NRS 125.150 equal division, four ways to split the house, and what the $470,000 Las Vegas median means for your equity.',
     alternates: { canonical, languages },
   };
 }
@@ -37,30 +42,42 @@ export default async function PropertyDivision(props: IPropertyDivisionProps) {
 
   const currentPath = '/divorce-property-division';
   const articleSchema = generateArticleSchema(
-    'Nevada Divorce Property Division | Who Gets the House in a Divorce Nevada',
-    'Expert guidance for Nevada divorce property division. Learn who gets the house in a divorce Nevada. Community property laws, fair valuations, and equitable solutions.',
+    'Nevada Divorce Property Division: The House',
+    'How Nevada divides the marital home: NRS 125.150 equal division, four ways to split the house, and what the Las Vegas median means for your equity.',
     getCanonicalSiteUrl(currentPath, locale),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
   );
   const serviceSchema = generateServiceSchema(
     'Divorce Property Division Services',
-    'Expert guidance for Nevada divorce property division. Fair valuations and equitable solutions for dividing real estate assets during divorce.',
+    'Neutral valuation, equity calculation, and sale or buyout coordination for dividing the marital home in a Nevada divorce.',
     ['Las Vegas', 'Henderson', 'Summerlin', 'North Las Vegas'],
   );
   const realEstateAgentSchema = generateRealEstateAgentSchema();
   const propertyDivisionFaqs = [
     {
       question: 'How is the house divided in a Nevada divorce?',
-      answer: 'In Nevada (a community property state), marital property is divided equally. For the family home, options include selling and splitting proceeds, one spouse buying out the other, or co-owning temporarily. Dr. Jan Duffy helps you understand and execute the best option for your situation.',
+      answer: 'Nevada is a community property state. A home bought during the marriage with community funds is divided equally unless the court finds a compelling reason, stated in writing, to divide it another way. The house itself is handled by a sale and split of net proceeds, a buyout by one spouse, a deferred sale, or a court-ordered sale.',
     },
     {
-      question: 'Who gets the house in a divorce?',
-      answer: 'Either spouse can keep the house through a buyout, or you can sell and split the proceeds. The decision depends on finances, custody, and your goals. Accurate valuation is essential—Dr. Jan Duffy provides market-based valuations to support fair division.',
+      question: 'Who gets the house in a divorce in Nevada?',
+      answer: 'Either spouse can keep the house if they can pay the other for half the equity and qualify for a mortgage alone. If neither can, or neither wants to, the home is sold and the net proceeds are split. The decision turns on finances and agreement, not on whose name is on the deed.',
     },
     {
       question: 'Do I need a home valuation for property division?',
-      answer: 'Yes. A professional valuation ensures fair property division. Dr. Jan Duffy provides comprehensive valuations using comparable sales and current market conditions, which support negotiations, court filings, and informed decisions.',
+      answer: 'Yes. Equal division is only equal if both sides accept the same value. A comparative market analysis dated near the division works for most settlements. Contested cases and custom homes usually need a licensed appraisal, and sometimes two. The valuation date matters as much as the number.',
+    },
+    {
+      question: 'What if we cannot agree on who gets the house?',
+      answer: 'The court can order the home sold and the net proceeds divided. Clark County judges often name a neutral agent in that order, with deadlines for listing, pricing, and accepting offers. Agreeing on a neutral agent before it reaches that point keeps control of timing and price with the two of you.',
+    },
+    {
+      question: 'Does it matter whose name is on the title?',
+      answer: 'Not by itself. In Nevada, a home acquired during the marriage with community funds is community property even if only one spouse is on the deed. Title matters for the mechanics, such as who signs the deed and who the lender recognizes, but not for whether the equity is shared.',
+    },
+    {
+      question: 'Is there transfer tax when one spouse keeps the house?',
+      answer: 'Clark County charges real property transfer tax at $2.55 per $500 of value. A transfer between former spouses that complies with a divorce decree is exempt under NRS 375.090(6). A sale to a third party is not exempt, and the tax is paid out of the proceeds at closing.',
     },
   ];
   const faqPageSchema = generateFAQPageSchema(propertyDivisionFaqs);
@@ -70,201 +87,202 @@ export default async function PropertyDivision(props: IPropertyDivisionProps) {
       <StructuredData data={[articleSchema, serviceSchema, realEstateAgentSchema, faqPageSchema]} />
       <DivorcePageTemplate
         h1="Divorce Property Division in Las Vegas"
-        heroSubhead="Fair and Equitable Solutions"
+        heroSubhead="How Nevada divides the house, and how the numbers get settled"
         showHomeValue
         currentPath={currentPath}
         datePublished={CONTENT_LAST_UPDATED}
         dateModified={CONTENT_LAST_UPDATED}
       >
+        <DirectAnswer question="How is the house divided in a Nevada divorce?">
+          Nevada is a community property state. A home bought during the marriage with marital funds is divided equally unless a judge finds a compelling reason, stated in writing, to do otherwise. In practice that means one of four outcomes: sell and split the net proceeds, one spouse buys out the other, a deferred sale, or a court-ordered sale. Every one of them rests on the home’s current value.
+        </DirectAnswer>
+
+        <KeyFacts
+          facts={[
+            { label: 'Las Vegas single-family median, Sept 2026', value: LVR_SEPT_2026.medianSfrPrice },
+            { label: 'Homes sold within 30 days', value: LVR_SEPT_2026.soldWithin30DaysPct },
+            { label: 'Single-family homes available for sale', value: LVR_SEPT_2026.availableSfrListings },
+          ]}
+          source={LVR_SEPT_2026.source}
+          sourceUrl={LVR_SEPT_2026.url}
+        />
+
         <div className="prose prose-lg mx-auto max-w-4xl">
-          <h2>Understanding Property Division During Divorce</h2>
+          <h2>What Nevada law says about the marital home</h2>
           <p>
-            Property division is one of the most complex aspects of divorce, especially when real estate is involved. Your home is often your most valuable asset, and how it's divided can significantly impact your financial future. Dr. Jan Duffy provides specialized expertise in divorce property division, helping you understand your options and achieve fair, equitable outcomes.
+            {NEVADA_LAW.communityPropertyRule}
+            {' '}
+            That rule, from
+            {' '}
+            {NEVADA_LAW.communityPropertyCite}
+            , covers the house when it was bought during the marriage with community funds. Title alone does not decide it. A home one spouse owned before the wedding, or received as a gift or inheritance, starts as separate property. Community payments made on it during the marriage can still create a community claim.
+          </p>
+          <p>The usual sorting looks like this:</p>
+          <ul>
+            <li>
+              <strong>Community:</strong>
+              {' '}
+              a home purchased during the marriage, mortgage payments made from wages, and improvements paid with joint funds.
+            </li>
+            <li>
+              <strong>Separate:</strong>
+              {' '}
+              a home owned before the marriage, an inherited home, or a down payment traced to one spouse’s separate account.
+            </li>
+            <li>
+              <strong>Mixed:</strong>
+              {' '}
+              a separate home that community income paid down for years, or a community home bought with a separate down payment.
+            </li>
+          </ul>
+          <p>
+            Mixed homes are where most disputes live, and they are decided on documents.
+            {' '}
+            {LEGAL_DISCLAIMER}
           </p>
 
-          <h3>The Importance of Accurate Valuation</h3>
+          <h2>The four ways a Las Vegas house gets divided</h2>
           <p>
-            Fair property division starts with accurate
+            Most Las Vegas divorces resolve the house one of four ways: sell and split, buyout, deferred sale, or court-ordered sale. Which one fits depends on whether either spouse can carry the mortgage alone, how much equity is in the home, and whether the two of you can agree. The market shapes it too. With a
             {' '}
-            <Link href="/divorce-home-valuation" className="text-blue-600 underline hover:text-blue-700">home valuation</Link>
-            . Without knowing your home's true value, you can't make informed decisions about how to divide it. Dr. Jan Duffy provides comprehensive home valuations that consider market conditions, property specifics, and comparable sales, ensuring you have accurate information for property division negotiations.
+            {LVR_SEPT_2026.medianSfrPrice}
+            {' '}
+            median and
+            {' '}
+            {LVR_SEPT_2026.soldWithin30DaysPct}
+            {' '}
+            of homes selling inside 30 days, a clean sale is realistic at most price points.
           </p>
-
-          <h2>Property Division Options</h2>
+          <h3>Sell and split the net proceeds</h3>
           <p>
-            When it comes to dividing real estate during divorce, you have several options. Each option has different financial, legal, and emotional implications. Dr. Jan Duffy helps you understand all your options and choose the path that makes the most sense for your situation.
+            Both spouses sign the listing, the home sells, and escrow pays off the loan and closing costs before dividing what is left. This is the cleanest break and the only option that needs no one to qualify for a new loan. It does require agreement on price, repairs, and timing. See
+            {' '}
+            <Link href="/splitting-house-proceeds-divorce" className="text-blue-600 underline hover:text-blue-700">how house proceeds are split</Link>
+            .
           </p>
-
-          <h3>Sell and Split Proceeds</h3>
+          <h3>One spouse buys out the other</h3>
           <p>
-            Selling the home and splitting the proceeds is often the simplest option. It provides a clean break, eliminates ongoing financial entanglements, and gives both parties cash to start fresh. However, it requires both parties to agree to sell and coordinate the process. Dr. Jan Duffy's specialized divorce listing process makes this option as smooth as possible.
+            The spouse who stays pays the other for their share of the equity, usually by refinancing into a new loan in one name. The departing spouse signs a deed and is released from the mortgage. The whole plan depends on a loan approval, so the lender conversation comes first. Details are on the
+            {' '}
+            <Link href="/divorce-buyout-options" className="text-blue-600 underline hover:text-blue-700">buyout options page</Link>
+            .
           </p>
-
-          <h3>One Spouse Buys Out the Other</h3>
+          <h3>Deferred sale</h3>
           <p>
-            If one spouse wants to keep the home, they can buy out the other spouse's share. This involves determining the home's value, calculating the buyout amount, and
+            The decree sets a future sale date, often tied to a child finishing a school year or a loan maturing. Until then it spells out who lives in the home, who pays the mortgage, taxes, insurance, and HOA, and how repairs are handled. It only works with a written agreement that covers every expense.
+          </p>
+          <h3>Court-ordered sale</h3>
+          <p>
+            When spouses cannot agree, the court can order the sale and set the terms. The order often names a neutral agent, a listing deadline, and a pricing method. Read more on
             {' '}
-            <Link href="/refinancing-after-divorce" className="text-blue-600 underline hover:text-blue-700">refinancing the mortgage</Link>
-            {' '}
-            to remove the other spouse. Dr. Jan Duffy helps navigate this entire process, from
-            {' '}
-            <Link href="/divorce-home-valuation" className="text-blue-600 underline hover:text-blue-700">valuation</Link>
-            {' '}
-            to refinancing. Learn more about
-            {' '}
-            <Link href="/divorce-buyout-options" className="text-blue-600 underline hover:text-blue-700">divorce buyout options</Link>
+            <Link href="/court-ordered-home-sale" className="text-blue-600 underline hover:text-blue-700">court-ordered home sales</Link>
             .
           </p>
 
-          <h3>Co-Own Temporarily</h3>
+          <h2>Start with the value, then the equity</h2>
           <p>
-            Some couples choose to co-own the property temporarily, often to allow children to finish school or to wait for better market conditions. This "bird nesting" arrangement can work but requires clear agreements about expenses, maintenance, and eventual sale. Dr. Jan Duffy helps structure these arrangements to prevent future conflicts.
+            Every division method starts with the same two numbers: what the home would sell for today, and what is owed against it. Value minus the mortgage balance, any HELOC, and any liens equals equity. In a community home, each spouse’s starting share is half of that equity. Take the value from a comparative market analysis or an appraisal dated near the division, not from a purchase price that is years old.
           </p>
-
-          <h3>Refinance to Remove Spouse</h3>
           <p>
-            If one spouse keeps the home,
+            Here is a hypothetical to show the arithmetic. Say the home would sell for $900,000 and the mortgage balance is $400,000. Equity is $500,000, and each spouse’s starting share is $250,000. If the home is sold instead of kept, commissions, closing costs, and transfer tax come off before the split, so each share is smaller than half the gross equity. A buyout uses the gross equity but adds refinance costs on the keeping spouse’s side.
+          </p>
+          <p>
+            The
             {' '}
-            <Link href="/refinancing-after-divorce" className="text-blue-600 underline hover:text-blue-700">refinancing</Link>
+            <Link href="/divorce-home-valuation" className="text-blue-600 underline hover:text-blue-700">valuation page</Link>
             {' '}
-            removes the other spouse from the mortgage, protecting their credit and financial future. This process involves qualifying for a new mortgage based on one income, which can be challenging. Dr. Jan Duffy helps coordinate with lenders and ensures the refinancing supports the property division agreement.
+            explains which kind of valuation holds up in a settlement, and the
+            {' '}
+            <Link href="/divorce-home-equity-split" className="text-blue-600 underline hover:text-blue-700">equity split page</Link>
+            {' '}
+            walks through separate-property adjustments.
           </p>
 
-          <h2>Calculating Fair Division</h2>
+          <h2>Separate property, reimbursement, and unequal division</h2>
           <p>
-            Fair property division requires understanding your home's value, outstanding mortgage balance, and how to divide equity equitably. Dr. Jan Duffy provides detailed calculations that consider all relevant factors, ensuring both parties understand the numbers and can make informed decisions.
+            Equal division is the default, not the only outcome. A spouse who put separate funds into the down payment, or who owned the home before the marriage, may have a reimbursement or apportionment claim that their attorney raises. A judge can also divide unequally when there is a compelling reason, but the reason must be written into the decision. All of these claims are won or lost on records.
           </p>
-
-          <h3>Equity Calculation</h3>
-          <p>
-            Your equity is your home's value minus any outstanding mortgage balance and liens. Understanding this number is essential for property division. Dr. Jan Duffy calculates your equity accurately, considering all factors that impact your home's value and your financial obligations.
-          </p>
-
-          <h3>Division Methods</h3>
-          <p>
-            How equity is divided depends on your state's laws and your specific circumstances. In community property states like Nevada, marital property is typically divided equally, but separate property and other factors can complicate this. Dr. Jan Duffy helps you understand how these laws apply to your situation.
-          </p>
-
-          <h2>Nevada Community Property Laws</h2>
-          <p>
-            Nevada is a community property state, which means property acquired during marriage is generally considered community property and is divided equally (50/50) during divorce. However, separate property (owned before marriage or received as gifts/inheritance) remains with the original owner. Understanding these laws is essential for fair property division.
-          </p>
-          <p>
-            When it comes to your home, if it was purchased during marriage with marital funds, it's typically considered community property and subject to equal division. However, if one spouse owned the home before marriage or contributed separate property to the purchase, the division can be more complex. Dr. Jan Duffy helps you understand how Nevada's community property laws apply to your specific situation.
-          </p>
-
-          <h2>Legal Considerations</h2>
-          <p>
-            Property division has legal implications that must be handled correctly. Dr. Jan Duffy works with family law attorneys to ensure property division agreements are structured correctly and comply with legal requirements.
-          </p>
-
-          <h3>Quitclaim Deeds</h3>
-          <p>
-            When one spouse transfers their interest to the other, a quitclaim deed is typically used. This legal document must be prepared and recorded correctly. Dr. Jan Duffy coordinates with attorneys to ensure quitclaim deeds are handled properly.
-          </p>
-
-          <h3>Court Orders</h3>
-          <p>
-            If property division is court-ordered, strict compliance is required. Dr. Jan Duffy ensures all court orders are followed exactly, coordinating with attorneys and ensuring all requirements are met.
-          </p>
-
-          <h2>Financial Implications</h2>
-          <p>
-            Property division has significant financial implications for both parties. Understanding these implications helps you make informed decisions and plan for your financial future.
-          </p>
-
-          <h3>Tax Considerations</h3>
-          <p>
-            Property division can have tax implications, especially when selling or transferring property. Dr. Jan Duffy helps you understand these considerations and coordinates with tax professionals to ensure you're aware of all tax implications.
-          </p>
-
-          <h3>Credit Impact</h3>
-          <p>
-            How property division is handled can impact your credit. Refinancing, removing names from mortgages, and other actions all affect credit. Dr. Jan Duffy helps you understand these impacts and ensures actions are taken to protect your credit.
-          </p>
-
-          <h2>Working with Attorneys</h2>
-          <p>
-            Property division typically requires legal documentation and coordination with family law attorneys. Dr. Jan Duffy works seamlessly with attorneys, providing property valuations, market analyses, and transaction coordination that supports your legal case.
-          </p>
-
-          <h3>Expert Testimony</h3>
-          <p>
-            When court involvement is necessary, Dr. Jan Duffy can serve as an expert witness, providing professional opinions on property values and market conditions. Her expertise and credibility support your legal case.
-          </p>
-
-          <h2>Frequently Asked Questions: Who Gets the House in a Divorce Nevada?</h2>
-          <div className="mt-8 space-y-6">
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">Who Gets the House in a Divorce Nevada?</h3>
-              <p>
-                In Nevada, a community property state, the house is typically divided equally between spouses if it was acquired during marriage. However, who actually gets to keep the house depends on several factors:
-              </p>
-              <ul className="mt-2 list-disc space-y-2 pl-6">
-                <li>
-                  <strong>Agreement:</strong>
-                  {' '}
-                  If both spouses agree, one can keep the house by buying out the other's share
-                </li>
-                <li>
-                  <strong>Court Decision:</strong>
-                  {' '}
-                  If there's no agreement, the court may order the house sold and proceeds divided equally
-                </li>
-                <li>
-                  <strong>Children:</strong>
-                  {' '}
-                  The spouse with primary custody may be more likely to keep the house for stability
-                </li>
-                <li>
-                  <strong>Financial Ability:</strong>
-                  {' '}
-                  The spouse who can qualify for refinancing and afford the mortgage alone may keep it
-                </li>
-                <li>
-                  <strong>Separate Property:</strong>
-                  {' '}
-                  If one spouse owned the house before marriage, they may retain it, but may owe the other spouse for community property contributions
-                </li>
-              </ul>
-              <p className="mt-3">
-                Dr. Jan Duffy helps divorcing homeowners understand their options and navigate the process of determining who gets the house in a divorce in Nevada. She provides accurate valuations, buyout calculations, and coordinates with attorneys to ensure fair outcomes.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">How is Property Divided in Nevada Divorce?</h3>
-              <p>
-                Nevada follows community property laws, meaning property acquired during marriage is divided equally (50/50). This includes the marital home, unless it was separate property. Dr. Jan Duffy provides accurate home valuations and equity calculations to ensure fair division according to Nevada law.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">What if We Can't Agree on Who Gets the House?</h3>
-              <p>
-                If spouses can't agree, the court may order the house sold and proceeds divided equally. Dr. Jan Duffy specializes in court-ordered home sales and ensures compliance with all court directives. She also helps mediate between parties to reach agreements when possible.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">Can One Spouse Keep the House in Nevada Divorce?</h3>
-              <p>
-                Yes, one spouse can keep the house by buying out the other spouse's share. This requires accurate home valuation, calculating the buyout amount, and refinancing the mortgage to remove the other spouse. Dr. Jan Duffy helps navigate this entire process, from valuation to refinancing coordination.
-              </p>
-            </div>
-          </div>
-
-          <h2>Related Resources</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-6">
-            <li><Link href="/divorce-home-valuation" className="text-blue-600 underline hover:text-blue-700">Get Your Home Valuation</Link></li>
-            <li><Link href="/divorce-buyout-options" className="text-blue-600 underline hover:text-blue-700">Divorce Buyout Options</Link></li>
-            <li><Link href="/community-property-divorce-house" className="text-blue-600 underline hover:text-blue-700">Community Property and Divorce</Link></li>
-            <li><Link href="/divorce-home-equity-split" className="text-blue-600 underline hover:text-blue-700">Divorce Home Equity Split</Link></li>
-            <li><Link href="/selling-home-during-divorce" className="text-blue-600 underline hover:text-blue-700">Selling Home During Divorce</Link></li>
+          <ul>
+            <li>Closing disclosures and bank statements showing where the down payment came from.</li>
+            <li>The deed history, including any date a spouse was added to title.</li>
+            <li>Mortgage statements showing principal paid down during the marriage.</li>
+            <li>Invoices for improvements, with the account that paid them.</li>
           </ul>
-
-          <h2>Get Expert Help with Property Division</h2>
           <p>
-            Property division is complex, but you don't have to navigate it alone. Dr. Jan Duffy provides the specialized expertise you need to understand your options, achieve fair outcomes, and move forward with confidence. Schedule a consultation today and learn how she can help you navigate property division during your divorce.
+            A neutral agent can supply the value at the date of marriage and the value today, which is what the apportionment math needs.
+            {' '}
+            {LEGAL_DISCLAIMER}
+          </p>
+
+          <h2>Deeds, decrees, and the transfer tax</h2>
+          <p>
+            When one spouse keeps the house, the other signs a deed, usually an interspousal or quitclaim deed, and the decree is recorded alongside it. Clark County charges real property transfer tax at
+            {' '}
+            {NEVADA_LAW.transferTaxClarkPer500}
+            {' '}
+            per $500 of value, which works out to
+            {' '}
+            {NEVADA_LAW.transferTaxClarkPer1000}
+            {' '}
+            per $1,000.
+            {' '}
+            {NEVADA_LAW.transferTaxDivorceExemption}
+            {' '}
+            A sale to a third party has no such exemption, and the tax is paid from the proceeds at closing. On a $2,000,000 sale that is
+            {' '}
+            {NEVADA_LAW.transferTaxExample2M.replace(' on a $2,000,000 sale', '')}
+            .
+          </p>
+          <p>
+            Two practical points follow. First, the deed should match the decree exactly, including the legal description and how title is held afterward. Second, the lender does not read the decree. Until the loan is refinanced or paid off, both borrowers remain liable, whatever the deed says. The
+            {' '}
+            <Link href="/quitclaim-deed-divorce" className="text-blue-600 underline hover:text-blue-700">quitclaim deed page</Link>
+            {' '}
+            covers the recording steps. Source:
+            {' '}
+            {NEVADA_LAW.transferTaxCite}
+            .
+            {' '}
+            {LEGAL_DISCLAIMER}
+          </p>
+
+          <h2>Working with your attorney and the court</h2>
+          <p>
+            Your family law attorney handles the legal division. A neutral agent supplies the numbers that make it work: a dated valuation, a net proceeds estimate, and a listing or buyout plan both sides can accept. Clark County courts regularly order a sale when spouses cannot agree, and the order often names a neutral agent. Having one in place early usually avoids that step.
+          </p>
+          <p>What the agent hands your attorney, in a form that can be attached to a filing:</p>
+          <ul>
+            <li>A comparative market analysis with the comparable sales listed and the valuation date stated.</li>
+            <li>A net proceeds estimate showing payoff, commissions, closing costs, and transfer tax.</li>
+            <li>A buyout worksheet showing the equity, each share, and the refinance amount needed.</li>
+            <li>A listing plan with pricing, showing rules, and a decision timeline both spouses sign.</li>
+          </ul>
+          <p>
+            Dr. Jan Duffy works on behalf of the transaction, not either spouse, and communicates with both attorneys on the same schedule.
           </p>
         </div>
+
+        <HighValueHomeNote
+          points={[
+            `Equal division of a $3,000,000 home is a $1,500,000 question for the spouse who wants to keep it. Loans above ${LUXURY_2026.jumboThreshold2026} are jumbo, so a buyout refinance needs documented income, cash reserves, and a lower loan-to-value than a conforming loan.`,
+            'Custom homes in The Ridges, MacDonald Highlands, and Southern Highlands can appraise with a wide spread between two appraisers. Write a two-appraisal protocol into the settlement so the number is fixed before any deed is drawn.',
+            'Club memberships at Red Rock Country Club, DragonRidge, Anthem Country Club, and The Summit Club are separate assets with their own transfer rules and fees. List them in the decree, not just the house.',
+            `Transfer tax at ${NEVADA_LAW.transferTaxClarkPer1000} per $1,000 is ${NEVADA_LAW.transferTaxExample2M}, but zero on a decree transfer between former spouses. That difference belongs in the sell-versus-buyout comparison.`,
+            'Guard-gated showings by appointment and off-market exposure keep a pending divorce out of the neighborhood while the home is valued or marketed.',
+          ]}
+        />
+
+        <NextSteps
+          steps={[
+            { title: 'Private call', detail: 'A short conversation about the home, the loan, and where the divorce stands. Nothing is listed or filed.' },
+            { title: 'Valuation and equity worksheet', detail: 'A dated market analysis and a net proceeds and buyout comparison your attorney can use.' },
+            { title: 'Division plan', detail: 'Sell, buyout, or deferred sale, with a timeline and showing rules both spouses sign off on.' },
+            { title: 'Execution', detail: 'Listing or refinance coordination, deed and decree alignment, and closing on the agreed schedule.' },
+          ]}
+          callPromise="You leave the call with a value range, each spouse’s share, and the next decision."
+        />
+
+        <PageFAQ faqs={propertyDivisionFaqs} />
       </DivorcePageTemplate>
     </>
   );

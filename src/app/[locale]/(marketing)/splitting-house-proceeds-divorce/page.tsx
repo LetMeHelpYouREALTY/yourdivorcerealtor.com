@@ -2,13 +2,19 @@ import type { Metadata } from 'next';
 import type { PageProps } from '@/types';
 import { setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
-import { CalendlyLink } from '@/components/calendly/CalendlyLink';
+import { DirectAnswer } from '@/components/divorce/DirectAnswer';
 import { DivorcePageTemplate } from '@/components/divorce/DivorcePageTemplate';
+import { HighValueHomeNote } from '@/components/divorce/HighValueHomeNote';
+import { KeyFacts } from '@/components/divorce/KeyFacts';
+import { NextSteps } from '@/components/divorce/NextSteps';
+import { PageFAQ } from '@/components/divorce/PageFAQ';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { CONTENT_LAST_UPDATED, toSchemaDateTime } from '@/lib/content-dates';
+import { LEGAL_DISCLAIMER, LUXURY_2026, NEVADA_LAW } from '@/lib/market-data';
 import { generateLocaleAlternates, getCanonicalSiteUrl } from '@/lib/metadata';
 import {
   generateArticleSchema,
+  generateFAQPageSchema,
   generateRealEstateAgentSchema,
   generateServiceSchema,
 } from '@/lib/schema';
@@ -21,9 +27,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Splitting House Proceeds Divorce | How Proceeds Are Divided | Dr. Jan Duffy',
-    description: 'Complete guide to splitting house proceeds in divorce. Nevada community property laws, 50/50 division, calculating each spouse\'s share, and distribution process. Expert guidance.',
-    keywords: 'splitting house proceeds divorce, dividing home sale proceeds divorce, divorce proceeds distribution, house sale proceeds divorce',
+    title: 'Splitting House Proceeds in a Nevada Divorce | Dr. Jan Duffy',
+    description: 'How sale proceeds are split in a Nevada divorce: what escrow deducts, the $5.10 per $1,000 transfer tax, when the split is not 50/50, and how each spouse gets paid.',
     alternates: { canonical, languages },
   };
 }
@@ -33,239 +38,261 @@ export default async function SplittingHouseProceedsDivorce(props: PageProps) {
   setRequestLocale(locale);
 
   const currentPath = '/splitting-house-proceeds-divorce';
+
+  const faqs = [
+    {
+      question: 'What if one spouse paid more of the mortgage?',
+      answer: 'If the payments came from community income earned during the marriage, it does not change the split. That equity is community property and is divided equally. Payments made after separation from one spouse’s post-separation earnings are different, and your attorney may seek a credit for them at closing.',
+    },
+    {
+      question: 'What if the house was owned before the marriage?',
+      answer: 'The spouse who owned it usually keeps the equity that existed on the wedding date. Principal paid down and improvements paid with community income during the marriage create a community interest that is divided. The split of the proceeds then follows the apportionment your attorney and the court settle on.',
+    },
+    {
+      question: 'When do we actually receive the proceeds?',
+      answer: 'Escrow disburses after the deed records with the Clark County Recorder. Each spouse receives their share by wire or check according to the disbursement instructions both of you signed. If the decree or a court order directs a different split, escrow follows that document, not the listing agreement.',
+    },
+    {
+      question: 'Can the proceeds be held in escrow until the divorce is final?',
+      answer: 'Yes. Spouses often agree, or the court orders, that net proceeds stay in escrow or in an attorney trust account until the decree is entered. That protects both sides when other assets are still being divided, and it lets the final split be adjusted for credits and reimbursements decided later.',
+    },
+    {
+      question: 'Do we pay capital gains tax on our share of the proceeds?',
+      answer: 'Possibly, on gain above the Section 121 exclusion. The exclusion is $250,000 per person or $500,000 for a married couple filing jointly, if the ownership and use tests are met. A spouse who moved out can count the other spouse’s continued use under a divorce instrument. Nevada has no state income tax.',
+    },
+  ];
+
   const articleSchema = generateArticleSchema(
-    'Splitting House Proceeds in Divorce: Complete Guide',
-    'Complete guide to splitting house proceeds in divorce. Nevada community property laws, 50/50 division, calculating each spouse\'s share, and distribution process.',
+    'Splitting House Proceeds in a Nevada Divorce',
+    'How sale proceeds are split in a Nevada divorce: what escrow deducts, the Clark County transfer tax, when the split is not 50/50, and how each spouse gets paid.',
     getCanonicalSiteUrl(currentPath, locale),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
   );
   const serviceSchema = generateServiceSchema(
     'Divorce Proceeds Distribution Services',
-    'Complete guide to splitting house proceeds in divorce. Nevada community property laws, 50/50 division, calculating each spouse\'s share, and distribution process.',
+    'Net proceeds estimates and escrow coordination for dividing home sale proceeds in a Nevada divorce.',
     ['Las Vegas', 'Henderson', 'Summerlin', 'North Las Vegas'],
   );
   const realEstateAgentSchema = generateRealEstateAgentSchema();
+  const faqPageSchema = generateFAQPageSchema(faqs);
 
   return (
     <>
-      <StructuredData data={[articleSchema, serviceSchema, realEstateAgentSchema]} />
+      <StructuredData data={[articleSchema, serviceSchema, realEstateAgentSchema, faqPageSchema]} />
       <DivorcePageTemplate
         h1="Splitting House Proceeds in Divorce: Complete Guide"
-        heroSubhead="Understanding How Proceeds Are Divided Fairly"
+        heroSubhead="What comes off the top, how the rest is divided, and how you get paid"
         showHomeValue
         currentPath={currentPath}
         datePublished={CONTENT_LAST_UPDATED}
         dateModified={CONTENT_LAST_UPDATED}
       >
+        <DirectAnswer question="How are house sale proceeds split in a Nevada divorce?">
+          Escrow pays off the mortgage, any liens, commissions, closing costs, and Clark County transfer tax first. What remains is the net proceeds. In Nevada, net proceeds from a community home are divided equally unless the decree, a court order, or a separate-property claim directs otherwise. Each spouse is paid directly by escrow after the deed records.
+        </DirectAnswer>
+
+        <KeyFacts
+          facts={[
+            { label: 'Clark County transfer tax per $500 of value', value: NEVADA_LAW.transferTaxClarkPer500 },
+            { label: 'Clark County transfer tax per $1,000 of value', value: NEVADA_LAW.transferTaxClarkPer1000 },
+            { label: 'Transfer tax on a $2,000,000 sale', value: NEVADA_LAW.transferTaxExample2M.replace(' on a $2,000,000 sale', '') },
+          ]}
+          source={NEVADA_LAW.transferTaxCite}
+          sourceUrl={NEVADA_LAW.transferTaxUrl}
+        />
+
         <div className="prose prose-lg mx-auto max-w-4xl">
-          <h2>How House Proceeds Are Split in Divorce</h2>
+          <h2>How proceeds are split under Nevada law</h2>
           <p>
-            When you sell your house during divorce, the proceeds must be divided between spouses. In Nevada, as a community property state, proceeds are typically divided equally (50/50), but the calculation can be complex. Understanding how proceeds are calculated and distributed helps ensure fair outcomes.
+            {NEVADA_LAW.communityPropertyRule}
+            {' '}
+            That rule,
+            {' '}
+            {NEVADA_LAW.communityPropertyCite}
+            , applies to the net proceeds of a community home. Each spouse starts with half. The split can move for a separate-property reimbursement, for post-separation payments one spouse made alone, or for a written finding by the court. The decree or the escrow instructions both of you sign tell escrow exactly how to pay.
+          </p>
+          <p>
+            Three documents control the money at closing: the listing agreement, which both spouses sign; the decree or a stipulated order, which sets the split; and the escrow disbursement instructions, which turn that split into wires. If those three disagree, closing stops until they match.
+            {' '}
+            {LEGAL_DISCLAIMER}
           </p>
 
-          <h2>Calculating Net Proceeds</h2>
+          <h2>Calculating net proceeds: a worked example</h2>
           <p>
-            Before splitting proceeds, you must calculate net proceeds—the amount remaining after all expenses are paid:
+            Net proceeds are what is left after every cost of the sale is paid. The gross price is not the number you split. Here is a hypothetical with round figures. Say the home sells for $900,000 and the mortgage payoff is $400,000. Commissions, title, escrow, and transfer tax are treated as one closing cost line for the example, and the buyer negotiated a repair credit.
           </p>
           <div className="my-6 rounded-lg border border-gray-200 bg-gray-50 p-6">
-            <p className="mb-4 text-center text-xl font-semibold">Net Proceeds Calculation</p>
+            <p className="mb-4 text-center text-xl font-semibold">Hypothetical net proceeds</p>
             <div className="space-y-2">
               <p>
-                <strong>Sale Price:</strong>
+                <strong>Sale price:</strong>
                 {' '}
-                $500,000
+                $900,000
               </p>
-              <p className="ml-4">- Mortgage Payoff: $300,000</p>
-              <p className="ml-4">- Closing Costs: $15,000</p>
-              <p className="ml-4">- Repairs/Credits: $5,000</p>
-              <p className="ml-4">- Other Liens: $0</p>
+              <p className="ml-4">− Mortgage payoff, including interest to the payoff date: $400,000</p>
+              <p className="ml-4">− Commissions and closing costs: $50,000</p>
+              <p className="ml-4">− Clark County transfer tax at $5.10 per $1,000: $4,590</p>
+              <p className="ml-4">− Repair credit to buyer: $5,000</p>
               <p className="mt-2 border-t pt-2">
-                <strong>Net Proceeds:</strong>
+                <strong>Net proceeds:</strong>
                 {' '}
-                $180,000
+                $440,410
               </p>
               <p className="mt-2 border-t pt-2">
-                <strong>Each Spouse's Share (50/50):</strong>
+                <strong>Each spouse’s share at 50/50:</strong>
                 {' '}
-                $90,000
+                $220,205
               </p>
             </div>
           </div>
-
-          <h2>Nevada Community Property Division</h2>
           <p>
-            In Nevada, community property is divided equally (50/50). This means:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Net proceeds are typically split 50/50</li>
-            <li>This applies regardless of who paid the mortgage</li>
-            <li>Both spouses have equal rights to community property</li>
-            <li>Court can order different division if circumstances warrant</li>
-          </ul>
-
-          <h2>What Gets Deducted from Sale Price</h2>
-          <p>
-            Several expenses are deducted before proceeds are split:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>
-              <strong>Mortgage payoff:</strong>
-              {' '}
-              Outstanding loan balance
-            </li>
-            <li>
-              <strong>Closing costs:</strong>
-              {' '}
-              Title, escrow, recording fees
-            </li>
-            <li>
-              <strong>Real estate commissions:</strong>
-              {' '}
-              Agent fees (typically 5-6%)
-            </li>
-            <li>
-              <strong>Repairs/credits:</strong>
-              {' '}
-              Agreed-upon repairs or buyer credits
-            </li>
-            <li>
-              <strong>Liens:</strong>
-              {' '}
-              Any liens against the property
-            </li>
-            <li>
-              <strong>Property taxes:</strong>
-              {' '}
-              Prorated property taxes
-            </li>
-            <li>
-              <strong>HOA fees:</strong>
-              {' '}
-              Prorated HOA fees (if applicable)
-            </li>
-          </ul>
-
-          <h2>Distribution Process</h2>
-          <p>
-            Proceeds are typically distributed at closing:
-          </p>
-          <ol className="list-decimal space-y-2 pl-6">
-            <li>
-              <strong>Sale closes:</strong>
-              {' '}
-              Buyer pays purchase price
-            </li>
-            <li>
-              <strong>Expenses paid:</strong>
-              {' '}
-              Mortgage, closing costs, commissions deducted
-            </li>
-            <li>
-              <strong>Net proceeds calculated:</strong>
-              {' '}
-              Remaining amount determined
-            </li>
-            <li>
-              <strong>Distribution per agreement:</strong>
-              {' '}
-              Proceeds distributed according to settlement agreement or court order
-            </li>
-            <li>
-              <strong>Separate accounts:</strong>
-              {' '}
-              Each spouse receives their share
-            </li>
-          </ol>
-
-          <h2>When Division Isn't 50/50</h2>
-          <p>
-            While 50/50 is typical in Nevada, division may differ if:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>
-              <strong>Separate property involved:</strong>
-              {' '}
-              One spouse owned home before marriage
-            </li>
-            <li>
-              <strong>Separate contributions:</strong>
-              {' '}
-              One spouse contributed separate property funds
-            </li>
-            <li>
-              <strong>Court order:</strong>
-              {' '}
-              Court orders different division
-            </li>
-            <li>
-              <strong>Settlement agreement:</strong>
-              {' '}
-              Spouses agree to different division
-            </li>
-            <li>
-              <strong>Other assets:</strong>
-              {' '}
-              Division adjusted for other property division
-            </li>
-          </ul>
-
-          <h2>Tax Implications</h2>
-          <p>
-            Each spouse is responsible for their share of capital gains tax (if applicable). The $250,000 exclusion applies to each spouse's share if they meet ownership and use requirements.
-          </p>
-          <p className="mt-4">
-            Learn more:
+            Two things to notice. The payoff is higher than the last statement balance because interest accrues to the day escrow pays the lender. And the transfer tax is calculated on the full sale price, not on the equity. Use the
             {' '}
-            <Link href="/capital-gains-tax-divorce-home-sale" className="text-blue-600 underline hover:text-blue-700">Capital Gains Tax Guide</Link>
+            <Link href="/divorce-net-proceeds-calculator" className="text-blue-600 underline hover:text-blue-700">net proceeds calculator</Link>
+            {' '}
+            to run your own numbers.
           </p>
 
-          <h2>Common Questions</h2>
-          <div className="mt-6 space-y-4">
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">What if one spouse paid more of the mortgage?</h3>
-              <p>
-                In Nevada, it doesn't matter who made mortgage payments during marriage—equity acquired during marriage is community property and divided equally. However, if payments came from separate property funds, that may affect division.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">What if the house was owned before marriage?</h3>
-              <p>
-                If one spouse owned the home before marriage, they may retain pre-marital equity, but community property contributions (payments, improvements) create community property interest that must be divided.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">When do we get the proceeds?</h3>
-              <p>
-                Proceeds are typically distributed at closing. Each spouse receives their share via wire transfer or check, usually within 1-2 business days of closing.
-              </p>
-            </div>
-          </div>
-
-          <h2>Get Expert Help</h2>
+          <h2>What escrow deducts before the split</h2>
           <p>
-            Understanding how proceeds are split and ensuring fair distribution requires accurate calculations and proper documentation. Dr. Jan Duffy provides detailed calculations and coordinates with attorneys to ensure proceeds are distributed correctly.
+            Every dollar that leaves escrow before the split reduces both shares equally, so both spouses have the same interest in keeping the list short. The deductions are set by the purchase contract, the lender payoff demands, and Clark County recording rules. Most of them are fixed; the negotiable ones are commissions, repair credits, and who pays which HOA charges.
           </p>
-          <div className="my-8 border-l-4 border-blue-600 bg-blue-50 p-6">
-            <h3 className="mb-2 text-xl font-semibold">Need Help Understanding Proceeds Division?</h3>
-            <p className="mb-4">
-              Schedule a consultation with Dr. Jan Duffy to get accurate calculations and understand how proceeds will be split in your specific situation.
-            </p>
-            <CalendlyLink
-              className="inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-            >
-              Schedule Your Consultation
-            </CalendlyLink>
-          </div>
-
-          <h2>Related Resources</h2>
-          <ul className="list-disc space-y-2 pl-6">
-            <li><Link href="/divorce-home-equity-split" className="text-blue-600 underline hover:text-blue-700">Home Equity Split</Link></li>
-            <li><Link href="/divorce-property-division" className="text-blue-600 underline hover:text-blue-700">Property Division Guide</Link></li>
-            <li><Link href="/divorce-home-valuation" className="text-blue-600 underline hover:text-blue-700">Get Your Home Valuation</Link></li>
-            <li><Link href="/selling-home-during-divorce" className="text-blue-600 underline hover:text-blue-700">Selling Home During Divorce</Link></li>
+          <ul>
+            <li>
+              <strong>Loan payoffs:</strong>
+              {' '}
+              first mortgage, HELOC, and any solar or improvement loan recorded as a lien, with interest to the payoff date.
+            </li>
+            <li>
+              <strong>Commissions:</strong>
+              {' '}
+              as set in the listing agreement and the purchase contract.
+            </li>
+            <li>
+              <strong>Title and escrow fees:</strong>
+              {' '}
+              owner’s title policy, escrow fee, and recording fees, split with the buyer as the contract says.
+            </li>
+            <li>
+              <strong>Transfer tax:</strong>
+              {' '}
+              {NEVADA_LAW.transferTaxClarkPer500}
+              {' '}
+              per $500 of value in Clark County, customarily paid by the seller.
+            </li>
+            <li>
+              <strong>Property tax proration:</strong>
+              {' '}
+              the seller’s share of the current installment through the closing date.
+            </li>
+            <li>
+              <strong>HOA charges:</strong>
+              {' '}
+              prorated dues, the resale package, transfer fees, and any capital contribution the association assigns to the seller.
+            </li>
+            <li>
+              <strong>Judgment liens and tax liens:</strong>
+              {' '}
+              anything recorded against either spouse that attaches to the property.
+            </li>
+            <li>
+              <strong>Repair credits:</strong>
+              {' '}
+              negotiated after the buyer’s inspection.
+            </li>
           </ul>
+
+          <h2>When the split is not 50/50</h2>
+          <p>
+            Equal division is the default, but the decree can direct a different split for specific reasons. The most common are a separate-property down payment one spouse traces, mortgage payments one spouse made alone after separation, an agreed offset against another asset, and a court finding of a compelling reason. In each case escrow needs the signed document, not a verbal understanding.
+          </p>
+          <ul>
+            <li>
+              <strong>Separate-property reimbursement:</strong>
+              {' '}
+              the traced amount comes off the top for one spouse, and the balance is split equally.
+            </li>
+            <li>
+              <strong>Post-separation credits:</strong>
+              {' '}
+              mortgage, HOA, or repair costs one spouse carried alone while the case was pending.
+            </li>
+            <li>
+              <strong>Offsets:</strong>
+              {' '}
+              one spouse takes more proceeds in exchange for less of a retirement account or business interest.
+            </li>
+            <li>
+              <strong>Court-ordered unequal division:</strong>
+              {' '}
+              available only with a compelling reason stated in writing.
+            </li>
+          </ul>
+          <p>
+            Read the
+            {' '}
+            <Link href="/divorce-home-equity-split" className="text-blue-600 underline hover:text-blue-700">equity split page</Link>
+            {' '}
+            for the separate-property math.
+            {' '}
+            {LEGAL_DISCLAIMER}
+          </p>
+
+          <h2>How the money is actually paid out</h2>
+          <p>
+            Escrow disburses after the new deed records with the Clark County Recorder. The payoff goes to the lender first, then the closing costs, then each spouse’s share by wire to the account on their signed instructions. Spouses often agree to hold the net proceeds in escrow or an attorney trust account until the decree is entered, so the final split can absorb credits decided later.
+          </p>
+          <ol>
+            <li>Both spouses sign the listing agreement and, later, the purchase contract.</li>
+            <li>Escrow orders payoff demands and prepares a settlement statement each spouse reviews.</li>
+            <li>Both spouses sign closing documents, including separate disbursement instructions.</li>
+            <li>The deed records. Escrow pays the lender and the closing costs.</li>
+            <li>Each spouse’s share is wired, or held per the decree or stipulation.</li>
+          </ol>
+          <p>
+            A neutral agent gives both attorneys the same settlement statement at the same time, so neither side is surprised by a number at the closing table.
+          </p>
+
+          <h2>Taxes on your share</h2>
+          <p>
+            {NEVADA_LAW.capitalGainsExclusion}
+            {' '}
+            {NEVADA_LAW.noStateIncomeTax}
+            {' '}
+            Gain is measured against the adjusted basis, not against the net proceeds, so the number escrow wires is not the taxable figure. The
+            {' '}
+            <Link href="/capital-gains-tax-divorce-home-sale" className="text-blue-600 underline hover:text-blue-700">capital gains page</Link>
+            {' '}
+            covers the divorce use rule and timing. Source:
+            {' '}
+            {NEVADA_LAW.capitalGainsCite}
+            .
+            {' '}
+            {LEGAL_DISCLAIMER}
+          </p>
         </div>
+
+        <HighValueHomeNote
+          points={[
+            `Transfer tax scales with price: ${NEVADA_LAW.transferTaxExample2M}, all of it off the top before the split. The decree-transfer exemption between former spouses is the reason a buyout can net more than a sale for the spouse who stays.`,
+            'Section 121 excludes $250,000 per person or $500,000 jointly. On a home bought years ago in The Ridges or MacDonald Highlands, gain above that cap is taxed, and the timing of the sale relative to the decree changes which exclusion applies.',
+            'HOA resale packages, transfer fees, and capital contributions in guard-gated communities are larger than in a standard subdivision. Get the association’s demand early so the settlement statement has no surprises.',
+            `Cash buyers take a large share of closings at the top tier, and ${LUXURY_2026.closingsAbove1MSept2026} homes closed above $1 million in September 2026. A cash contract shortens the escrow and removes the appraisal contingency from the proceeds timeline.`,
+            'Club memberships at Red Rock Country Club, DragonRidge, or Anthem Country Club are not part of the sale proceeds. Their transfer or refund is handled with the club and listed in the decree separately.',
+          ]}
+        />
+
+        <NextSteps
+          steps={[
+            { title: 'Private call', detail: 'A short conversation about the home, the loans against it, and what the decree or stipulation says about the split.' },
+            { title: 'Net proceeds estimate', detail: 'A line-by-line estimate at a realistic price, with transfer tax, HOA charges, and payoff interest included.' },
+            { title: 'Escrow coordination', detail: 'Disbursement instructions that match the decree, shared with both attorneys before closing.' },
+          ]}
+          callPromise="You leave the call with a net proceeds range and each spouse’s expected share."
+        />
+
+        <PageFAQ faqs={faqs} />
       </DivorcePageTemplate>
     </>
   );
