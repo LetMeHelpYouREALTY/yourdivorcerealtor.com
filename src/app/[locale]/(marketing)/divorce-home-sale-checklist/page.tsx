@@ -178,7 +178,7 @@ export default async function DivorceHomeSaleChecklist(props: PageProps) {
   const realEstateAgentSchema = generateRealEstateAgentSchema();
   const faqSchema = generateFAQPageSchema(faqs);
 
-  const phaseStarts = PHASES.reduce<number[]>((starts, phase, index) => {
+  const phaseStarts = PHASES.reduce<number[]>((starts, _phase, index) => {
     const previous = index === 0 ? 1 : (starts[index - 1] ?? 1) + (PHASES[index - 1]?.items.length ?? 0);
     starts.push(previous);
     return starts;
