@@ -27,7 +27,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-enterprise';
 
 const pageTitle = 'Enterprise NV Divorce Real Estate Agent | Dr. Jan Duffy';
-const pageDescription = `Enterprise, Nevada divorce real estate agent for Southern Highlands, Mountains Edge, Rhodes Ranch and Silverado Ranch. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation, buyout or sale.`;
+const pageDescription = `Enterprise, Nevada divorce real estate agent for Southern Highlands, Mountains Edge and Rhodes Ranch. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a valuation or buyout.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;

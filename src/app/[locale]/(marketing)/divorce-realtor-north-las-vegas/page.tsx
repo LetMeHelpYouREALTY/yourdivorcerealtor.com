@@ -29,7 +29,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-north-las-vegas';
 
 const pageTitle = 'North Las Vegas Divorce Real Estate Agent | Dr. Jan Duffy';
-const pageDescription = `North Las Vegas divorce real estate agent for Aliante, Eldorado, Tule Springs and the Nellis corridor. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation, buyout or sale.`;
+const pageDescription = `North Las Vegas divorce real estate agent for Aliante, Eldorado, Tule Springs and the Nellis corridor. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a valuation or buyout.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;
@@ -125,7 +125,7 @@ export default async function NorthLasVegas(props: INorthLasVegasProps) {
             <li>
               <strong>Eldorado:</strong>
               {' '}
-              A 1990s master plan along Ann Road and Centennial Parkway with a mature inventory of tract homes and a lighter HOA structure. Same-model closings are plentiful.
+              A 1990s master plan along Ann Road and Centennial Parkway with a deep inventory of tract homes and a lighter HOA structure. Same-model closings are plentiful.
             </li>
             <li>
               <strong>Tule Springs and the Villages at Tule Springs:</strong>

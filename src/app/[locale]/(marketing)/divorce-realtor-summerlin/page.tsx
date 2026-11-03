@@ -30,7 +30,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-summerlin';
 
 const pageTitle = 'Summerlin Divorce Real Estate Agent | Dr. Jan Duffy';
-const pageDescription = `Summerlin divorce real estate agent for The Ridges, Red Rock Country Club, The Summit Club, Reverence and the village tracts. Q2 2026 median ${COMMUNITY_12MO.summerlinQ2_2026.median}. Plan the sale or buyout.`;
+const pageDescription = `Summerlin divorce real estate agent for The Ridges, Red Rock Country Club, The Summit Club and the villages. Q2 2026 median ${COMMUNITY_12MO.summerlinQ2_2026.median}. Plan a sale or buyout.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;

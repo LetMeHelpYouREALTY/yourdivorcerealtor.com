@@ -27,7 +27,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-mountains-edge';
 
 const pageTitle = 'Mountains Edge Divorce Real Estate Agent | Dr. Jan Duffy';
-const pageDescription = `Mountains Edge divorce real estate agent for the gated and non-gated builder villages along Blue Diamond Road. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation, buyout or court-aware sale.`;
+const pageDescription = `Mountains Edge divorce real estate agent for the gated and open builder villages on Blue Diamond Road. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a valuation, buyout or sale.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;

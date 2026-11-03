@@ -27,7 +27,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-paradise';
 
 const pageTitle = 'Paradise NV Divorce Real Estate Agent | Dr. Jan Duffy';
-const pageDescription = `Paradise, Nevada divorce real estate agent for Strip high-rises, Las Vegas Country Club, Paradise Palms and the UNLV area. Waldorf Astoria median ${COMMUNITY_12MO.waldorfAstoriaStrip.median}. Plan a sale or buyout.`;
+const pageDescription = `Paradise, Nevada divorce real estate agent for Strip high-rises, Las Vegas Country Club and Paradise Palms. Waldorf Astoria median ${COMMUNITY_12MO.waldorfAstoriaStrip.median}. Plan the sale.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;

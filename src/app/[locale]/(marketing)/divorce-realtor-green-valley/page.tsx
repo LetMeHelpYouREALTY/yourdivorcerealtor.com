@@ -30,7 +30,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-green-valley';
 
 const pageTitle = 'Green Valley Divorce Realtor, Henderson | Dr. Jan Duffy';
-const pageDescription = `Green Valley divorce realtor for Green Valley Ranch, Green Valley South, The Fountains and the Parkway townhomes. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation or buyout.`;
+const pageDescription = `Green Valley divorce realtor for Green Valley Ranch, The Fountains and the Parkway townhomes. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation, buyout or sale.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;
@@ -149,7 +149,7 @@ export default async function GreenValley(props: IGreenValleyProps) {
             A divorce valuation has to hold up to two attorneys and sometimes a judge. It should rest on closed sales of the same model or the same street, adjusted for pool, lot, remodel level and the age of the roof, HVAC and windows, and be written so either spouse can hand it to counsel. List prices and online estimates are not evidence of value.
           </p>
           <p>
-            Green Valley's advantage is depth of data. Decades of resales on repeating floor plans mean a broker price opinion usually settles the number without a formal appraisal. The complication is condition. Two identical 1992 floor plans can be far apart in value when one has a new roof, updated kitchen and resurfaced pool and the other has none of those. The comparables must match condition, not just plan.
+            Green Valley's advantage is depth of data. Decades of resales on repeating floor plans mean a broker price opinion usually settles the number without a formal appraisal. The complication is condition. Two identical 1990s floor plans can be far apart in value when one has a new roof, updated kitchen and resurfaced pool and the other has none of those. The comparables must match condition, not just plan.
           </p>
           <p>
             Henderson's $1 million-plus tier recorded a median of

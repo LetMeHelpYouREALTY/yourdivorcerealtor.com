@@ -27,7 +27,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-aliante';
 
 const pageTitle = 'Aliante Divorce Realtor, North Las Vegas | Dr. Jan Duffy';
-const pageDescription = `Aliante divorce realtor for the golf-course villages, gated tracts, Sun City Aliante and the Aliante Parkway townhomes. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation, buyout or sale.`;
+const pageDescription = `Aliante divorce realtor for the golf-course villages, Sun City Aliante and the Parkway townhomes. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a valuation, buyout or sale.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;

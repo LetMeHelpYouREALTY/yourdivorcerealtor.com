@@ -27,7 +27,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-spring-valley';
 
 const pageTitle = 'Spring Valley Divorce Real Estate Agent | Dr. Jan Duffy';
-const pageDescription = `Spring Valley divorce real estate agent for Spanish Trail, Spanish Hills, the Durango corridor and the 1970s to 1990s subdivisions. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation or buyout.`;
+const pageDescription = `Spring Valley divorce real estate agent for Spanish Trail, Spanish Hills and the Durango corridor. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation or buyout.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;

@@ -30,7 +30,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-southern-highlands';
 
 const pageTitle = 'Southern Highlands Divorce Real Estate Agent | Dr. Jan Duffy';
-const pageDescription = `Southern Highlands divorce real estate agent for the Golf Club estates, gated villages and townhomes. Loans above ${LUXURY_2026.jumboThreshold2026} are jumbo. Plan a neutral valuation, buyout or private sale.`;
+const pageDescription = `Southern Highlands divorce real estate agent for the Golf Club estates and gated villages. Loans above ${LUXURY_2026.jumboThreshold2026} are jumbo. Plan a buyout or private sale.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;
@@ -211,6 +211,9 @@ export default async function SouthernHighlands(props: ISouthernHighlandsProps) 
           <h2>HOA, club and the Clark County close</h2>
           <p>
             Every Southern Highlands sale needs a resale package and a payoff demand from the master association and the sub-association, and the Golf Club adds its own transfer paperwork. Order all of it the week the listing goes live so transfer fees, back dues, any special assessment and the membership terms are known when offers are negotiated. Those costs come out of proceeds before the split, and the settlement should say who bears them.
+          </p>
+          <p>
+            Townhome and condo sales add a reserve study and an insurance certificate that a buyer's lender will read, plus a rental history if the unit was leased. Those items take time to assemble, so start them with the resale package rather than after an offer is accepted.
           </p>
           <p>
             Clark County, not the City of Las Vegas, is the permitting authority in Enterprise, so permit searches for casitas, pool work and outdoor kitchens run through the county. With the HOA packages, club terms and proceeds instructions handled early, the house is usually the least contested asset in a Southern Highlands divorce.

@@ -27,7 +27,7 @@ export const dynamic = 'force-dynamic';
 const path = '/divorce-realtor-centennial-hills';
 
 const pageTitle = 'Centennial Hills Divorce Real Estate Agent | Dr. Jan Duffy';
-const pageDescription = `Centennial Hills divorce real estate agent for Providence, Skye Canyon, Lone Mountain and the Elkhorn corridor. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation, buyout or sale.`;
+const pageDescription = `Centennial Hills divorce real estate agent for Providence, Skye Canyon and Lone Mountain. Valley median ${LVR_SEPT_2026.medianSfrPrice}. Plan a neutral valuation, buyout or sale.`;
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await props.params;
