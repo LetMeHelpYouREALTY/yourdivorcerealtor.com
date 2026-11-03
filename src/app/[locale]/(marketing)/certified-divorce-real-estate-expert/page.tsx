@@ -170,6 +170,9 @@ export default async function CDRE(props: ICDREProps) {
             A real estate licensee prices, markets, negotiates, and closes the sale. A state-certified appraiser produces the appraisal a lender or judge relies on. A family law attorney advises each spouse and drafts the stipulation or order. A CPA advises on the Section 121 exclusion and basis. No single designation replaces any of those roles, and an agent who claims otherwise should be asked to explain.
           </p>
           <p>
+            Clients sometimes ask whether a designation changes the commission or the timeline. It does not. The listing agreement, the reporting schedule, the valuation method, and the fee are the same for every divorce listing in this practice whether the home is a two-bedroom condo near the Strip or a custom estate in The Ridges. What changes with price band is the appraisal protocol, the access rules, and the marketing exposure.
+          </p>
+          <p>
             That division of labor is why the agent's written process matters more than letters. The agent is the one professional in the file who talks to both spouses, both attorneys, the appraiser, the lender, and the title officer every week. The reports, the valuation, and the closing statement are what each of those parties relies on.
           </p>
         </div>

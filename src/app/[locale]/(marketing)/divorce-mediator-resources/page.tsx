@@ -143,6 +143,9 @@ export default async function MediatorResources(props: IMediatorProps) {
               Monthly mortgage, taxes, insurance, HOA, and maintenance the parties must allocate until the sale date.
             </li>
           </ul>
+          <p>
+            Each document is built to be read by a party who has never sold a home. Terms are defined on the page, the arithmetic is shown, and the comparable sales carry addresses and closing dates so either party can verify them in the public record.
+          </p>
 
           <h2>Neutrality in the mediation room</h2>
           <p>
@@ -178,6 +181,9 @@ export default async function MediatorResources(props: IMediatorProps) {
           <h2>Timing and cost</h2>
           <p>
             A walk-through can usually be scheduled within a week of the mediator's request, with both spouses invited to the same appointment or separate ones if contact is restricted. The written valuation and net sheet follow within three to five business days. Licensed appraisals, when the parties order them, typically add one to three weeks depending on the appraiser's calendar and whether the home is a custom build.
+          </p>
+          <p>
+            Mediators who want the materials before the first joint session should allow two weeks from the request. That leaves time for a walk-through, the written opinion, a round of follow-up questions from each party, and a revised net sheet if the loan balance or an agreed credit changes. Sessions scheduled sooner can still proceed on a preliminary range, with the full documents following.
           </p>
           <p>
             There is no charge to the parties for the valuation when the home is later listed with the practice. When the parties choose a buyout or another agent, a flat fee for the written work is quoted in advance so the mediator can allocate it. Appraisal fees are paid directly to the appraiser by whichever party or allocation the parties agree.

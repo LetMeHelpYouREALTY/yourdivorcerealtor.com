@@ -195,6 +195,9 @@ export default async function ExpertWitness(props: IExpertWitnessProps) {
             Counsel engages the practice by letter stating the question, the deadline, and the records available. A flat fee covers the written report; deposition and court time are hourly and quoted in advance. Fees are paid by the retaining party or as the court allocates. A conflict check against both spouses, both counsel, and the property address runs before any records are reviewed.
           </p>
           <p>
+            Records needed for the report are the subject's full MLS history, the showing log if the home was listed, both spouses' valuations or appraisals if any exist, the listing agreement and any order of sale, and photographs or inspection reports that bear on condition at the effective date. Counsel can request MLS history through the practice; the rest comes from the file.
+          </p>
+          <p>
             Thirty days before a disclosure deadline is a comfortable timeline for a tract home. Custom homes, Strip high-rises, and properties with partial MLS history take longer to assemble comparables. Testimony is available at the Family Courts and Services Center on North Pecos Road and by remote appearance when the court allows. Attorneys who work with the practice on listings can read the neutral process on the
             {' '}
             <Link href="/attorney-resources" className="text-blue-600 underline hover:text-blue-700">attorney resources</Link>

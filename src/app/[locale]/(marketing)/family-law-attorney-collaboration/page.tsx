@@ -125,7 +125,11 @@ export default async function AttorneyCollaboration(props: IAttorneyCollabProps)
             <li>Showing feedback is forwarded unedited to both sides</li>
             <li>Offers and counters are presented to both spouses at the same time</li>
             <li>Price-change recommendations come with the comparable sales attached</li>
+            <li>Repair requests, inspection reports, and the appraisal are forwarded to both counsel the day they arrive</li>
           </ul>
+          <p>
+            When contact between the spouses is restricted by a protective order, the agent runs separate walk-throughs, separate signing appointments, and separate showing calendars, and still sends every substantive communication to both attorneys in one message.
+          </p>
 
           <h2>Written status reports and court-order compliance</h2>
           <p>
@@ -166,6 +170,9 @@ export default async function AttorneyCollaboration(props: IAttorneyCollabProps)
           <h2>Transaction coordination through closing</h2>
           <p>
             Once a contract is accepted, the agent manages inspections, repair negotiations, appraisal access, and the title file, and reports each milestone to both counsel. Signatures from a spouse who has moved out of state are handled through mobile notary or the title company's remote closing. Proceeds are disbursed per the order on file or held until one issues.
+          </p>
+          <p>
+            Timing is predictable once the order is in place. A walk-through is usually scheduled within a week of counsel's call, the written opinion follows within three to five business days, and a tract home priced from the comparable set typically funds 60 to 120 days after listing once counsel review and escrow are counted. Custom homes and Strip high-rises run longer because the buyer pool is smaller and more cash-driven.
           </p>
           <p>
             The closing statement is sent to both attorneys the day it is final. For a buyout rather than a sale, the agent coordinates with the lender's appraiser and the title officer on the interspousal deed and the transfer-tax exemption, then confirms the loan payoff and recording to both sides.
