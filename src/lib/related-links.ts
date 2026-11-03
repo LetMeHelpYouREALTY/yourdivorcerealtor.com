@@ -11,6 +11,7 @@ const pageTitles: Record<string, string> = {
   '/about': 'About Dr. Jan Duffy',
   '/contact': 'Contact Dr. Jan Duffy',
   '/divorce-real-estate-services': 'Divorce Real Estate Services',
+  '/sell': 'Selling a Home During Divorce',
   '/testimonials': 'Client Testimonials',
   '/faq': 'Frequently Asked Questions',
 
@@ -140,6 +141,12 @@ export const relatedLinksMap: Record<string, string[]> = {
   ],
 
   // Selling cluster
+  '/sell': [
+    '/selling-home-during-divorce',
+    '/divorce-home-valuation',
+    '/divorce-listing-process',
+    '/luxury-divorce-real-estate-las-vegas',
+  ],
   '/selling-home-during-divorce': [
     '/divorce-listing-process',
     '/divorce-home-valuation',

@@ -2,13 +2,19 @@ import type { Metadata } from 'next';
 import type { PageProps } from '@/types';
 import { setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
-import { CalendlyLink } from '@/components/calendly/CalendlyLink';
+import { DirectAnswer } from '@/components/divorce/DirectAnswer';
 import { DivorcePageTemplate } from '@/components/divorce/DivorcePageTemplate';
+import { HighValueHomeNote } from '@/components/divorce/HighValueHomeNote';
+import { KeyFacts } from '@/components/divorce/KeyFacts';
+import { NextSteps } from '@/components/divorce/NextSteps';
+import { PageFAQ } from '@/components/divorce/PageFAQ';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { CONTENT_LAST_UPDATED, toSchemaDateTime } from '@/lib/content-dates';
+import { LEGAL_DISCLAIMER, LUXURY_2026, LVR_SEPT_2026, NEVADA_LAW } from '@/lib/market-data';
 import { generateLocaleAlternates, getCanonicalSiteUrl } from '@/lib/metadata';
 import {
   generateArticleSchema,
+  generateFAQPageSchema,
   generateRealEstateAgentSchema,
   generateServiceSchema,
 } from '@/lib/schema';
@@ -21,9 +27,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'One Spouse Won\'t Sell House Divorce | Forced Sale Divorce Nevada | Dr. Jan Duffy',
-    description: 'What to do when one spouse won\'t sell house during divorce. Legal options, forced sale divorce Nevada, court-ordered sales, and mediation strategies. Expert guidance.',
-    keywords: 'one spouse won\'t sell house divorce, forced sale divorce Nevada, court ordered home sale divorce, spouse refusing to sell house',
+    title: 'One Spouse Won\'t Sell the House in Divorce | Dr. Jan Duffy',
+    description: 'When one spouse refuses to sell, Nevada courts can order the sale under NRS 125.150. Compare 4 options: mediation, buyout, deferred sale, and court order.',
     alternates: { canonical, languages },
   };
 }
@@ -33,276 +38,264 @@ export default async function OneSpouseWontSellHouseDivorce(props: PageProps) {
   setRequestLocale(locale);
 
   const currentPath = '/one-spouse-wont-sell-house-divorce';
+
+  const faqs = [
+    {
+      question: 'Can my spouse stop the sale of our house during divorce?',
+      answer: 'Temporarily. When both names are on title, escrow needs both signatures, so a refusal stalls the listing. It does not end it. Your attorney can ask the court to order the sale, appoint a neutral agent, and authorize a signature on the refusing spouse\'s behalf. Document every refusal in the meantime.',
+    },
+    {
+      question: 'How does a forced sale work in Nevada?',
+      answer: 'Your attorney files a motion asking the court to order the home sold. The court holds a hearing, and if it agrees, issues an order setting the listing date, price floor, agent, and proceeds split. The court may appoint a neutral agent. Proceeds are held by escrow and released as the order directs.',
+    },
+    {
+      question: 'What if my spouse wants to keep the house instead?',
+      answer: `Then the question is whether they can afford a buyout. They need a refinance approval in their own name, and above ${LUXURY_2026.jumboThreshold2026} that is a jumbo loan underwritten on income after support. Ask for the approval letter before agreeing to delay the sale.`,
+    },
+    {
+      question: 'Who pays the mortgage while my spouse refuses to sell?',
+      answer: 'Both spouses remain liable to the lender. Temporary orders usually assign the payment to the spouse living in the home, with reimbursement from proceeds at closing. If the refusing spouse also stops paying, raise it with your attorney immediately; a missed payment damages both credit reports.',
+    },
+    {
+      question: 'What counts as sabotaging the sale?',
+      answer: 'Refusing or cancelling showings, leaving the home unpresentable, declining to sign counteroffers by the deadline, or telling buyers the sale is contested. Each one is logged with a date and reported to both attorneys the same day. A pattern is what the court acts on.',
+    },
+    {
+      question: 'Does the court have to split the proceeds evenly?',
+      answer: `${NEVADA_LAW.communityPropertyRule} So an even split is the default. A court can order reimbursement to one spouse for documented separate-property contributions or for carrying costs paid during a refusal, if it writes down the reason.`,
+    },
+  ];
+
   const articleSchema = generateArticleSchema(
-    'One Spouse Won\'t Sell House Divorce: Your Legal Options',
-    'What to do when one spouse won\'t sell house during divorce. Legal options, forced sale divorce Nevada, court-ordered sales, and mediation strategies.',
+    'One Spouse Won\'t Sell the House in Divorce: Your Options',
+    'What to do when one spouse refuses to sell the marital home in Nevada: mediation, buyout, deferred sale, and court-ordered sale under NRS 125.150.',
     getCanonicalSiteUrl(currentPath, locale),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
     toSchemaDateTime(CONTENT_LAST_UPDATED),
   );
   const serviceSchema = generateServiceSchema(
-    'Forced Sale Divorce Services',
-    'What to do when one spouse won\'t sell house during divorce. Legal options, forced sale divorce Nevada, court-ordered sales, and mediation strategies.',
+    'Contested Divorce Home Sale Services',
+    'Neutral and court-appointed listing representation for Las Vegas divorces where one spouse refuses to sell.',
     ['Las Vegas', 'Henderson', 'Summerlin', 'North Las Vegas'],
   );
   const realEstateAgentSchema = generateRealEstateAgentSchema();
+  const faqPageSchema = generateFAQPageSchema(faqs);
 
   return (
     <>
-      <StructuredData data={[articleSchema, serviceSchema, realEstateAgentSchema]} />
+      <StructuredData data={[articleSchema, serviceSchema, realEstateAgentSchema, faqPageSchema]} />
       <DivorcePageTemplate
-        h1="One Spouse Won't Sell House Divorce: Your Legal Options"
-        heroSubhead="Navigate Forced Sales and Court-Ordered Solutions"
+        h1="One Spouse Won't Sell the House in Divorce: Your Options"
+        heroSubhead="Mediation, buyout, deferred sale, or a court order, and how each one actually plays out"
         currentPath={currentPath}
         datePublished={CONTENT_LAST_UPDATED}
         dateModified={CONTENT_LAST_UPDATED}
       >
-        <div className="prose prose-lg mx-auto max-w-4xl">
-          <h2>When One Spouse Refuses to Sell</h2>
-          <p>
-            One of the most challenging situations in divorce real estate occurs when one spouse refuses to sell the house. This can delay your divorce resolution, create financial strain, and prevent you from moving forward. Understanding your legal options and working with a divorce real estate specialist helps you navigate this difficult situation effectively.
-          </p>
+        <DirectAnswer question="What can I do if my spouse refuses to sell the house during our divorce?">
+          A refusal delays the sale but does not stop it. Start with mediation using a written valuation
+          and net sheet. If your spouse wants the home, require a refinance approval for a buyout. If
+          neither works, your attorney can ask the Nevada court to order the sale, set the terms, and
+          appoint a neutral agent. Log every refused showing or missed signature meanwhile.
+        </DirectAnswer>
 
-          <h2>Why Spouses Refuse to Sell</h2>
+        <KeyFacts
+          facts={[
+            { label: 'Las Vegas single-family median, September 2026', value: LVR_SEPT_2026.medianSfrPrice },
+            { label: 'Homes sold within 30 days of listing', value: LVR_SEPT_2026.soldWithin30DaysPct },
+            { label: 'Nevada equal-division rule', value: NEVADA_LAW.communityPropertyCite },
+          ]}
+          source={`${LVR_SEPT_2026.source}; Nevada Revised Statutes`}
+          sourceUrl={LVR_SEPT_2026.url}
+        />
+
+        <div className="prose prose-lg mx-auto max-w-4xl">
+          <h2>Why a spouse refuses, and what each reason needs</h2>
           <p>
-            Understanding the reasons behind refusal can help address the situation:
+            Most refusals come down to one of five things: the number, the move-out date, a wish to keep
+            the home, leverage in another part of the case, or not understanding the carrying cost. Each
+            has a different fix. Find the reason before choosing between mediation, a buyout, and a
+            motion, because the wrong tool wastes months.
           </p>
-          <ul className="list-disc space-y-2 pl-6">
+          <ul>
             <li>
-              <strong>Emotional attachment:</strong>
+              <strong>The number:</strong>
               {' '}
-              The home represents memories and stability
+              a written valuation with comparables attached, or a jointly ordered appraisal.
             </li>
             <li>
-              <strong>Financial concerns:</strong>
+              <strong>The move-out date:</strong>
               {' '}
-              Fear of not being able to afford a new home
+              a closing date and possession terms written into the stipulation.
             </li>
             <li>
-              <strong>Children's stability:</strong>
+              <strong>Wanting to keep it:</strong>
               {' '}
-              Wanting to keep children in the same school/neighborhood
+              a buyout, which starts with a refinance approval, not a promise.
             </li>
             <li>
               <strong>Leverage:</strong>
               {' '}
-              Using the house as leverage in other divorce negotiations
+              a motion, because negotiation rewards the delay.
             </li>
             <li>
-              <strong>Market timing:</strong>
+              <strong>Cost blindness:</strong>
               {' '}
-              Waiting for better market conditions
-            </li>
-            <li>
-              <strong>Lack of understanding:</strong>
-              {' '}
-              Not understanding the financial implications
+              a monthly carrying-cost sheet showing what the refusal costs both spouses.
             </li>
           </ul>
 
-          <h2>Legal Options When One Spouse Won't Sell</h2>
-          <h3>Option 1: Court-Ordered Sale (Forced Sale Divorce Nevada)</h3>
+          <h2>Your four options, in order</h2>
           <p>
-            If one spouse refuses to sell and you can't reach an agreement, you can petition the court to order the sale. In Nevada, courts have the authority to order the sale of marital property when spouses can't agree. This is often called a "forced sale" or "partition sale."
+            Try mediation first, because most refusals are about a number or a date. If your spouse
+            wants the home, test the buyout with a lender before agreeing to wait. A deferred sale with a
+            fixed exit date is the fallback when a buyout is close but not ready. A court-ordered sale is
+            the last option and the one the other three are measured against.
           </p>
+          <h3>Option 1: mediation with the numbers on the table</h3>
           <p>
-            <strong>Process for court-ordered sale:</strong>
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>File a motion with the court requesting sale of the property</li>
-            <li>Court evaluates the situation and may order sale if it's in both parties' best interests</li>
-            <li>Court may appoint a neutral real estate agent (like Dr. Jan Duffy) to handle the sale</li>
-            <li>Sale proceeds are distributed according to court order</li>
-          </ul>
-          <p className="mt-4">
-            Learn more:
+            Bring the valuation, the net sheet showing proceeds to each spouse, and the monthly carrying
+            cost. Agreements reached here go into a stipulation your attorney files. See
             {' '}
-            <Link href="/court-ordered-home-sale" className="text-blue-600 underline hover:text-blue-700">Court-Ordered Home Sale Process</Link>
+            <Link href="/divorce-mediator-resources" className="text-blue-600 underline hover:text-blue-700">divorce mediation resources</Link>
+            .
+          </p>
+          <h3>Option 2: buyout</h3>
+          <p>
+            The spouse keeping the home refinances in their own name and pays the other's share at
+            closing. Ask for the approval letter before the sale is delayed. A buyout that fails after
+            months of waiting puts the sale back on a court timeline. Details at
+            {' '}
+            <Link href="/divorce-buyout-options" className="text-blue-600 underline hover:text-blue-700">divorce buyout options</Link>
+            .
+          </p>
+          <h3>Option 3: deferred sale with an exit date</h3>
+          <p>
+            Co-own for a set period with a written listing date, who pays which bills, who may occupy,
+            and what happens on a missed payment. Without those four terms, a deferred sale is a refusal
+            with a new name.
+          </p>
+          <h3>Option 4: court-ordered sale</h3>
+          <p>
+            Your attorney files a motion. The order sets the listing date, price floor, agent, and
+            proceeds split, and can authorize a signature on the refusing spouse's behalf. See
+            {' '}
+            <Link href="/court-ordered-home-sale" className="text-blue-600 underline hover:text-blue-700">how a court-ordered home sale works</Link>
+            .
           </p>
 
-          <h3>Option 2: Mediation and Negotiation</h3>
+          <h2>How a forced sale works in Nevada</h2>
           <p>
-            Before going to court, mediation can help resolve the impasse. A neutral mediator helps both parties understand options and reach agreement. Dr. Jan Duffy can participate in mediation, providing property valuations and market information that supports informed decision-making.
+            {NEVADA_LAW.communityPropertyRule}
+            {' '}
+            Under
+            {' '}
+            {NEVADA_LAW.communityPropertyCite}
+            , the home is community property the court must divide, and selling it is the usual way to
+            divide it when one spouse cannot buy the other out. The court can order the sale, set its
+            terms, and appoint a neutral agent to carry it out.
           </p>
-
-          <h3>Option 3: Buyout Offer</h3>
-          <p>
-            If one spouse wants to keep the house, they can buy out the other spouse's share. This requires accurate valuation, buyout calculation, and refinancing. Dr. Jan Duffy helps structure fair buyout offers that may resolve the impasse.
-          </p>
-
-          <h3>Option 4: Temporary Co-Ownership Agreement</h3>
-          <p>
-            In some cases, temporary co-ownership with a clear exit strategy can work. This requires detailed agreements about expenses, maintenance, and eventual sale. Dr. Jan Duffy helps structure these agreements to prevent future conflicts.
-          </p>
-
-          <h2>Forced Sale Divorce Nevada: Court Process</h2>
-          <p>
-            When seeking a forced sale in Nevada, the court process typically involves:
-          </p>
-          <ol className="list-decimal space-y-2 pl-6">
+          <ol>
             <li>
-              <strong>Filing motion:</strong>
+              <strong>Motion:</strong>
               {' '}
-              Your attorney files a motion requesting court-ordered sale
+              your attorney asks the court to order the sale and states the proposed terms.
             </li>
             <li>
-              <strong>Court hearing:</strong>
+              <strong>Hearing:</strong>
               {' '}
-              Court evaluates the situation and both parties' positions
+              both sides are heard; a written valuation and a log of refusals carry weight here.
             </li>
             <li>
-              <strong>Court order:</strong>
+              <strong>Order:</strong>
               {' '}
-              If granted, court issues order specifying sale terms
+              listing date, price floor, agent, showing access, and the proceeds split.
             </li>
             <li>
-              <strong>Appointment of agent:</strong>
+              <strong>Appointment:</strong>
               {' '}
-              Court may appoint neutral real estate agent
+              the court may name a neutral agent who reports to both attorneys.
             </li>
             <li>
-              <strong>Sale execution:</strong>
+              <strong>Sale and distribution:</strong>
               {' '}
-              Property is listed and sold according to court order
-            </li>
-            <li>
-              <strong>Proceeds distribution:</strong>
-              {' '}
-              Proceeds distributed per court order
+              escrow follows the order, and the court can sign for a spouse who will not.
             </li>
           </ol>
+          <p>{LEGAL_DISCLAIMER}</p>
 
-          <h2>Working with a Court-Appointed Agent</h2>
+          <h2>Working with a court-appointed agent</h2>
           <p>
-            When courts order a sale, they often appoint a neutral real estate agent to handle the transaction. Dr. Jan Duffy has experience as a court-appointed agent, ensuring compliance with court orders and fair treatment of all parties.
+            A court-appointed agent represents the sale, not either spouse. Every update goes to both
+            spouses and both attorneys at the same time, in writing. The agent follows the order's price
+            and timing, reports non-compliance the day it happens, and does not negotiate side
+            arrangements with one spouse. That neutrality is what makes the order enforceable.
           </p>
-          <p>
-            <strong>Court-appointed agent responsibilities:</strong>
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Maintain strict neutrality between parties</li>
-            <li>Ensure compliance with all court orders</li>
-            <li>Provide regular updates to court and parties</li>
-            <li>Handle non-cooperative situations professionally</li>
-            <li>Ensure fair market value sale</li>
+          <ul>
+            <li>Showing windows set by the order, with every request and response logged.</li>
+            <li>Offers summarized on one page and sent to both spouses and both attorneys together.</li>
+            <li>Price changes only within the order's floor, or with a new order.</li>
+            <li>A written status report at each milestone the court or attorneys ask for.</li>
           </ul>
 
-          <h2>Preventing Sale Sabotage</h2>
+          <h2>Preventing sale sabotage</h2>
           <p>
-            Sometimes a refusing spouse may try to sabotage the sale (refusing showings, not maintaining property, etc.). Dr. Jan Duffy has escalation protocols to handle these situations and keep transactions on track.
+            A refusing spouse who cannot stop the sale may slow it: cancelled showings, an unpresentable
+            home, counteroffers left unsigned past the deadline. The answer is a log, not an argument.
+            Each event is recorded with a date and sent to both attorneys the same day. A pattern of
+            events is what the court enforces against.
           </p>
-          <p>
-            <strong>Escalation strategies:</strong>
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Document all non-compliance issues</li>
-            <li>Coordinate with attorneys to address problems</li>
-            <li>Request court intervention when necessary</li>
-            <li>Maintain professional communication</li>
-            <li>Focus on transaction completion</li>
+          <ul>
+            <li>Date-stamped log of every showing request, response, and cancellation.</li>
+            <li>Decision deadlines on price, repairs, and offers, with silence reported as a missed deadline.</li>
+            <li>No private calls with one spouse about the other's conduct; everything goes to both attorneys.</li>
+            <li>A request for court intervention only after the log shows a pattern.</li>
           </ul>
 
-          <h2>Financial Implications of Refusal</h2>
+          <h2>What the refusal costs</h2>
           <p>
-            Refusing to sell can have significant financial consequences:
+            Every month of delay keeps both spouses liable for the mortgage, taxes, insurance, HOA dues,
+            and upkeep, and adds legal fees for each round of letters. Meanwhile the market moves on
+            its own schedule: in September 2026, the Las Vegas single-family median was
+            {' '}
+            {LVR_SEPT_2026.medianSfrPrice}
+            {' '}
+            and
+            {' '}
+            {LVR_SEPT_2026.soldWithin30DaysPct}
+            {' '}
+            of homes sold within 30 days. Carrying costs rarely come back in the price.
           </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>
-              <strong>Ongoing expenses:</strong>
-              {' '}
-              Both spouses remain responsible for mortgage, taxes, insurance
-            </li>
-            <li>
-              <strong>Market risk:</strong>
-              {' '}
-              Property values can decline while waiting
-            </li>
-            <li>
-              <strong>Legal costs:</strong>
-              {' '}
-              Court proceedings add legal expenses
-            </li>
-            <li>
-              <strong>Delayed resolution:</strong>
-              {' '}
-              Prevents financial closure and moving forward
-            </li>
-            <li>
-              <strong>Credit impact:</strong>
-              {' '}
-              Ongoing joint mortgage affects both parties' credit
-            </li>
-          </ul>
-
-          <h2>Mediation Strategies</h2>
           <p>
-            Before pursuing court-ordered sale, consider mediation:
+            Related reading:
+            {' '}
+            <Link href="/selling-home-during-divorce" className="text-blue-600 underline hover:text-blue-700">selling a house during divorce</Link>
+            {' '}
+            and
+            {' '}
+            <Link href="/divorce-property-division" className="text-blue-600 underline hover:text-blue-700">property division in Nevada</Link>
+            .
           </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>
-              <strong>Address concerns:</strong>
-              {' '}
-              Understand why spouse refuses and address those concerns
-            </li>
-            <li>
-              <strong>Provide information:</strong>
-              {' '}
-              Share market data and financial implications
-            </li>
-            <li>
-              <strong>Explore alternatives:</strong>
-              {' '}
-              Discuss buyout, temporary co-ownership, or delayed sale
-            </li>
-            <li>
-              <strong>Set timeline:</strong>
-              {' '}
-              Agree on timeline for eventual sale if keeping temporarily
-            </li>
-            <li>
-              <strong>Document agreement:</strong>
-              {' '}
-              Put any agreement in writing with clear terms
-            </li>
-          </ul>
-
-          <h2>When to Seek Court Intervention</h2>
-          <p>
-            Court intervention may be necessary when:
-          </p>
-          <ul className="list-disc space-y-2 pl-6">
-            <li>Mediation fails to resolve the impasse</li>
-            <li>One spouse is using the house as leverage unfairly</li>
-            <li>Financial hardship requires immediate sale</li>
-            <li>Court order already exists but isn't being followed</li>
-            <li>Children's best interests require sale and relocation</li>
-          </ul>
-
-          <h2>Get Expert Help</h2>
-          <p>
-            Navigating a situation where one spouse won't sell requires specialized expertise. Dr. Jan Duffy understands these challenges and helps you explore all options, from mediation to court-ordered sales. She maintains neutrality and focuses on achieving fair outcomes.
-          </p>
-          <div className="my-8 border-l-4 border-blue-600 bg-blue-50 p-6">
-            <h3 className="mb-2 text-xl font-semibold">Need Help with a Refusing Spouse?</h3>
-            <p className="mb-4">
-              Schedule a confidential consultation with Dr. Jan Duffy to discuss your situation and explore options for moving forward, whether through negotiation, mediation, or court-ordered sale.
-            </p>
-            <CalendlyLink
-              className="inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-            >
-              Schedule Your Consultation
-            </CalendlyLink>
-          </div>
-
-          <h2>Related Resources</h2>
-          <ul className="list-disc space-y-2 pl-6">
-            <li><Link href="/court-ordered-home-sale" className="text-blue-600 underline hover:text-blue-700">Court-Ordered Home Sale</Link></li>
-            <li><Link href="/divorce-mediator-resources" className="text-blue-600 underline hover:text-blue-700">Divorce Mediation Resources</Link></li>
-            <li><Link href="/divorce-buyout-options" className="text-blue-600 underline hover:text-blue-700">Buyout Options</Link></li>
-            <li><Link href="/selling-home-during-divorce" className="text-blue-600 underline hover:text-blue-700">Selling Home During Divorce</Link></li>
-            <li><Link href="/divorce-property-division" className="text-blue-600 underline hover:text-blue-700">Property Division Guide</Link></li>
-          </ul>
         </div>
+
+        <HighValueHomeNote points={[
+          `A spouse who wants to keep a home above ${LUXURY_2026.jumboThreshold2026} needs a jumbo refinance approval, underwritten on income after support with larger reserves. Ask for the letter before agreeing to any delay.`,
+          'On custom homes in The Ridges, MacDonald Highlands, and Red Rock Country Club, a refusing spouse often disputes the valuation. A two-appraisal protocol written into the order removes that argument.',
+          'Guard-gated showings require pre-registered names. The order should direct the gate list and showing access so one spouse cannot block buyers by withholding it.',
+          'Club memberships at Red Rock CC, DragonRidge, Anthem CC, and Summit Club have transfer fees and waiting lists. The order should say whether the membership transfers and who pays.',
+          'Cash buyers are a larger share at this tier and can close quickly once the order is entered. Off-market exposure to a vetted buyer list keeps a contested sale out of public view.',
+        ]}
+        />
+
+        <NextSteps
+          steps={[
+            { title: 'Private call', detail: 'Tell me what your spouse has refused, whether an order exists, and what your attorney has filed.' },
+            { title: 'Valuation and carrying-cost sheet', detail: 'The two documents that move mediation and support a motion.' },
+            { title: 'Neutral or court-appointed listing', detail: 'A plan that both attorneys can file, with logging and reporting built in.' },
+          ]}
+          callPromise="You leave the call knowing which of the four options fits and what to hand your attorney."
+        />
+
+        <PageFAQ faqs={faqs} />
       </DivorcePageTemplate>
     </>
   );
