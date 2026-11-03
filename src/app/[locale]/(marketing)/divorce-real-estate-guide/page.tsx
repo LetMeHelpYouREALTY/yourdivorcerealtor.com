@@ -61,7 +61,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Divorce Real Estate Guide for Las Vegas | Dr. Jan Duffy',
-    description: 'Your 4 options for the marital home in a Las Vegas divorce, how value is set, what the court can order, and what the sale costs, in one guide with sourced market data.',
+    description: 'Your 4 options for the marital home in a Las Vegas divorce, how value is set, what the court can order, and what the sale costs, with sourced market data.',
     alternates: { canonical, languages },
   };
 }
@@ -167,7 +167,7 @@ export default async function CompleteGuide(props: IGuideProps) {
             An open-market sale sets its own value. A buyout or a contested division needs a licensed appraisal from a state-certified appraiser, with an effective date your attorney names. A broker price opinion from a real estate licensee frames the list price and the negotiation but is not what a lender or judge relies on to fix a buyout figure.
           </p>
           <p>
-            For a tract home in Summerlin, Henderson, or North Las Vegas with a dozen model-match sales in the last six months, the opinion and the appraisal usually land close. For a custom home in The Ridges, MacDonald Highlands, or Southern Highlands, comparable sales are sparse and vary by lot, view, and finish, so two appraisers can differ by six figures. There, a two-appraisal protocol agreed in advance is the safer path. See
+            For a tract home in Summerlin, Henderson, or North Las Vegas with a dozen model-match sales in the last six months, the opinion and the appraisal usually land close. For a custom home in The Ridges, MacDonald Highlands, or Southern Highlands, comparable sales are sparse and vary by lot, view, and finish, so two appraisers can differ by six figures. There, a two-appraisal protocol agreed in advance is the cleaner path. See
             {' '}
             <Link href="/divorce-appraisal-services" className="text-blue-600 underline hover:text-blue-700">divorce appraisal services</Link>
             .

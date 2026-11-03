@@ -55,7 +55,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Selling a House During Divorce in Nevada | Dr. Jan Duffy',
-    description: 'Nevada community property rules, what Clark County family court can order, transfer tax of $5.10 per $1,000, and the sale timeline for divorcing homeowners in Las Vegas.',
+    description: 'Nevada community property rules, what Clark County family court can order, transfer tax of $5.10 per $1,000, and the sale timeline for Las Vegas divorces.',
     alternates: { canonical, languages },
   };
 }

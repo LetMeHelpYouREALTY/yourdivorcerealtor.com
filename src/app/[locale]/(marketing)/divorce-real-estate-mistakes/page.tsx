@@ -58,7 +58,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Divorce Real Estate Mistakes to Avoid | Dr. Jan Duffy',
-    description: 'The 7 mistakes that cost divorcing Las Vegas homeowners money: unqualified buyouts, overpricing, quitclaiming while on the loan, no listing authority, and telling buyers.',
+    description: 'The 7 mistakes that cost divorcing Las Vegas homeowners money: unqualified buyouts, overpricing, quitclaiming on the loan, and telling buyers.',
     alternates: { canonical, languages },
   };
 }
@@ -146,7 +146,7 @@ export default async function MistakesToAvoid(props: IMistakesProps) {
             A quitclaim or interspousal deed transfers ownership. It does nothing to the loan. The spouse who deeds away the house and stays on the mortgage remains liable for every payment, and a missed payment lands on their credit while they are trying to qualify for their next home. Lenders do not care what the decree says about who pays.
           </p>
           <p>
-            Deed the property only when the refinance in the other spouse's name has funded, or under a decree that sets a refinance deadline and orders a sale if it is missed. If the keeping spouse cannot refinance now, a deferred sale with written carrying terms is safer than a deed that leaves you exposed. See
+            Deed the property only when the refinance in the other spouse's name has funded, or under a decree that sets a refinance deadline and orders a sale if it is missed. If the keeping spouse cannot refinance now, a deferred sale with written carrying terms is better than a deed that leaves you exposed. See
             {' '}
             <Link href="/refinancing-after-divorce" className="text-blue-600 underline hover:text-blue-700">refinancing after divorce</Link>
             .

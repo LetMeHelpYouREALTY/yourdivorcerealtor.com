@@ -54,7 +54,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Divorce Real Estate Expert Witness Las Vegas | Dr. Jan Duffy',
-    description: 'Written reports and testimony on market value, list price, and marketing conduct for Clark County family court, with comparable sales from a market of 1,745 monthly closings.',
+    description: 'Written reports and testimony on market value, list price, and marketing conduct for Clark County family court, drawn from 1,745 monthly closings.',
     alternates: { canonical, languages },
   };
 }

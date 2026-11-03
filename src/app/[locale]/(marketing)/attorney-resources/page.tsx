@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: 'How is the listing price set when the spouses disagree?',
-    answer: 'The listing agreement names a method, not just a number. Common language sets the initial list price from a broker price opinion both sides have seen, and allows a reduction after a stated number of days or showings without a new signature. For custom homes above the jumbo line, two licensed appraisals averaged, or the court choosing between them, is the safer protocol.',
+    answer: 'The listing agreement names a method, not just a number. Common language sets the initial list price from a broker price opinion both sides have seen, and allows a reduction after a stated number of days or showings without a new signature. For custom homes above the jumbo line, two licensed appraisals averaged, or the court choosing between them, is the cleaner protocol.',
   },
   {
     question: 'Can the court order the home sold before the decree is final?',
@@ -58,7 +58,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Attorney Referrals for Divorce Real Estate | Dr. Jan Duffy',
-    description: 'How Las Vegas family law attorneys refer the marital home: neutral listing, written status reports to both counsel, and court-order compliance on 1,745 monthly sales.',
+    description: 'How Las Vegas family law attorneys refer the marital home: neutral listing, written status reports to both counsel, and court-order compliance in 1 process.',
     alternates: { canonical, languages },
   };
 }

@@ -54,7 +54,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Divorce Mediator Real Estate Resources | Dr. Jan Duffy',
-    description: 'Neutral property valuations and net sheets for Las Vegas divorce mediators: one number both parties can accept, delivered in 3 to 5 business days after a walk-through.',
+    description: 'Neutral valuations and net sheets for Las Vegas divorce mediators: one number both parties can accept, delivered 3 to 5 business days after a walk-through.',
     alternates: { canonical, languages },
   };
 }

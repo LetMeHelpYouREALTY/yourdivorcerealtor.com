@@ -58,7 +58,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Divorce Appraisal vs. Broker Price Opinion | Dr. Jan Duffy',
-    description: 'When a Las Vegas divorce needs a licensed appraisal, when a broker price opinion is enough, and the 2-appraisal protocol for custom homes where value is contested.',
+    description: 'When a Las Vegas divorce needs a licensed appraisal, when a broker price opinion is enough, and the 2-appraisal protocol for contested custom homes.',
     alternates: { canonical, languages },
   };
 }

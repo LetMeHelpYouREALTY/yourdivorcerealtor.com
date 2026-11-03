@@ -54,7 +54,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Collaborating with Family Law Attorneys | Dr. Jan Duffy',
-    description: 'How a neutral Las Vegas listing agent works inside a family law case: one valuation for both counsel, weekly written reports, and listing authority that survives 1 spouse going silent.',
+    description: 'How a neutral Las Vegas listing agent works inside a family law case: 1 valuation for both counsel, weekly written reports, and enforceable listing authority.',
     alternates: { canonical, languages },
   };
 }

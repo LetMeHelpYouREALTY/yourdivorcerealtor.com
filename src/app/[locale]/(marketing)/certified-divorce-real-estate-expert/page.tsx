@@ -54,7 +54,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Certified Divorce Real Estate Expert (CDRE) | Dr. Jan Duffy',
-    description: 'What the Certified Divorce Real Estate Expert designation covers, what Clark County family court looks for in a listing agent, and 5 questions to ask before you sign.',
+    description: 'What the Certified Divorce Real Estate Expert designation covers, what Clark County family court looks for, and 5 questions to ask before you sign.',
     alternates: { canonical, languages },
   };
 }
