@@ -34,7 +34,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Divorce Settlement Options for the House | Dr. Jan Duffy',
-    description: 'Five ways to settle the house in a Nevada divorce: sell and split, buyout, deferred sale, refinance, or short sale. Compare costs, loan needs, and timing for each.',
+    description: 'Five ways to settle the house in a Nevada divorce: sell and split, buyout, deferred sale, refinance, or short sale. Compare costs and loan needs for each.',
     alternates: { canonical, languages },
   };
 }
@@ -108,7 +108,6 @@ export default async function SettlementOptions(props: ISettlementProps) {
         />
 
         <div className="prose prose-lg mx-auto max-w-4xl">
-          <h2>The rule every option starts from</h2>
           <p>
             {NEVADA_LAW.communityPropertyRule}
             {' '}
@@ -245,6 +244,9 @@ export default async function SettlementOptions(props: ISettlementProps) {
               not applicable with $450,000 of equity.
             </li>
           </ul>
+          <p>
+            Timing differs as much as cost. A sale closes in weeks once listed. A buyout takes as long as the refinance, which on a jumbo loan can mean a longer underwriting window and a second appraisal. A deferred sale runs to whatever date the decree sets, with both names on the loan until then. Put the timeline beside the dollars when you compare.
+          </p>
           <p>
             Dr. Jan Duffy prepares that comparison for both attorneys at once, so the choice is made on the same numbers from the same date.
           </p>

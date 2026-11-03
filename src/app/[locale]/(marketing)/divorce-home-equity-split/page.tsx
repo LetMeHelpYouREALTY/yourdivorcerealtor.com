@@ -27,8 +27,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Divorce Home Equity Split in Nevada Explained | Dr. Jan Duffy',
-    description: 'How home equity is split in a Nevada divorce: the equal-division rule, separate-property adjustments, a worked example, and why the valuation date changes the number.',
+    title: 'How Home Equity Is Split in a Nevada Divorce | Dr. Jan Duffy',
+    description: 'How home equity is split in a Nevada divorce: the equal-division rule, separate-property adjustments, and a worked example with round numbers.',
     alternates: { canonical, languages },
   };
 }

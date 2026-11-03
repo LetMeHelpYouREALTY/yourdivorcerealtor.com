@@ -27,8 +27,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Divorce Home Sale Taxes in Nevada: Full Guide | Dr. Jan Duffy',
-    description: 'Every tax on a divorce home sale in Nevada: no state income tax, federal capital gains with the $500,000 exclusion, $5.10 per $1,000 transfer tax, and property tax proration.',
+    title: 'Divorce Home Sale Taxes in Nevada: A Guide | Dr. Jan Duffy',
+    description: 'Every tax on a divorce home sale in Nevada: no state income tax, federal capital gains with the $500,000 exclusion, and $5.10 per $1,000 transfer tax.',
     alternates: { canonical, languages },
   };
 }
@@ -241,7 +241,7 @@ export default async function DivorceHomeSaleTaxesNevada(props: PageProps) {
             {LEGAL_DISCLAIMER}
           </p>
 
-          <h2>Records to gather before listing</h2>
+          <h3>Records to gather before listing</h3>
           <p>
             In a divorce the records are usually split between two households, and the improvement receipts are the ones that go missing. Every documented improvement raises the basis and lowers the federal gain. Collect them before the home is listed, and give copies to both attorneys so neither side is reconstructing a remodel from memory after closing.
           </p>

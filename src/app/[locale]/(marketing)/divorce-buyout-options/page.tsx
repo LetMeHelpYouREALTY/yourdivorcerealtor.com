@@ -31,7 +31,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Divorce Buyout Options for Las Vegas Homes | Dr. Jan Duffy',
-    description: 'How a divorce home buyout works in Nevada: the equity math, the refinance in one name, jumbo loans above $832,750, appraisal spread, and the decree transfer tax exemption.',
+    description: 'How a divorce home buyout works in Nevada: the equity math, refinancing in one name, jumbo loans above $832,750, and the decree transfer tax exemption.',
     alternates: { canonical, languages },
   };
 }
@@ -240,7 +240,7 @@ export default async function BuyoutOptions(props: IBuyoutProps) {
             {LEGAL_DISCLAIMER}
           </p>
 
-          <h2>Taxes and the buyout</h2>
+          <h3>Taxes and the buyout</h3>
           <p>
             {NEVADA_LAW.capitalGainsExclusion}
             {' '}

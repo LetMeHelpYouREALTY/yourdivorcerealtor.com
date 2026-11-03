@@ -28,7 +28,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Community Property and the House in Nevada | Dr. Jan Duffy',
-    description: 'How Nevada community property law treats the marital home: the NRS 125.150 equal-division rule, separate property, mixed homes, and the decree transfer tax exemption.',
+    description: 'How Nevada community property law treats the house: the NRS 125.150 equal-division rule, separate property, mixed homes, and the transfer tax exemption.',
     alternates: { canonical, languages },
   };
 }
@@ -212,6 +212,10 @@ export default async function CommunityPropertyDivorceHouse(props: PageProps) {
               .
             </li>
           </ul>
+
+          <p>
+            Whichever path you take, the agent should work for the transaction rather than for one spouse. That means the same valuation, the same net proceeds estimate, and the same timeline delivered to both attorneys on the same day, with showing rules and offer decisions handled in writing so neither spouse is surprised.
+          </p>
 
           <h2>Deeds, decrees, and the transfer tax exemption</h2>
           <p>

@@ -28,7 +28,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Splitting House Proceeds in a Nevada Divorce | Dr. Jan Duffy',
-    description: 'How sale proceeds are split in a Nevada divorce: what escrow deducts, the $5.10 per $1,000 transfer tax, when the split is not 50/50, and how each spouse gets paid.',
+    description: 'How sale proceeds are split in a Nevada divorce: what escrow deducts, the $5.10 per $1,000 transfer tax, when the split is not 50/50, and how you get paid.',
     alternates: { canonical, languages },
   };
 }
@@ -111,6 +111,9 @@ export default async function SplittingHouseProceedsDivorce(props: PageProps) {
             {' '}
             {NEVADA_LAW.communityPropertyCite}
             , applies to the net proceeds of a community home. Each spouse starts with half. The split can move for a separate-property reimbursement, for post-separation payments one spouse made alone, or for a written finding by the court. The decree or the escrow instructions both of you sign tell escrow exactly how to pay.
+          </p>
+          <p>
+            Payments made after separation are the usual exception. If one spouse carried the mortgage, HOA, and repairs alone from post-separation earnings while the case was pending, their attorney will often ask for a credit at closing. The decree or a stipulation sets the amount, and escrow applies it before the equal split of what remains.
           </p>
           <p>
             Three documents control the money at closing: the listing agreement, which both spouses sign; the decree or a stipulated order, which sets the split; and the escrow disbursement instructions, which turn that split into wires. If those three disagree, closing stops until they match.
@@ -203,6 +206,10 @@ export default async function SplittingHouseProceedsDivorce(props: PageProps) {
             </li>
           </ul>
 
+          <p>
+            Order the lender payoff demands and the HOA demand as soon as the home goes under contract. Both carry per-day charges, and a stale demand is the most common reason a settlement statement changes the week of closing. Ask escrow for a draft statement early enough for both attorneys to review it before either spouse signs.
+          </p>
+
           <h2>When the split is not 50/50</h2>
           <p>
             Equal division is the default, but the decree can direct a different split for specific reasons. The most common are a separate-property down payment one spouse traces, mortgage payments one spouse made alone after separation, an agreed offset against another asset, and a court finding of a compelling reason. In each case escrow needs the signed document, not a verbal understanding.
@@ -251,7 +258,7 @@ export default async function SplittingHouseProceedsDivorce(props: PageProps) {
             <li>Each spouse’s share is wired, or held per the decree or stipulation.</li>
           </ol>
           <p>
-            A neutral agent gives both attorneys the same settlement statement at the same time, so neither side is surprised by a number at the closing table.
+            A neutral agent gives both attorneys the same settlement statement at the same time, so neither side is surprised by a number at the closing table. Wires go only to accounts named in the signed instructions, and escrow will not split a share on a verbal request from one spouse.
           </p>
 
           <h2>Taxes on your share</h2>

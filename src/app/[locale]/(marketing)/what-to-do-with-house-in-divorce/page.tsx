@@ -30,7 +30,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(pagePath, locale);
   return {
     title: 'What to Do With the House in a Divorce | Dr. Jan Duffy',
-    description: 'Six ways to settle the house in a Nevada divorce: sell and split, buyout, deferred sale, refinance, short sale, or court order. Compare each with a worked example.',
+    description: 'Six ways to settle the house in a Nevada divorce: sell and split, buyout, deferred sale, refinance, short sale, or court order, with one worked example.',
     alternates: { canonical, languages },
   };
 }

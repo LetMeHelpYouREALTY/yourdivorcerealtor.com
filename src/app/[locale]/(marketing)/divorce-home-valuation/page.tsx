@@ -30,8 +30,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Divorce Home Valuation in Las Vegas Explained | Dr. Jan Duffy',
-    description: 'Which valuation holds up in a Nevada divorce: CMA, BPO, or appraisal, how to set the valuation date, and a two-appraisal protocol for custom homes above $1 million.',
+    title: 'Divorce Home Valuation in Las Vegas: Guide | Dr. Jan Duffy',
+    description: 'Which valuation holds up in a Nevada divorce: CMA, BPO, or appraisal, how to set the valuation date, and a two-appraisal protocol for custom homes.',
     alternates: { canonical, languages },
   };
 }

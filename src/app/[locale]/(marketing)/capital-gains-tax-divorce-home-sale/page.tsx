@@ -28,7 +28,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
     title: 'Capital Gains Tax on a Divorce Home Sale | Dr. Jan Duffy',
-    description: 'How the Section 121 exclusion of $250,000 or $500,000 applies when you sell the home in a divorce, the use rule for a spouse who moved out, timing, and a worked example.',
+    description: 'How the Section 121 exclusion of $250,000 or $500,000 applies when you sell the home in a divorce, the use rule for a spouse who moved out, and timing.',
     alternates: { canonical, languages },
   };
 }
@@ -202,7 +202,7 @@ export default async function CapitalGainsTaxDivorceHomeSale(props: PageProps) {
             {LEGAL_DISCLAIMER}
           </p>
 
-          <h2>Buyouts, basis, and the deferred gain</h2>
+          <h3>Buyouts, basis, and the deferred gain</h3>
           <p>
             When one spouse keeps the home in the settlement, the transfer between spouses is generally not treated as a taxable sale, and the keeping spouse carries forward the original basis and holding period. The gain is deferred, not erased. At the eventual sale, the keeping spouse measures gain against that old basis and has one exclusion, not two.
           </p>
@@ -252,6 +252,9 @@ export default async function CapitalGainsTaxDivorceHomeSale(props: PageProps) {
             <li>The decree or separation agreement showing who occupied the home and under what terms.</li>
             <li>Deeds and any transfer documents between spouses.</li>
           </ul>
+          <p>
+            If receipts are gone, contractor records, permits on file with Clark County, and bank statements showing the payments can rebuild part of the basis. Start that search before the listing, because the sale closes faster than a records request.
+          </p>
         </div>
 
         <HighValueHomeNote
