@@ -2,15 +2,18 @@ import type { Metadata } from 'next';
 import type { PageProps } from '@/types';
 import { setRequestLocale } from 'next-intl/server';
 import dynamic from 'next/dynamic';
+import { DirectAnswer } from '@/components/divorce/DirectAnswer';
 import { DivorceCTA } from '@/components/divorce/DivorceCTA';
 import { DivorceHero } from '@/components/divorce/DivorceHero';
 import { DivorceOptions } from '@/components/divorce/DivorceOptions';
 import { DivorceProcess } from '@/components/divorce/DivorceProcess';
 import { FourPillars } from '@/components/divorce/FourPillars';
+import { LuxuryEnclaves } from '@/components/divorce/LuxuryEnclaves';
 import { PainPoints } from '@/components/divorce/PainPoints';
 import { WhySpecialist } from '@/components/divorce/WhySpecialist';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { LazyWhenVisible } from '@/components/shared/LazyWhenVisible';
+import { LUXURY_2026, LVR_SEPT_2026 } from '@/lib/market-data';
 import { generateLocaleAlternates } from '@/lib/metadata';
 import {
   generateLocalBusinessSchema,
@@ -105,13 +108,12 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates('/', locale);
   return {
-    title: 'Divorce Real Estate Agent Las Vegas | Dr. Jan Duffy - Divorce Realtor Near Me',
-    description: 'Dr. Jan Duffy is Las Vegas\' trusted Divorce Real Estate Agent. Expert divorce realtor near me helping with property division, home sales during divorce, buyouts, and fresh starts. Call (702) 500-1955.',
-    keywords: 'divorce real estate agent Las Vegas, divorce realtor near me, Dr. Jan Duffy, Divorce Real Estate, divorce realtor las vegas, divorce real estate specialist, las vegas divorce realtor, Dr Jan Duffy divorce, property division divorce',
+    title: 'Divorce Real Estate Agent Las Vegas | Dr. Jan Duffy',
+    description: 'Neutral, court-aware divorce real estate in Las Vegas and Henderson: value, sell, or buy out the marital home, from $300K tract homes to $10M+ estates.',
     alternates: { canonical, languages },
     openGraph: {
       title: 'Divorce Real Estate Agent Las Vegas | Dr. Jan Duffy',
-      description: 'Las Vegas\' trusted Divorce Real Estate Agent helping divorcing homeowners navigate property division with compassion and expertise.',
+      description: 'Neutral, court-aware divorce real estate in Las Vegas and Henderson, from tract homes to guard-gated estates and Strip high-rises.',
       type: 'website',
       url: canonical,
       siteName,
@@ -120,7 +122,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
     twitter: {
       card: 'summary_large_image',
       title: 'Divorce Real Estate Agent Las Vegas | Dr. Jan Duffy',
-      description: 'Las Vegas\' trusted Divorce Real Estate Agent helping divorcing homeowners navigate property division with compassion and expertise.',
+      description: 'Neutral, court-aware divorce real estate in Las Vegas and Henderson, from tract homes to guard-gated estates and Strip high-rises.',
     },
   };
 }
@@ -146,8 +148,28 @@ export default async function Index(props: PageProps) {
       />
 
       <DivorceHero />
+
+      <div className="container mx-auto px-4 pt-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <DirectAnswer question="What does a Las Vegas divorce real estate agent do?">
+            A divorce real estate agent values the marital home, lays out sell, buyout, and refinance options with numbers,
+            and runs the sale or transfer under the decree or settlement. Dr. Jan Duffy works as a neutral for both spouses
+            and their attorneys across Las Vegas and Henderson, where the single-family median was
+            {' '}
+            {LVR_SEPT_2026.medianSfrPrice}
+            {' '}
+            in September 2026 and
+            {' '}
+            {LUXURY_2026.closingsAbove1MSept2026}
+            {' '}
+            homes closed above $1 million.
+          </DirectAnswer>
+        </div>
+      </div>
+
       <FourPillars />
       <WhySpecialist />
+      <LuxuryEnclaves />
       <DivorceProcess />
       <PainPoints />
       <DivorceOptions />
@@ -175,7 +197,7 @@ export default async function Index(props: PageProps) {
               It's Never Too Early to Discuss Your Options
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-pretty text-blue-100 sm:text-xl">
-              Schedule a confidential strategy call today and take control of your future.
+              A private 15-minute call. You leave with a value range, your options, and the next decision.
             </p>
             <div className="mt-8 flex justify-center">
               <DivorceCTA variant="primaryLight" />

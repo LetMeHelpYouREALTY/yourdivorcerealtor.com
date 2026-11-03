@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { DirectAnswer } from '@/components/divorce/DirectAnswer';
 import { DivorcePageTemplate } from '@/components/divorce/DivorcePageTemplate';
 import { StructuredData } from '@/components/seo/StructuredData';
-import { generateLocaleAlternates } from '@/lib/metadata';
-import { generateRealEstateAgentSchema, generateReviewSchema } from '@/lib/schema';
+import { CONTENT_LAST_UPDATED, toSchemaDateTime } from '@/lib/content-dates';
+import { generateLocaleAlternates, getCanonicalSiteUrl } from '@/lib/metadata';
+import { generateArticleSchema, generateRealEstateAgentSchema, generateReviewSchema } from '@/lib/schema';
 
 type ITestimonialsProps = {
   params: Promise<{ locale: string }>;
@@ -17,9 +19,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   const { locale } = await props.params;
   const { canonical, languages } = generateLocaleAlternates(path, locale);
   return {
-    title: 'Divorce Real Estate Success Stories Las Vegas | Testimonials',
-    description: 'Read success stories from Las Vegas families who worked with Dr. Jan Duffy for their divorce real estate needs. Real testimonials from satisfied clients.',
-    keywords: 'divorce realtor reviews, divorce real estate testimonials, las vegas divorce realtor success stories',
+    title: 'Client Reviews, Las Vegas Divorce Realtor | Dr. Jan Duffy',
+    description: 'Five reviews from Las Vegas and Henderson clients and a family law attorney on neutral listings, buyouts, and court-ordered sales handled by Dr. Jan Duffy.',
     alternates: { canonical, languages },
   };
 }
@@ -30,6 +31,13 @@ export default async function Testimonials(props: ITestimonialsProps) {
 
   const currentPath = '/testimonials';
   const realEstateAgentSchema = generateRealEstateAgentSchema();
+  const articleSchema = generateArticleSchema(
+    'Client Reviews for Dr. Jan Duffy, Las Vegas Divorce Realtor',
+    'Reviews from Las Vegas and Henderson clients and a family law attorney on neutral listings, buyouts, and court-ordered sales.',
+    getCanonicalSiteUrl(currentPath, locale),
+    toSchemaDateTime(CONTENT_LAST_UPDATED),
+    toSchemaDateTime(CONTENT_LAST_UPDATED),
+  );
 
   // Generate Review schemas for each testimonial
   const reviewSchemas = [
@@ -67,17 +75,28 @@ export default async function Testimonials(props: ITestimonialsProps) {
 
   return (
     <>
-      <StructuredData data={[realEstateAgentSchema, ...reviewSchemas]} />
+      <StructuredData data={[articleSchema, realEstateAgentSchema, ...reviewSchemas]} />
       <DivorcePageTemplate
-        h1="Divorce Real Estate Success Stories Las Vegas"
-        heroSubhead="Real Stories from Real Families"
+        h1="Client Reviews"
+        heroSubhead="What clients and attorneys say about divorce sales, buyouts, and court-ordered listings."
         currentPath={currentPath}
+        datePublished={CONTENT_LAST_UPDATED}
+        dateModified={CONTENT_LAST_UPDATED}
       >
         <div className="mx-auto max-w-4xl">
-          <div className="prose prose-lg mb-12">
-            <h2>Why Our Clients Choose Dr. Jan Duffy</h2>
+          <DirectAnswer question="What do clients say about working with Dr. Jan Duffy?">
+            The reviews below come from spouses who sold, a spouse who bought out and refinanced, a court-ordered seller,
+            and a family law attorney who has referred multiple cases. The themes repeat: both parties got the same
+            information, deadlines held, the court order was followed as written, and the sale closed on schedule.
+            Reviews are shown as written, with first names and last initials.
+          </DirectAnswer>
+
+          <div className="prose prose-lg mt-10 mb-12">
+            <h2>Five reviews, five different situations</h2>
             <p>
-              Divorce real estate is about more than just property—it's about helping families navigate one of life's most challenging transitions. Dr. Jan Duffy's clients consistently praise her expertise, compassion, and ability to make difficult situations manageable. Here are their stories.
+              A neutral listing in Henderson, a buyout in Summerlin, a sale with children in North Las Vegas, an
+              attorney's view across several cases, and a court-ordered sale in Green Valley. Read the one closest to
+              your case first.
             </p>
           </div>
 
@@ -139,29 +158,35 @@ export default async function Testimonials(props: ITestimonialsProps) {
           </div>
 
           <div className="prose prose-lg max-w-none rounded-lg bg-blue-50 p-8">
-            <h2>What Makes Dr. Jan Duffy Different</h2>
+            <h2>What the reviews have in common</h2>
             <p>
-              These testimonials reflect the consistent themes clients mention when working with Dr. Jan Duffy: expertise, compassion, neutrality, and results. Her specialized approach to divorce real estate delivers better outcomes for everyone involved.
+              Three things come up in every review: both spouses received the same information at the same time, the
+              timeline given at the start held, and the paperwork, whether a decree, a refinance package, or a court
+              order, was followed as written.
             </p>
 
-            <h3>Expertise You Can Trust</h3>
+            <h3>Neutrality</h3>
             <p>
-              Dr. Jan Duffy's specialized knowledge of divorce real estate ensures your transaction is handled correctly from start to finish. Clients consistently praise her understanding of the legal, financial, and emotional aspects of property division during divorce.
+              Sarah's review names it directly: neutral, and both parties informed at every step. That is the rule on
+              every file, including homes in guard-gated enclaves where privacy adds a layer to who sees what and when.
             </p>
 
-            <h3>Compassionate Service</h3>
+            <h3>Buyouts and refinances</h3>
             <p>
-              Divorce is emotionally challenging, and Dr. Jan Duffy provides compassionate, understanding service that acknowledges the difficulty of your situation. Clients appreciate her ability to be professional while also being human and understanding.
+              Michael's buyout turned on lender coordination. The same sequence applies above the jumbo line, where the
+              staying spouse qualifies alone and the buyout figure has to match what can be borrowed.
             </p>
 
-            <h3>Proven Results</h3>
+            <h3>Court orders</h3>
             <p>
-              The results speak for themselves: faster transactions, reduced conflict, and better outcomes. Dr. Jan Duffy's clients consistently achieve their goals, whether that's selling quickly, completing a buyout, or navigating a court-ordered sale.
+              Robert's sale ran under a court order. The order controls price, access, and disbursement; the listing
+              followed it and reported back in writing, which is why it closed on time.
             </p>
 
-            <h2>Ready to Write Your Success Story?</h2>
+            <h2>Your case</h2>
             <p>
-              Join the many Las Vegas families who have successfully navigated divorce real estate with Dr. Jan Duffy. Schedule a confidential consultation today and take the first step toward your own success story.
+              A private 15-minute call covers where your case stands and what the house can do for you. You leave with
+              a value range, your options, and the next decision.
             </p>
           </div>
         </div>

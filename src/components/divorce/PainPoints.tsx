@@ -8,7 +8,7 @@ export function PainPoints() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Questions Keeping You Up at Night?"
-          description="You're not alone. These are the most common questions divorcing homeowners face."
+          description="These are the four questions that come up first on almost every call. Each has an answer with a number attached."
         />
 
         <div className="mx-auto mb-12 grid max-w-4xl grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">

@@ -28,15 +28,14 @@ export function DivorceHero() {
               {messaging.headlines.primary}
               {' '}
               —
+              {' '}
               {messaging.headlines.subtitle}
             </p>
             <p className="mb-3 text-xl font-semibold text-white sm:text-2xl md:text-3xl">
               {messaging.headlines.unlock}
             </p>
             <p className="mb-8 text-lg text-blue-100 sm:text-xl md:text-2xl">
-              Divorce is complicated enough without real estate.
-              {' '}
-              {messaging.headlines.houseKey}
+              A neutral, court-aware agent for the marital home, from a Henderson tract house to a guard-gated estate in The Ridges or a Strip high-rise.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:justify-start">

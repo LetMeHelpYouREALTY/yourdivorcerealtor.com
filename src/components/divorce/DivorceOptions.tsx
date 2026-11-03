@@ -41,7 +41,7 @@ export function DivorceOptions() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Know Your Options"
-          description="Understanding all your options is the first step to making the right decision for your future."
+          description="Five ways to settle the marital home. Each one changes the cash, the loan, and the timeline differently."
         />
 
         <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">

@@ -13,32 +13,32 @@ export function DivorceProcess() {
     {
       number: 1,
       title: messaging.process.step1,
-      description: 'We start with a confidential consultation to understand your unique situation, goals, and concerns.',
+      description: 'A private 15-minute call: where the case stands, who is on title and on the loan, and what each of you needs from the house.',
     },
     {
       number: 2,
       title: messaging.process.step2,
-      description: 'Get an accurate home valuation to understand your equity position and property value.',
+      description: 'A written valuation with comparable sales, the loan payoff, and your net equity. Above the jumbo line, a second opinion is standard.',
     },
     {
       number: 3,
       title: messaging.process.step3,
-      description: 'We analyze all your options: sell, buyout, co-own, or refinance - helping you make informed decisions.',
+      description: 'Sell, buy out, co-own for a set period, or refinance. Each option gets a number and a date so you can compare them.',
     },
     {
       number: 4,
       title: messaging.process.step4,
-      description: 'Together, we develop a customized strategy that aligns with your financial goals and timeline.',
+      description: 'A plan both attorneys can sign off on: list price, showing rules, sign-off deadlines, and who pays what until close.',
     },
     {
       number: 5,
       title: messaging.process.step5,
-      description: 'We execute the plan with professionalism, keeping all parties informed and moving forward.',
+      description: 'The listing runs on the schedule. Both spouses and both attorneys get the same update on the same day.',
     },
     {
       number: 6,
       title: messaging.process.step6,
-      description: 'We guide you through closing and help you transition smoothly to your next chapter.',
+      description: 'Escrow disburses per the decree or settlement, deeds record, and you know your move-out date before you sign.',
     },
   ];
 
@@ -46,8 +46,8 @@ export function DivorceProcess() {
     <section className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="Your Step-by-Step Path Forward"
-          description="Dr. Jan Duffy guides you through every step of the divorce real estate process with clarity and compassion."
+          title="Six Steps, Each With a Date"
+          description="You know what happens next before it happens. The same sequence runs whether the house is worth $400,000 or $4 million."
         />
 
         <div className="mx-auto max-w-4xl">

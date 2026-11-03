@@ -1,54 +1,57 @@
 /**
  * Key messaging for Dr. Jan Duffy — Las Vegas / Henderson divorce real estate.
+ *
+ * Voice: direct, warm, specific. Describe the house, the money, and the
+ * process. Never describe who lives in a neighborhood.
  */
 
 export const messaging = {
   headlines: {
-    primary: 'Dr. Jan Duffy - Divorce Real Estate',
-    subtitle: 'Las Vegas Divorce Real Estate Specialist',
+    primary: 'Dr. Jan Duffy, Divorce Real Estate',
+    subtitle: 'Las Vegas divorce real estate specialist',
     unlock: 'Unlock Your New Normal',
     control: 'Get Control of Your Future',
     notUsual: 'This Isn\'t Business As Usual',
-    houseKey: 'Your House Holds the Key to Unlocking Your Future',
-    decisions: 'The decisions you make impact your future.',
-    deserveExpert: 'Your home - and your future - deserve an expert.',
+    houseKey: 'The house is the largest asset in most Nevada divorces. Decide it well and the rest gets easier.',
+    decisions: 'The decisions you make now shape the next ten years.',
+    deserveExpert: 'Your home, and your equity in it, deserve a specialist.',
   },
 
   fourPillars: {
     finances: {
       title: 'FINANCES',
-      message: 'Making a decision on the house is the first step to your financial future.',
+      message: 'The house decision sets your budget for everything that follows: housing, support, and savings.',
     },
     emotions: {
       title: 'EMOTIONS',
-      message: 'Getting out of limbo allows you to protect your mental sanity.',
+      message: 'An unresolved house keeps you in limbo. A signed plan with dates gets you out of it.',
     },
     children: {
       title: 'CHILDREN',
-      message: 'For kids, the house represents the next step for school, friends, and their new normal.',
+      message: 'Your children need to know where they will live next and when. Settling the house answers that.',
     },
     closure: {
       title: 'CLOSURE',
-      message: 'Without handling the house, you can\'t move on. The house is closure.',
+      message: 'Until the deed changes hands or the sale closes, the divorce is not finished. The house is closure.',
     },
   },
 
   serviceDifferentiators: {
-    neutrality: 'Equal treatment between all clients — we don\'t pick sides.',
-    divorceProcess: 'Customized for divorce listings so that problems are prevented.',
-    communication: 'Everyone kept on the same page so no one is left in the dark.',
-    timeline: 'You will know how long it will take to sell and when you will have to move.',
-    escalation: 'If someone deviates from the plan, our escalation protocol gets things back on track.',
-    courtAppointed: 'When Court-appointed, we dutifully ensure all orders are followed.',
+    neutrality: 'Both spouses get the same information at the same time. No side is favored.',
+    divorceProcess: 'A listing process built for divorce: written showing rules, sign-off deadlines, and escrow instructions both attorneys approve.',
+    communication: 'One update goes to both spouses and both attorneys, so no one hears news second-hand.',
+    timeline: 'You get a dated timeline up front: list date, expected contract date, close date, and move-out date.',
+    escalation: 'When one party stops signing or blocks showings, a written escalation protocol gets the sale back on schedule.',
+    courtAppointed: 'When appointed by the court, every order is followed to the letter and reported back in writing.',
   },
 
-  warningMessage: 'Not because they mean to cause harm, but because they don\'t know any other way, non-specialized Realtors apply the traditional processes of real estate in divorce transactions — and that doesn\'t work.',
+  warningMessage: 'Most agents apply a standard listing process to a divorce sale. That is how deadlines slip, one spouse stops signing, and the court gets pulled back in. A divorce listing needs its own process.',
 
   painPoints: [
     'Do I need to sell my home?',
-    'How do I manage a home on my own?',
-    'Where will I live next?',
-    'Can I afford to stay in my home?',
+    'Can I afford to keep the house on one income?',
+    'Can I refinance a jumbo loan to buy out my spouse?',
+    'Where will I live next, and when do I have to move?',
   ],
 
   valuePropositions: {
@@ -61,7 +64,6 @@ export const messaging = {
     primary: 'Schedule a Confidential Consultation',
     valuation: 'Get Your Free Home Valuation',
     discuss: 'Discuss Your Options Today',
-    call: 'Call Dr. Jan: (702) 500-1955',
     urgency: 'It\'s Never Too Early to Plan',
     control: 'Take Control of Your Future Today',
   },
@@ -76,10 +78,10 @@ export const messaging = {
   },
 
   options: {
-    sell: 'Sell and split proceeds',
+    sell: 'Sell and split the net proceeds',
     buyout: 'One spouse buys out the other',
-    coOwn: 'Co-own temporarily (bird nesting)',
-    refinance: 'Refinance to remove spouse',
-    shortSale: 'Short sale if underwater',
+    coOwn: 'Co-own for a set period (bird nesting)',
+    refinance: 'Refinance to remove one spouse from the loan',
+    shortSale: 'Short sale if the loan exceeds the value',
   },
 } as const;
