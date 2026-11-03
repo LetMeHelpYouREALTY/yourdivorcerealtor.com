@@ -11,7 +11,7 @@ export const siteUrl = 'https://www.yourdivorcerealtor.com';
  * /fr/* URL served the English page and Search Console flagged 22 of them as duplicates.
  * If a translated locale is ever added, extend AppConfig.locales and this list together.
  */
-export const HREFLANG_LOCALES: readonly string[] = [routing.defaultLocale];
+const HREFLANG_LOCALES: readonly string[] = [routing.defaultLocale];
 
 export type LocaleAlternatesOptions = {
   /** Defaults to HREFLANG_LOCALES. */
