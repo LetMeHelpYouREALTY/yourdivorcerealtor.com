@@ -52,6 +52,23 @@ export function Footer() {
     { name: 'FAQ', href: '/faq' },
   ];
 
+  // Pages Search Console reported as never crawled or "discovered, not indexed":
+  // a site-wide link gives Googlebot a path to every one of them.
+  const guides = [
+    { name: 'Divorce Real Estate Guide', href: '/divorce-real-estate-guide' },
+    { name: 'Nevada Divorce Home Sale Guide', href: '/selling-house-during-divorce-nevada-guide' },
+    { name: 'Can I Sell My House During Divorce?', href: '/can-i-sell-my-house-during-divorce' },
+    { name: 'How to Sell a House During Divorce', href: '/how-to-sell-house-during-divorce' },
+    { name: 'Remove a Spouse From the Mortgage', href: '/remove-spouse-from-mortgage-after-divorce' },
+    { name: 'Divorce and Your Mortgage', href: '/divorce-and-mortgage' },
+    { name: 'Community Property and the House', href: '/community-property-divorce-house' },
+    { name: 'Preparing Your Home for Sale', href: '/preparing-home-sale-divorce' },
+    { name: 'Home Sale Timeline', href: '/divorce-home-sale-timeline' },
+    { name: 'Certified Divorce Real Estate Expert', href: '/certified-divorce-real-estate-expert' },
+    { name: 'All Las Vegas Communities', href: '/communities' },
+    { name: 'Client Experience', href: '/portfolio' },
+  ];
+
   const externalResources = [
     { name: 'IRS Publication 523', href: 'https://www.irs.gov/publications/p523', description: 'Home sale tax rules' },
     { name: 'Nevada NRS Chapter 123', href: 'https://www.leg.state.nv.us/NRS/NRS-123.html', description: 'Community property' },
@@ -79,7 +96,7 @@ export function Footer() {
           </CalendlyLink>
         </div>
 
-        <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Las Vegas Communities */}
           <nav aria-label="Las Vegas Communities">
             <h3 className="mb-4 text-lg font-semibold">Las Vegas Communities</h3>
@@ -110,6 +127,24 @@ export function Footer() {
                     prefetch={true}
                   >
                     {resource.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Guides */}
+          <nav aria-label="Divorce real estate guides">
+            <h3 className="mb-4 text-lg font-semibold">Guides</h3>
+            <ul className="space-y-2">
+              {guides.map(guide => (
+                <li key={guide.href}>
+                  <Link
+                    href={guide.href}
+                    className="rounded text-gray-300 transition-colors hover:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    prefetch={true}
+                  >
+                    {guide.name}
                   </Link>
                 </li>
               ))}

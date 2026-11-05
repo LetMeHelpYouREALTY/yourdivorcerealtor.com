@@ -7,85 +7,70 @@ const baseUrl = 'https://www.yourdivorcerealtor.com';
  * Includes all marketing pages with appropriate priorities and change frequencies
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   // Core pages (highest priority)
   const corePages = [
     {
       url: `${baseUrl}/`,
-      lastModified: now,
       changeFrequency: 'daily' as const,
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/communities`,
-      lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 0.85,
     },
     {
       url: `${baseUrl}/divorce-real-estate-services`,
-      lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/testimonials`,
-      lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/faq`,
-      lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/sell`,
-      lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
     {
       url: `${baseUrl}/homes`,
-      lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
     {
       url: `${baseUrl}/portfolio`,
-      lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.4,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: now,
       changeFrequency: 'yearly' as const,
       priority: 0.35,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: now,
       changeFrequency: 'yearly' as const,
       priority: 0.35,
     },
     {
       url: `${baseUrl}/sitemap`,
-      lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.3,
     },
@@ -177,7 +162,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ) =>
     paths.map(path => ({
       url: `${baseUrl}${path}`,
-      lastModified: now,
       changeFrequency,
       priority,
     }));

@@ -43,6 +43,24 @@ const baseConfig: NextConfig = {
         destination: 'https://www.yourdivorcerealtor.com/:path*',
         permanent: true,
       },
+      // /fr/* has no French content: every page was an English duplicate competing with
+      // the canonical URL in Search Console. 301 to English until a real translation exists.
+      {
+        source: '/fr',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/fr/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+      // Boilerplate demo page removed; keep any crawled URL from 404ing.
+      {
+        source: '/counter',
+        destination: '/',
+        permanent: true,
+      },
     ];
   },
   // Security headers for divorce client privacy
